@@ -1,4 +1,7 @@
+name = "Grad_Des_CKW.jl"
+
 [deps]
 LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
 Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 SIAMFANLEquations = "084e46ad-d928-497d-ad5e-07fa361a48c4"
