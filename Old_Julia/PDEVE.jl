@@ -5,7 +5,6 @@ using SIAMFANLEquations
 using SIAMFANLEquations.Examples
 using PyPlot
 using LaTeXStrings
-using TimsTools
 using Printf
 import SIAMFANLEquations.Examples.Lap2d
 import SIAMFANLEquations.Examples.fish2d
@@ -24,6 +23,7 @@ function NonLipProblemSet(nlfun, rhsfun, uefun, bcfun, p, pname)
      return NonLipProblem(nlfun, rhsfun, uefun, bcfun, p, pname)
 end
 
+include("fprintTeX.jl")
 #include("nldata.jl")
 include("setdata.jl")
 #include("Test_Suite_1.jl")
