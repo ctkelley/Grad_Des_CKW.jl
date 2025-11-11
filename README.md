@@ -6,4 +6,16 @@ __Complexity with Hölder Continuous Gradients__
 
 by X. Chen, C. T. Kelley, and L. Wang
 
+ ## Prerequisites
+You must know enough Julia to 
+- install packages,
+- run an IJulia notebook,
+- and manage Github.
+
+## Dependencies ##
+
+__Use the latest version of Julia (1.12) with these codes.__
+
+## Caveat ##
+
 __Warning:__ The work is incomplete and the codes in the __Old_Julia__ directory are poorly documented and do not use the formulation or the algorithms from the paper.
