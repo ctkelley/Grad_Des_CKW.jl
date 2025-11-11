@@ -2,7 +2,7 @@
 
 This repo has the codes for the examples in
 
-__Complexity with H{\"o}lder Continuous Gradients__
+__Complexity with Hölder Continuous Gradients__
 
 by X. Chen, C. T. Kelley, and L. Wang
 
