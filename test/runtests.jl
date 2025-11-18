@@ -1,6 +1,6 @@
 using Test, Grad_Des_CKW
 
-include("Discretizations")
+include("Discretization/Lap.jl")
 
 @testset "Discretization" begin
     @test Lap()

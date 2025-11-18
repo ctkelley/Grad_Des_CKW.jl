@@ -25,6 +25,9 @@ function NonLipProblemSet(nlfun, rhsfun, uefun, bcfun, p, nu, pname)
 end
 
 include("Tools/fprintTeX.jl")
+include("Analytic_Solution/Exact.jl")
+include("Problem_Data/NL_Equation.jl")
+include("Problem_Data/boundary.jl")
 #include("nldata.jl")
 #include("setdata.jl")
 #include("Test_Suite_1.jl")
@@ -33,7 +36,7 @@ include("Tools/fprintTeX.jl")
 #include("Chen_Example.jl")
 
 #export setdata, Heval, Chen_Table, restab, Solver_Test, Solve_Report, vv
-#export setup_chen, NonLipProblem
+export setup_chen, NonLipProblem
 
 
 end
