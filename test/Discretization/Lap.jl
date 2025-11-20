@@ -1,6 +1,11 @@
-function Lap(n=15,p=0.0
+function Lap(n=15,p=0.0)
    onesok = Lap_one(n,p)
-   twook = Lap_two(n,p)
+   t2derr1 = Lap_two(n,p)
+   n2=2*(n+1)-1
+   t2derr2 = Lap_two(n2,p)
+   rat=t2derr1/t2derr2
+   twosok = (rat > 3.5) && (rat < 4.5)
+   return (onesok && twosok)
 end
 
 function Lap_one(n=15,p=0.0)
@@ -9,7 +14,6 @@ function Lap_one(n=15,p=0.0)
      uev = uexfun.(rhs,p)
      Lv = LSolve(rhs, uexfun)
      nerr = norm(uev-Lv,Inf)
-     println(norm(uev-Lv,Inf))
      lapok = (nerr < 1.e-14)
      return lapok
 end
@@ -23,9 +27,31 @@ function Lap_two(n=15, p=0.0)
   lex1d = reshape(lex,(n*n,1))
   D2 = Lap2d(n)
   lexap=D2*rhs
+  test1=copy(lexap)
+  ulow=u2d.(X,0.0,p)
+  uhigh=u2d.(X,1.0,p)
+  uleft=u2d.(0.0,X,p)
+  uright=u2d.(1.0,X,p)
+  add_boundary!(lexap, uleft, uright, ulow, uhigh)
   derr = norm(lexap - lex1d,Inf)
-  println(derr)
+  return derr
+#  sol2d=reshape(lexap,(n,n))
+#mesh(sol2d-uex)
+#  println(derr)
 end 
+
+function add_boundary!(u, uleft, uright, ulow, uhigh)
+N=length(u); n=Int(sqrt(N));
+hm2=(n+1)*(n+1)
+u2=reshape(u,(n,n));
+for i=1:n
+    u2[i,1] -= hm2*ulow[i]
+    u2[i,n] -= hm2*uhigh[i]
+    u2[1,i] -= hm2*uleft[i]
+    u2[n,i] -= hm2*uright[i]
+end
+u = reshape(u2,(N,1))
+end
 
 #
 # Easy 2d test problem
