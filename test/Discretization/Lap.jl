@@ -1,5 +1,13 @@
+# Collect the rest results for Laplacian
+#
 function Lap(n=15,p=0.0)
-   onesok = Lap_one(n,p)
+#
+# full precision solution for trivial problem
+#
+   onesok = Lap_oneA(n,p)
+#
+# two point grid refinement study to make sure bc work correctly
+#
    t2derr1 = Lap_two(n,p)
    n2=2*(n+1)-1
    t2derr2 = Lap_two(n2,p)
@@ -8,16 +16,27 @@ function Lap(n=15,p=0.0)
    return (onesok && twosok)
 end
 
-function Lap_one(n=15,p=0.0)
-     rhs=zeros(n*n)
-     uexfun(x,p) = 1.0
-     uev = uexfun.(rhs,p)
-     Lv = LSolve(rhs, uexfun)
-     nerr = norm(uev-Lv,Inf)
-     lapok = (nerr < 1.e-14)
-     return lapok
+#
+# Solve -Lap u = 0, u=1 on boundary. Expect full precision.
+#
+function Lap_oneA(n=15, p=0.0)
+N=n*n
+rhs2=zeros(n,n)
+  h=1.0/(n+1.0)
+  X=h:h:1.0-h
+  u2d(x,y,p)=1.0
+  uex2d = [u2d(x, y, p) for x in X, y in X]
+  uex = reshape(uex2d,(n*n,1))
+  rhs = zeros(n*n,1)
+  Lv = LSolve(rhs, u2d,p)
+  nerr=norm(Lv - uex, Inf)
+  lapok = (nerr < 1.e-14)
+  return lapok
 end
 
+#
+# Solver for grid refinement study for Lap using boundary conditions
+#
 function Lap_two(n=15, p=0.0)
   h=1.0/(n+1.0)
   X=h:h:1.0-h
@@ -35,12 +54,9 @@ function Lap_two(n=15, p=0.0)
   add_boundary!(lexap, uleft, uright, ulow, uhigh)
   derr = norm(lexap - lex1d,Inf)
   return derr
-#  sol2d=reshape(lexap,(n,n))
-#mesh(sol2d-uex)
-#  println(derr)
 end 
 
-function add_boundary!(u, uleft, uright, ulow, uhigh)
+function Xadd_boundary!(u, uleft, uright, ulow, uhigh)
 N=length(u); n=Int(sqrt(N));
 hm2=(n+1)*(n+1)
 u2=reshape(u,(n,n));
