@@ -1,0 +1,157 @@
+\section{Numerical Experiments}
+
+\label{sec:numerical}
+
+
+Preliminary numerical results are presented in this section to provide additional insights into the performance guarantees of the gradient descent method \cref{eq:gd}.
+We aim to elucidate that the final error attained by the gradient descent method \cref{eq:gd} is influenced by both the stepsize $\tau$ and the H{\"o}lder exponent $\alpha$.
+
+We generated the results using Julia \cite{Juliasirev} version 1.12 on an
+Apple Macintosh Mini with a M2 processor, 8 performance cores,
+and 32GB of memory. 
+
+We have placed the Julia codes for the results in the GitHub repository
+\url{https://github.com/ctkelley/Grad_Des_CKW.jl} with instructions for
+reproducing the figures.
+
+\subsection{Two-dimensional PDE with a non-Lipschitz term}
+
+\label{subsec:example}
+
+
+H{\"o}lder continuous gradients arise naturally in partial differential equations (PDEs) involving non-Lipschitz nonlinearity \cite{Barrett1991finite,Tang2025uniqueness}.
+In this subsection,  we introduce a numerical example from \cite{Barrett1991finite}.
+This problem is to solve the following two-dimensional PDE,
+\begin{equation}
+	\label{eq:cF}
+	\cF (u) = - \Delta u + \nu u_+^{p} = 0,
+\end{equation}
+where $p \in (0,1)$, $\nu > 0$ is a constant and $u_+ = \max \{u, 0\}$.
+It should be noted that 
+$\cF$ is the gradient of the following energy functional,
+\begin{equation*}
+	\hat{f} (u) = \frac{1}{2} \|\nabla u\|^2 
++ \frac{\nu}{p+1} \int_D u_+^{p+1} (y) \, \rmd y.
+\end{equation*}
+%defined for $u \in H^1(D)$.
+
+
+Discretizing \cref{eq:cF} with the standard five point difference scheme \cite{LeVeque2007finite} leads to the following nonlinear system,
+\begin{equation}\label{F0}
+	\bfF (\bfu) = \bfA \bfu + \nu \bfu_+^{1/2} - \bfb = 0,
+\end{equation}
+where $\bfA \in \Rnn$ is the discretization of $- \Delta$ with zero boundary conditions, $\bfb \in \Rn$ encodes the boundary conditions, and $\bfu_+^{1/2} = \max \{\bfu, 0\}^{1/2}$ is understood as a component-wise operation.
+Problem~\cref{F0} is equivalent to optimization problem~\cref{opt:main} with
+$\Omega=\mathbb{R}^n$, and
+\begin{equation*}
+	f (\bfu) =  \dfrac{1}{2}(f_1 (\bfu)+ f_2 (\bfu)) \quad
+{\rm with} \quad  f_1 (\bfu)= \bfu\zz \bfA \bfu - 2\bfb\zz \bfu,
+\quad  f_2 (\bfu)=\frac{\nu}{p+1} \bfe\zz \bfu_+^{1+p},
+\end{equation*}
+where $\bfe \in \Rn$ is the vector of all ones.
+
+It is clear that $\nabla f_1$ is Lipschitz continuous with the Lipschitz constant  $L_1 = \norm{\bfA}$, and $\nabla f_2$ is locally H{\"o}lder continuous with $\alpha = 1/2$ and $L_2 = \nu n^{1/4}$ from
+\begin{equation*}
+	\norm{\nabla f_2 (\bfu) - \nabla f_2 (\bfv) }
+	= \nu \norm{\bfu_+^{1/2} - \bfv_+^{1/2}}
+	\leq \nu n^{1/4} \norm{\bfu - \bfv}^{1/2},
+\end{equation*}
+for all $\bfu, \bfv \in \Rn$. The function $f$ is $\lambda(\bfA)$-strongly convex, where
+$\lambda(\bfA)$ is the smallest eigenvalue of the symmetric positive definite matrix $\bfA$.
+
+We now modify the problem to enable direct computation of the errors in the 
+iteration. To this end we follow Example 4.4 in \cite{QuBianChen} and
+take as the exact solution the function
+\[
+%#u^*(x,y) = \left(\frac{3 r - 1}{2} \right)^{2p/(1-p)} \max(0, r-1/3)
+u^*(x,y) = \left(\frac{3 r - 1}{2} \right)^{2} \max(0, r-1/3)
+\]
+where $r = \sqrt{x^2 + y^2}$, and let $\bfu^*$ be $u^*$ evaluated
+at the interior grid points. We enforce the boundary conditions
+\[
+u(x,1) = u^*(x,1), u(x,0) = u^*(x,0), u(1,y) = u^*(1,y), u(0,y) = u^*(0,y)
+\]
+for $0 < x,y < 1$ and encode this into $\bfb$
+Letting $\bfc^* = \bfF(\bfu*)$ out modified equation is 
+\begin{equation}
+\label{eq:problem1}
+\bfF(\bfu) - \bfc^* = 0.
+\end{equation}
+
+In the iteration we use the solution of $\bfA \bfu_0 = - \bfb$ as the 
+initial iterate. This is the discretization of Laplace's equation
+with the problem boundary conditions. In this way we ensure that the
+entire iteration satisifies the boundary conditions.
+
+In the first experiment, we scrutinize the performance of the gradient descent method \cref{eq:gd} under different stepsizes.
+Specifically, with the parameter $p$ fixed at $0.5$, the algorithm is tested for stepsizes chosen from the set $\{0.01, 0.005, 0.001, 0.0005\}$.
+The corresponding numerical results, presented in \cref{subfig:stepsize}, illustrate the decay of the distance between the iterates and the global minimizer over iterations.
+It can be observed that a larger stepsize facilitates a more rapid descent  in the early stage of iterations, albeit at the expense of a greater asymptotic error.
+This phenomenon corroborates our theoretical predictions.
+
+
+In the second experiment, the stepsize $\tau$ is fixed at $0.001$, 
+while the parameter $p$ is varied over the values $\{0.2, 0.4, 0.6, 0.8\}$.
+\Cref{subfig:alpha} similarly tracks the decay of the distance to the global minimizer over iterations.
+It is evident that, as the value of $p$ decreases, the final error attained by the algorithm increases under the same stepsize.
+Therefore, the associated optimization problems become increasingly ill-conditioned and thus more challenging to solve for smaller values of $p$.
+These findings offer empirical support for our theoretical analysis.
+
+
+
+\begin{figure}[t]
+	\centering
+	\subfigure[different stepsizes]{
+		\label{subfig:stepsize}
+		\includegraphics[width=0.45\linewidth]{Figures/test_stepsize.pdf}
+	}
+	\subfigure[different values of $\alpha$]{
+		\label{subfig:alpha}
+		\includegraphics[width=0.45\linewidth]{Figures/test_alpha.pdf}
+	}
+	\caption{Numerical performance of gradient descent method \cref{eq:gd} for problem~\cref{opt:test}.}
+	\label{fig:gd}
+\end{figure}
+
+
+\subsection{Example 2}
+\label{subsec:example2}
+
+We consider a second
+numerical example motivated by a semi-linear elliptic problem with a constraint on the solution in a certain set \cite{Tang2025uniqueness}.
+Let $D=(0,1)^3$ and
+\begin{equation} \label{eq:cF2}
+	\cH (u) = - \Delta u + \lambda |u|^{\nu} - |u|^{p-1} u
+\end{equation}
+on  $D$ with the boundary condition $u=1$ on the boundary $\partial D$, where $p > 1$, $\nu \in (0, 1)$ and $\lambda > p/\nu$ are  constants.
+We consider the variational inequality that is to find $u^*\in [-1,1]$ such that
+for any $u\in [-1,1]$,
+\begin{equation*}
+	\cH(u^*)(u-u^*)\ge 0.
+\end{equation*}
+This problem is equivalent to the nonlinear equation
+\begin{equation}\label{exampleVI}
+	0=\cF(u):=\left\{\begin{array}{ll}
+		\cH(u)  & \quad {\rm if} \quad u-\cH(u) \in [-1, 1],\\
+		u-1     & \quad {\rm if}  \quad u-\cH(u) \ge 1,\\
+		u+1     & \quad {\rm otherwise.}
+	\end{array}\right.
+\end{equation}
+Discretizing \cref{eq:cF2} with the standard five point difference scheme \cite{LeVeque2007finite}, problem~\cref{exampleVI} leads to the following  system of nonlinear equations
+\begin{equation}\label{example2}
+	\bfF(\bfu) = \bfu-{\mathrm \Pi}_{\bfU}\Big(\bfu- \tau(\bfA \bfu + \lambda |\bfu|^{\nu} - |\bfu|^{p -1}\bfu - \bfb)\Big) = 0,
+\end{equation}
+where $\bfU=[-1,1]^n$,  $\tau>0$ is a constant, $ \bfA\in \mathbb{R}^{n\times n}$ is a symmetric positive definite matrix and $\bfb\in \mathbb{R}^n.$  Note that \cref{example2} is the first-order optimal condition of the minimization problem
+\begin{equation}\label{example2min}
+	\min_{\bfu \in [-1,1]^n} f(\bfu):= \frac{1}{2}\bfu^\top\bfA\bfu + \frac{\lambda}{1+\nu} \bfe\zz |\bfu|^{\nu + 1}- \frac{1}{1+p}\bfe\zz  \max(\bfu, -\bfu)^{p+1} + \bfb^\top \bfu.
+\end{equation}
+The Hessian matrix of $f$ at $\bfu$ with $\bfu_i\neq 0$, $i=1,\ldots,n$ has the form
+$$\nabla^2 f(\bfu)=\bfA  + \lambda \nu |\bfu|^{\nu-1} -p {\rm diag} \Big(\max (-\bfu, \bfu)^{p-1}\Big),$$
+Since $\lambda\nu>p$, $\nabla^2 f(\bfu)$ is
+symmetric positive definite for any $\bfu\in [-1, 1]^n$ with $\bfu_i\neq 0$, $i=1,\ldots,n$. Hence $f$ is $\mu$-strongly convex in $[-1,1]^n$ with $\mu=\lambda_{\min}(\bfA)$  and the system \cref{example2} has a unique solution in
+$[-1, 1]^n.$ However, $\nabla f$ is not  Lipschitz continuous in $[-1,1]^n.$
+
+Let
+$$f_1(\bfu)=\frac{1}{2}\bfu^\top\bfA\bfu + \bfb^\top \bfu,  f_2(\bfu)=\frac{\lambda}{1+\nu} \bfe\zz |\bfu|^{\nu + 1}, f_3(\bfu)=- \frac{1}{1+p}\bfe\zz  \max(\bfu, -\bfu)^{p+1}$$
+This example satisfies \cref{asp:function} (ii) with $L_1=\lambda_{\max}(\bfA)$, $L_2=\lambda\nu$, $L_3=pn^{\frac{1}{2}}, \alpha_1=\alpha_3=1, \alpha_2={1-\nu}$.
+
