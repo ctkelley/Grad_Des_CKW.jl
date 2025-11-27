@@ -1,22 +1,22 @@
 #
 # Solve the BVP and compare to the exact solution
 #
-function LSolve(rhs,uefun,p=.8)
+function LSolve(rhs,uefun;p0=.5)
   N=length(rhs); n=Int(sqrt(N))
-  rhs = fix_rhs!(rhs, uefun, p)
+  rhs = fix_rhs!(rhs, uefun; p0=p0)
   D2 = Lap2d(n)
   Psol = D2\rhs
   return Psol
 end
  
-function fix_rhs!(rhs, u2d, p)
+function fix_rhs!(rhs, u2d; p0=.5)
   N=length(rhs); n=Int(sqrt(N));
   h=1.0/(n+1.0)
   X=h:h:1.0-h 
-  ulow=u2d.(X,0.0,p)
-  uhigh=u2d.(X,1.0,p)
-  uleft=u2d.(0.0,X,p)
-  uright=u2d.(1.0,X,p)
+  ulow=u2d.(X,0.0)
+  uhigh=u2d.(X,1.0)
+  uleft=u2d.(0.0,X)
+  uright=u2d.(1.0,X)
   add_boundary!(rhs, -uleft, -uright, -ulow, -uhigh)
   return rhs
 end
@@ -33,14 +33,3 @@ for i=1:n
 end
 u = reshape(u2,(N,1))
 end
-
-function rad!(r,x,y)
-N=length(x)
-for j=1:N
-    for i=1:N
-        r[i, j] = sqrt(x[i]^2 + y[j]^2)
-    end
-end
-return r
-end
-
