@@ -9,9 +9,11 @@ import SIAMFANLEquations.Examples: Lap2d
 # and truncation error of gradient when applied to exact solution
 #
 include("Discretization/Lap.jl")
-include("Discretization/Example1.jl")
+include("Discretization/Test_Eg1.jl")
 
 @testset "Discretization" begin
     @test Lap()
-    @test Example1_Lap()
+    @test Test_Eg1()
 end
+
+

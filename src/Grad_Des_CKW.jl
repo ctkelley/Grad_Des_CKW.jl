@@ -12,22 +12,36 @@ import SIAMFANLEquations.Examples.fishinit
 
 struct NonLipProblem
     nlterm::Function
+#
+# build the exact solution into the right side to
+# enable plotting the errors
+#
+    rhs::Vector
     rhsfun::Function
     uefun::Function
-    bcfun::Function
+# # bvec encodes boundary data
+#
+    bvec::Vector
+#
+# problem parameters
+#
     p::Real
     nu::Real
+#
+# string to annotate the polt
+#
     pname::String
 end
 
-function NonLipProblemSet(nlfun, rhsfun, uefun, bcfun, p, nu, pname)
-     return NonLipProblem(nlfun, rhsfun, uefun, bcfun, p, nu, pname)
-end
+#function NonLipProblemSet(nlfun, rhsfun, uefun, bcfun, p, nu, pname)
+#     return NonLipProblem(nlfun, rhsfun, uefun, bcfun, p, nu, pname)
+#end
 
 include("Tools/fprintTeX.jl")
 include("Analytic_Solution/Exact.jl")
 include("Problem_Data/NL_Equation.jl")
 include("Problem_Data/boundary.jl")
+include("Problem_Data/build_problem.jl")
 #include("nldata.jl")
 #include("setdata.jl")
 #include("Test_Suite_1.jl")
@@ -36,7 +50,7 @@ include("Problem_Data/boundary.jl")
 #include("Chen_Example.jl")
 
 #export setdata, Heval, Chen_Table, restab, Solver_Test, Solve_Report, vv
-export setup_chen, NonLipProblem
+export setup_chen, NonLipProblem, build_problem
 
 
 end

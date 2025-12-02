@@ -1,3 +1,24 @@
+function Test_Eg1(n=7)
+LapOK=Example1_Lap()
+LapOK=(LapOK)
+BuildOK=Test_Build_Eg1(n)
+Eg1OK = LapOK && BuildOK
+return Eg1OK
+end
+
+function Test_Build_Eg1(n=7)
+bout1=build_problem(n, uefun_chen2d; p=.5, nu=.5);
+del1=minimum(bout1.u0-bout1.uex1d)
+n2=2*(n+1) - 1
+bout2=build_problem(n2, uefun_chen2d; p=.5, nu=.5);
+del2=minimum(bout2.u0-bout2.uex1d)
+ratd=del1/del2
+ratOK = (ratd > 2.5) && (ratd < 4.5)
+signOK = (del1 > 0.0)
+BuildOK=(ratOK) && (signOK)
+return BuildOK
+end
+
 function Example1_Lap(n=7)
 #
 # Compare finite difference Laplacian for the analytic solution
