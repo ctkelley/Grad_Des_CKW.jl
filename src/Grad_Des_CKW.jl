@@ -38,21 +38,18 @@ end
 #end
 
 include("Tools/fprintTeX.jl")
+include("Tools/plothist.jl")
 include("Analytic_Solution/Exact.jl")
 include("Problem_Data/NL_Equation.jl")
 include("Problem_Data/boundary.jl")
 include("Problem_Data/build_problem.jl")
 include("Algorithms/proj0.jl")
 include("Algorithms/fobj.jl")
-#include("nldata.jl")
-#include("setdata.jl")
-#include("Test_Suite_1.jl")
-#include("Solver_Test.jl")
-#include("Generic_Functions.jl")
-#include("Chen_Example.jl")
+include("Algorithms/alg1.jl")
+include("Algorithms/Alg1_test.jl")
 
-#export setdata, Heval, Chen_Table, restab, Solver_Test, Solve_Report, vv
-export setup_chen, NonLipProblem, build_problem
+export setup_chen, NonLipProblem, build_problem, alg1
+export tau_test1, p_test1
 
 
 end

@@ -4,7 +4,7 @@
 
 
 Preliminary numerical results are presented in this section to provide additional insights into the performance guarantees of the gradient descent method \cref{eq:gd}.
-We aim to elucidate that the final error attained by the gradient descent method \cref{eq:gd} is influenced by both the stepsize $\tau$ and the H{\"o}lder exponent $\alpha$.
+We aim to elucidate that the final error attained by the gradient descent method \cref{eq:gd} is influenced by both the stepsize $\tau$ and the H{\"o}lder exponent $p$.
 
 We generated the results using Julia \cite{Juliasirev} version 1.12 on an
 Apple Macintosh Mini with a M2 processor, 8 performance cores,
@@ -50,7 +50,8 @@ $\Omega=\mathbb{R}^n$, and
 \end{equation*}
 where $\bfe \in \Rn$ is the vector of all ones.
 
-It is clear that $\nabla f_1$ is Lipschitz continuous with the Lipschitz constant  $L_1 = \norm{\bfA}$, and $\nabla f_2$ is locally H{\"o}lder continuous with $\alpha = 1/2$ and $L_2 = \nu n^{1/4}$ from
+It is clear that $\nabla f_1$ is Lipschitz continuous with the Lipschitz constant  $L_1 = \norm{\bfA}$, and $\nabla f_2$ is locally H{\"o}lder continuous 
+with $\alpha = 1/2$ and $L_2 = \nu n^{1/4}$ from
 \begin{equation*}
 	\norm{\nabla f_2 (\bfu) - \nabla f_2 (\bfv) }
 	= \nu \norm{\bfu_+^{1/2} - \bfv_+^{1/2}}
@@ -77,20 +78,33 @@ Letting $\bfc^* = \bfF(\bfu*)$ out modified equation is
 \label{eq:problem1}
 \bfF(\bfu) - \bfc^* = 0.
 \end{equation}
+Equation~\ref{eq:problem1} is the necessary condition for the optimization
+problem
+\begin{equation} \label{opt:test}
+        \min_{\bfu \in \Rn} f (\bfu) = \dfrac{1}{2} \bfu\zz \bfA \bfu + \dfrac{1}{1 + p} \bfe\zz \bfu_{+}^{1 + p} - (\bfc^*)\zz \bfu.
+\end{equation}
+
 
 In the iteration we use the solution of $\bfA \bfu_0 = - \bfb$ as the 
 initial iterate. This is the discretization of Laplace's equation
 with the problem boundary conditions. In this way we ensure that the
-entire iteration satisifies the boundary conditions.
+entire iteration satisifies the boundary conditions. We use a $n \times n$
+grid with $n=15$ for the examples in this section and examine the 
+effects of grid refinement in a later section.
 
 In the first experiment, we scrutinize the performance of the gradient descent method \cref{eq:gd} under different stepsizes.
-Specifically, with the parameter $p$ fixed at $0.5$, the algorithm is tested for stepsizes chosen from the set $\{0.01, 0.005, 0.001, 0.0005\}$.
+Specifically, with the parameters $p$ and $\nu$ fixed at $0.5$. 
+
+We test the algorithm is tested for stepsizes of the form $\tau = \tau_0 h^2$,
+where $h = 1/(n+1)$ is the spatial meshwidth and $\tau_0$ is taken from
+the set $\{.2, .1, .05, .01\}$.
+
 The corresponding numerical results, presented in \cref{subfig:stepsize}, illustrate the decay of the distance between the iterates and the global minimizer over iterations.
 It can be observed that a larger stepsize facilitates a more rapid descent  in the early stage of iterations, albeit at the expense of a greater asymptotic error.
 This phenomenon corroborates our theoretical predictions.
 
 
-In the second experiment, the stepsize $\tau$ is fixed at $0.001$, 
+In the second experiment, we fix $\tau_0$ is fixed at $0.01$, 
 while the parameter $p$ is varied over the values $\{0.2, 0.4, 0.6, 0.8\}$.
 \Cref{subfig:alpha} similarly tracks the decay of the distance to the global minimizer over iterations.
 It is evident that, as the value of $p$ decreases, the final error attained by the algorithm increases under the same stepsize.
@@ -105,7 +119,7 @@ These findings offer empirical support for our theoretical analysis.
 		\label{subfig:stepsize}
 		\includegraphics[width=0.45\linewidth]{Figures/test_stepsize.pdf}
 	}
-	\subfigure[different values of $\alpha$]{
+	\subfigure[different values of $p$]{
 		\label{subfig:alpha}
 		\includegraphics[width=0.45\linewidth]{Figures/test_alpha.pdf}
 	}
