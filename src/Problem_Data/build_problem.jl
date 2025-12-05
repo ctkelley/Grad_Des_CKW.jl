@@ -29,7 +29,7 @@ nlterm = nu * uex1d.^p
 rhs_eg1=D2*uex1d - bvec + nlterm
 lapex=-[lapeval_chen2d(x,y) for x in X, y in X];
 lapex1d = reshape(lapex,(N,1))
-rhs_exact = lapex1d - bvec + nlterm
+rhs_exact = lapex1d + nlterm
 return(bvec=bvec, u0=u0, uex1d=uex1d, rhs_eg1=rhs_eg1, rhs_exact,
        D2=D2)
 end

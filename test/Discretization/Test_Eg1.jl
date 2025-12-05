@@ -1,11 +1,33 @@
+#
+# Test discretizations 
+#
 function Test_Eg1(n=7)
 LapOK=Example1_Lap()
 LapOK=(LapOK)
 BuildOK=Test_Build_Eg1(n)
-Eg1OK = LapOK && BuildOK
+NLOK = NL_err(n)
+Eg1OK = LapOK && BuildOK && NLOK
 return Eg1OK
 end
 
+#
+# Is the error in the right side consistent with the error in the Laplacian
+#
+function NL_err(n=7)
+u1_data=build_problem(n, uefun_chen2d);
+del1=norm(u1_data.rhs_eg1-u1_data.rhs_exact,Inf)/norm(u1_data.rhs_exact,Inf)
+n2=2*(n+1) - 1
+u2_data=build_problem(n2, uefun_chen2d);
+del2=norm(u2_data.rhs_eg1-u2_data.rhs_exact,Inf)/norm(u2_data.rhs_exact,Inf)
+ratnl = del1/del2
+NLOK=(ratnl > 1.5) && (ratnl < 2.75)
+return NLOK
+end
+
+#
+# The initial iterate is a solution to Laplace's equation.
+# Does the error look second order?
+#
 function Test_Build_Eg1(n=7)
 bout1=build_problem(n, uefun_chen2d; p=.5, nu=.5);
 del1=minimum(bout1.u0-bout1.uex1d)
