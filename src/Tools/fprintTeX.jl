@@ -17,7 +17,7 @@ function fprintTeX(headers, formats, data)
         @printf("l")
     end
     @printf("} \n")
-    for i = 1:mc-1
+    for i = 1:(mc-1)
         @printf("%9s &", headers[i])
     end
     @printf("%9s \\\\ \n", headers[mc])
@@ -78,5 +78,3 @@ function fprintTeX(rowlabels, headers, formats, data)
     @printf("\\hline \n")
     @printf("\\end{tabular} \n")
 end
-
-

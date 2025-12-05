@@ -12,24 +12,24 @@ import SIAMFANLEquations.Examples.fishinit
 
 struct NonLipProblem
     nlterm::Function
-#
-# build the exact solution into the right side to
-# enable plotting the errors
-#
+    #
+    # build the exact solution into the right side to
+    # enable plotting the errors
+    #
     rhs::Vector
     rhsfun::Function
     uefun::Function
-# # bvec encodes boundary data
-#
+    # # bvec encodes boundary data
+    #
     bvec::Vector
-#
-# problem parameters
-#
+    #
+    # problem parameters
+    #
     p::Real
     nu::Real
-#
-# string to annotate the polt
-#
+    #
+    # string to annotate the polt
+    #
     pname::String
 end
 
@@ -42,6 +42,8 @@ include("Analytic_Solution/Exact.jl")
 include("Problem_Data/NL_Equation.jl")
 include("Problem_Data/boundary.jl")
 include("Problem_Data/build_problem.jl")
+include("Algorithms/proj0.jl")
+include("Algorithms/fobj.jl")
 #include("nldata.jl")
 #include("setdata.jl")
 #include("Test_Suite_1.jl")
