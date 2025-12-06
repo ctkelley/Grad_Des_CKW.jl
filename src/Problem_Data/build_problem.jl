@@ -27,7 +27,7 @@ function build_problem(n, uex; p = 0.5, nu = 0.5)
     #mesh(u02d-uex2d)
     nlterm = nu * uex1d .^ p
     rhs_eg1=D2*uex1d - bvec + nlterm
-    lapex=-[lapeval_chen2d(x, y) for x in X, y in X];
+    lapex=-[lapeval_ex12d(x, y) for x in X, y in X];
     lapex1d = reshape(lapex, (N, 1))
     rhs_exact = lapex1d + nlterm
     return (

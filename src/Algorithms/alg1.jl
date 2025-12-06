@@ -4,7 +4,7 @@ function alg1(n; nu = 0.5, p = 0.5, tau0 = 0.1, maxit = 20000)
     uex=pdata.uex1d
     E0=norm(u - uex)
     E=E0
-    R=FChen(u, pdata)
+    R=FEX1(u, pdata)
     reshist=Float64[]
     errhist=Float64[]
     N0=norm(R, Inf)
@@ -18,7 +18,7 @@ function alg1(n; nu = 0.5, p = 0.5, tau0 = 0.1, maxit = 20000)
     for ix = 1:maxit
 
         u .= proj0(u - tau * R)
-        R .= FChen(u, pdata)
+        R .= FEX1(u, pdata)
         if (norm(R) > norm(RX))
             u .= ux
             R .= RX

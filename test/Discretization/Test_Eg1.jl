@@ -14,10 +14,10 @@ end
 # Is the error in the right side consistent with the error in the Laplacian
 #
 function NL_err(n = 7)
-    u1_data=build_problem(n, uefun_chen2d);
+    u1_data=build_problem(n, uefun_ex12d);
     del1=norm(u1_data.rhs_eg1-u1_data.rhs_exact, Inf)/norm(u1_data.rhs_exact, Inf)
     n2=2*(n+1) - 1
-    u2_data=build_problem(n2, uefun_chen2d);
+    u2_data=build_problem(n2, uefun_ex12d);
     del2=norm(u2_data.rhs_eg1-u2_data.rhs_exact, Inf)/norm(u2_data.rhs_exact, Inf)
     ratnl = del1/del2
     NLOK=(ratnl > 1.5) && (ratnl < 2.75)
@@ -29,10 +29,10 @@ end
 # Does the error look second order?
 #
 function Test_Build_Eg1(n = 7)
-    bout1=build_problem(n, uefun_chen2d; p = 0.5, nu = 0.5);
+    bout1=build_problem(n, uefun_ex12d; p = 0.5, nu = 0.5);
     del1=minimum(bout1.u0-bout1.uex1d)
     n2=2*(n+1) - 1
-    bout2=build_problem(n2, uefun_chen2d; p = 0.5, nu = 0.5);
+    bout2=build_problem(n2, uefun_ex12d; p = 0.5, nu = 0.5);
     del2=minimum(bout2.u0-bout2.uex1d)
     ratd=del1/del2
     ratOK = (ratd > 2.5) && (ratd < 4.5)
@@ -62,14 +62,14 @@ function lap_example1(n; p0 = 0.5)
     #
     # Exact negative Laplacian
     #
-    lapex=-[lapeval_chen2d(x, y) for x in X, y in X];
+    lapex=-[lapeval_ex12d(x, y) for x in X, y in X];
     lapex1d = reshape(lapex, (N, 1))
     #
     # Fix BC for FD Laplacian
     #
     rhs=zeros(N)
     rhs .= fix_rhs!(rhs, u2dex1; p0 = p0);
-    ue2 = [uefun_chen2d(x, y) for x in X, y in X];
+    ue2 = [uefun_ex12d(x, y) for x in X, y in X];
     ue1d=reshape(ue2, (n*n, 1))
     D2 = Lap2d(n)
     lapfd = D2*ue1d - rhs

@@ -1,4 +1,4 @@
-function lapeval_chen(r; p0 = 0.5)
+function lapeval_ex1(r; p0 = 0.5)
     sigma=2.0*p0/(1.0 - p0)
     mask = (r .> 1.0/3.0)
     T = abs(mask .* (3.0 * r .- 1.0)*0.5)
@@ -10,13 +10,13 @@ function lapeval_chen(r; p0 = 0.5)
     lapu = du2dr2 + (dudr/r)
 end
 
-function lapeval_chen2d(x, y; p0 = 0.5)
+function lapeval_ex12d(x, y; p0 = 0.5)
     r = sqrt(x^2 + y^2)
-    lap2d = lapeval_chen(r; p0 = p0)
+    lap2d = lapeval_ex1(r; p0 = p0)
     return lap2d
 end
 
-function uefun_chen(r; p0 = 0.5)
+function uefun_ex1(r; p0 = 0.5)
     sigma=2.0*p0/(1.0 - p0)
     T = zeros(size(r))
     mask = (r .> 1.0/3.0)
@@ -25,14 +25,14 @@ function uefun_chen(r; p0 = 0.5)
     return ue2
 end
 
-function uefun_chen2d(x, y; p0 = 0.5)
+function uefun_ex12d(x, y; p0 = 0.5)
     r = sqrt(x^2 + y^2)
-    u2d = uefun_chen(r; p0 = p0)
+    u2d = uefun_ex1(r; p0 = p0)
     return u2d
 end
 
 function u2dex1(x, y; p0 = 0.5)
     r = sqrt(x^2 + y^2)
-    u2d = uefun_chen(r; p0 = p0)
+    u2d = uefun_ex1(r; p0 = p0)
     return u2d
 end

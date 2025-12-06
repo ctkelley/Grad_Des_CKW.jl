@@ -1,7 +1,7 @@
 #
 # Residual 
 #
-function FChen(u, pdata)
+function FEX1(u, pdata)
     FC = FGen(u, pdata) - pdata.rhs_eg1
     return FC
 end
@@ -23,14 +23,14 @@ function FGen(u, pdata)
     #
     D2 = pdata.D2
     #
-    FG = D2*u + nlterm_chen.(u, p, nu) - bvec
+    FG = D2*u + nlterm_ex1.(u, p, nu) - bvec
     return FG
 end
 #
 # This is the nonlip term in the operator.
 # the parameter delta depends on the example
 #
-function nlterm_chen(u, p, nu)
+function nlterm_ex1(u, p, nu)
     nlout=nu*u^p
     return nlout
 end

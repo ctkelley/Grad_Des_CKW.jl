@@ -1,8 +1,8 @@
 using Test, Grad_Des_CKW
 using SIAMFANLEquations
 using SIAMFANLEquations.Examples
-import Grad_Des_CKW: LSolve, add_boundary!, lapeval_chen2d, uefun_chen2d
-import Grad_Des_CKW: fix_rhs!, u2dex1, fobj, FChen
+import Grad_Des_CKW: LSolve, add_boundary!, lapeval_ex12d, uefun_ex12d
+import Grad_Des_CKW: fix_rhs!, u2dex1, fobj, FEX1
 import SIAMFANLEquations.Examples: Lap2d
 
 # Test for discretization,boundary conditions,Laplacian of exact solution,
