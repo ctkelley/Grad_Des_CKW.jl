@@ -1,5 +1,5 @@
 function alg1(n; nu = 0.5, p = 0.5, tau0 = 0.1, maxit = 20000)
-    pdata=build_problem(n, uefun_chen2d; p = p, nu = nu)
+    pdata=build_problem(n, uefun_ex12d; p = p, nu = nu)
     u=pdata.u0
     uex=pdata.uex1d
     E0=norm(u - uex)
@@ -10,13 +10,11 @@ function alg1(n; nu = 0.5, p = 0.5, tau0 = 0.1, maxit = 20000)
     N0=norm(R, Inf)
     push!(reshist, 1.0)
     push!(errhist, E/E0)
-    println(norm(R, Inf))
     N=length(u)
     tau=tau0/N
     RX=copy(R)
     ux=copy(u)
     for ix = 1:maxit
-
         u .= proj0(u - tau * R)
         R .= FEX1(u, pdata)
         if (norm(R) > norm(RX))
@@ -31,6 +29,5 @@ function alg1(n; nu = 0.5, p = 0.5, tau0 = 0.1, maxit = 20000)
         E=norm(u - uex)
         push!(errhist, E/E0)
     end
-    println(length(reshist))
     alg1out=(reshist = reshist, errhist = errhist)
 end
