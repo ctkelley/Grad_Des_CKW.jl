@@ -20,8 +20,9 @@ include("Algorithms/proj0.jl")
 include("Algorithms/fobj.jl")
 include("Algorithms/alg1.jl")
 include("Algorithms/Alg_test.jl")
+include("Figures/Figures_Alg1.jl")
 
-export build_problem, alg1
-export tau_test1, p_test1
+export build_problem, alg1, tau_test1, p_test1
+export Figure1_2a, Figure1_2b
 
 end
