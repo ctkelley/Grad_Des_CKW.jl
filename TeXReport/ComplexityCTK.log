@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.14)  5 DEC 2025 17:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.14)  10 DEC 2025 11:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -701,21 +701,21 @@ File: Figures/test_alpha.pdf Graphic file (type pdf)
 <use Figures/test_alpha.pdf>
 Package pdftex.def Info: Figures/test_alpha.pdf  used on input line 125.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
- [16 <./Figures/test_stepsize.pdf> <./Figures/test_alpha.pdf>]) [17] (./Complex
-ityCTK.bbl)
+)
+(./Example2_CTK.tex [16 <./Figures/test_stepsize.pdf> <./Figures/test_alpha.pdf
+>]) [17] (./ComplexityCTK.bbl)
 \tf@thm=\write4
 \openout4 = `ComplexityCTK.thm'.
 
-
-[18] (./ComplexityCTK.aux)
+ [18] (./ComplexityCTK.aux)
 Package rerunfilecheck Info: File `ComplexityCTK.out' has not changed.
 (rerunfilecheck)             Checksum: 3C1A665A5335A2FB8493ED8F0E4106A3;1643.
  ) 
 Here is how much of TeX's memory you used:
- 18609 strings out of 476025
- 300096 string characters out of 5790017
+ 18615 strings out of 476025
+ 300210 string characters out of 5790017
  1877388 words of memory out of 5000000
- 37130 multiletter control sequences out of 15000+600000
+ 37133 multiletter control sequences out of 15000+600000
  522263 words of font info for 71 fonts, out of 8000000 for 9000
  2715 hyphenation exceptions out of 8191
  89i,21n,90p,1362b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -743,7 +743,7 @@ st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist
 fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on ComplexityCTK.pdf (18 pages, 398867 bytes).
+Output written on ComplexityCTK.pdf (18 pages, 398863 bytes).
 PDF statistics:
  587 PDF objects out of 1000 (max. 8388607)
  463 compressed objects within 5 object streams
