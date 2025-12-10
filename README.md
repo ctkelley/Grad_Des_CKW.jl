@@ -2,7 +2,7 @@
 
 This repo has the codes for the examples in
 
-__Complexity with Hölder Continuous Gradients__
+__Complexity of Projected Gradient Methods for Strongly Convex  Optimization with H{\"o}lder Continuous Gradient Terms__
 
 by X. Chen, C. T. Kelley, and L. Wang
 
