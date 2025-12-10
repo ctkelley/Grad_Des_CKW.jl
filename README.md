@@ -6,6 +6,8 @@ __Complexity of Projected Gradient Methods for Strongly Convex  Optimization wit
 
 by X. Chen, C. T. Kelley, and L. Wang
 
+__You must run the notebook to view the examples.__
+
  ## Prerequisites
 You must know enough Julia to 
 - install packages and use Pkg,
