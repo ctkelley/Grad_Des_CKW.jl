@@ -18,7 +18,6 @@ reproducing the figures.
 
 \label{subsec:example}
 
-
 H{\"o}lder continuous gradients arise naturally in partial differential equations (PDEs) involving non-Lipschitz nonlinearity \cite{Barrett1991finite,Tang2025uniqueness}.
 In this subsection,  we introduce a numerical example from \cite{Barrett1991finite}.
 This problem is to solve the following two-dimensional PDE,
@@ -89,9 +88,12 @@ In the iteration we use the solution of $\bfA \bfu_0 = - \bfb$ as the
 initial iterate. This is the discretization of Laplace's equation
 with the problem boundary conditions. In this way we ensure that the
 entire iteration satisifies the boundary conditions. We use a $n \times n$
-grid with $n=15$ for the examples in this section and examine the 
-effects of grid refinement in a later section.
+grid with $n=15$ for the examples in this section 
 
+We then examine the effects of grid refinement in \S~\ref{subsubsec:alg1ex1}.
+
+\subsection{Algorithm 1}
+\label{subsubsec:alg1ex1}
 In the first experiment, we scrutinize the performance of the gradient descent method \cref{eq:gd} under different stepsizes.
 Specifically, with the parameters $p$ and $\nu$ fixed at $0.5$. 
 
@@ -111,7 +113,7 @@ It is evident that, as the value of $p$ decreases, the final error attained by t
 Therefore, the associated optimization problems become increasingly ill-conditioned and thus more challenging to solve for smaller values of $p$.
 These findings offer empirical support for our theoretical analysis.
 
-\begin{figure}[t]
+\begin{figure}[h!]
 	\centering
 	\subfigure[different stepsizes]{
 		\label{subfig:stepsize}
@@ -127,4 +129,23 @@ These findings offer empirical support for our theoretical analysis.
 
 We now repeat the experiment with $n=31$, so we reduce the mesh width
 by a factor of 2 and increase the norm of $\bfA$ by a factor of four.
-As one would expect
+As one would expect the stepsize must decrease by a factor of four
+for stability.
+
+\begin{figure}[h!]
+        \centering
+        \subfigure[different stepsizes]{
+                \label{subfig:stepsize2}
+                \includegraphics[width=0.45\linewidth]{Figures/test2_stepsize.pdf}
+        }
+        \subfigure[different values of $p$]{
+                \label{subfig:alpha2}
+                \includegraphics[width=0.45\linewidth]{Figures/test2_alpha.pdf}
+        }
+        \caption{Numerical performance of Algorithm 1 for problem~\cref{opt:test}.}
+        \label{fig:gd2}
+\end{figure} 
+
+
+\subsection{Algorithm 2}
+\label{subsubsec:alg2ex1}

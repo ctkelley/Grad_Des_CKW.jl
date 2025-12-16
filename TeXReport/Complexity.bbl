@@ -10,9 +10,9 @@
   model reaction--diffusion problem with a non-lipschitz nonlinearity}, Numer.
   Math., 59 (1991), pp.~217--242.
 
-\bibitem{Juliasirev}
-{\sc J.~Bezanson, A.~Edelman, S.~Karpinski, and V.~B. Shah}, {\em Julia: A
-  fresh approach to numerical computing}, SIAM Review, 59 (2017), pp.~65--98.
+\bibitem{Bezanson2017julia}
+{\sc J.~Bezanson, A.~Edelman, S.~Karpinski, and V.~B. Shah}, {\em {J}ulia: A
+  fresh approach to numerical computing}, SIAM Rev., 59 (2017), pp.~65--98.
 
 \bibitem{Borges2018projection}
 {\sc L.~S. Borges, F.~S.~V. Baz{\'a}n, and L.~Bedin}, {\em A projection-based
@@ -28,6 +28,10 @@
 {\sc O.~Devolder, F.~Glineur, and Y.~Nesterov}, {\em First-order methods of
   smooth convex optimization with inexact oracle}, Math. Program., 146 (2014),
   pp.~37--75.
+
+\bibitem{Doikov2025lower}
+{\sc N.~Doikov}, {\em Lower complexity bounds for minimizing regularized
+  functions}, Optim. Lett.,  (2025), pp.~1--20.
 
 \bibitem{LeVeque2007finite}
 {\sc R.~J. LeVeque}, {\em Finite Difference Methods for Ordinary and Partial
@@ -45,11 +49,10 @@
 {\sc Y.~Nesterov}, {\em Universal complexity bounds for universal gradient
   methods in nonlinear optimization}, arXiv:2509.20902,  (2025).
 
-\bibitem{QuBianChen}
+\bibitem{Qu2025extra}
 {\sc X.~Qu, W.~Bian, and X.~Chen}, {\em An extra gradient
   {A}nderson-accelerated algorithm for pseudomonotone variational
-  inequalities}, 2024, \url{https://arxiv.org/abs/2408.06606},
-  \url{https://arxiv.org/abs/2408.06606}.
+  inequalities}, Math. Comput.,  (2025).
 
 \bibitem{Tang2025uniqueness}
 {\sc M.~Tang}, {\em Uniqueness of bound states to ${\Delta} u - u + | u|^{p -

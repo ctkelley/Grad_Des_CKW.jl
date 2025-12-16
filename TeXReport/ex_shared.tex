@@ -11,6 +11,7 @@
 \usepackage{mathrsfs}
 \usepackage{graphicx}
 \usepackage{epstopdf}
+\usepackage{enumerate}
 \usepackage{algorithmic}
 \ifpdf
   \DeclareGraphicsExtensions{.eps,.pdf,.png,.jpg}
@@ -86,25 +87,15 @@
 \crefname{fact}{Fact}{Facts}
 \newsiamremark{example}{Example}
 \crefname{example}{Example}{Examples}
-
-
-\newtheorem{assumption}{\sc Assumption}[section]
-%\newsiamthm{assumption}{Assumption}
-%\crefalias{assumption}{theorem}
+\newsiamthm{assumption}{Assumption}
 \crefname{assumption}{Assumption}{Assumptions}
-\Crefname{assumption}{Assumption}{Assumptions}
-
-\AtBeginDocument{%
-	\crefname{assumption}{Assumption}{Assumptions}%
-	\Crefname{assumption}{Assumption}{Assumptions}%
-}
 
 % Sets running headers as well as PDF title and authors
-\headers{Complexity with H{\"o}lder Continuous Gradients}{X. Chen, C. T. Kelley, and L. Wang}
+\headers{Complexity with H{\"o}lder Continuous Gradient Terms}{X. Chen, C. T. Kelley, and L. Wang}
 
 % Title. If the supplement option is on, then "Supplementary Material"
 % is automatically inserted before the title.
-\title{Complexity of Projected Gradient Methods for Strongly Convex  Optimization with H{\"o}lder Continuous Gradient Terms\thanks{Submitted to the editors DATE.
+\title{Complexity of Projected Gradient Methods for Strongly Convex Optimization with H{\"o}lder Continuous Gradient Terms\thanks{Submitted to the editors DATE. 
 \funding{We would like to acknowledge support for this project from RGC grant JLFS/P-501/24 for the CAS AMSS-PolyU Joint Laboratory in Applied Mathematics and Hong Kong Research Grant Council project PolyU15300024.}}}
 
 \subtitle{\today}
@@ -121,7 +112,7 @@
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 
-%%% Local Variables:
+%%% Local Variables: 
 %%% mode:latex
 %%% TeX-master: "ex_article"
-%%% End:
+%%% End: 
