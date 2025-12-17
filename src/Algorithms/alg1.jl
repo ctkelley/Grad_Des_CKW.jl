@@ -1,4 +1,4 @@
-function alg1(u0, fobj, fgrad, pdata, R, tau, maxit)
+function alg1(u0, fobj, fgrad, proj, pdata, R, tau, maxit)
     uex=pdata.uex1d
     E0=norm(u0 - uex)
     E = E0
@@ -12,7 +12,7 @@ function alg1(u0, fobj, fgrad, pdata, R, tau, maxit)
     ux=copy(u)
     fc = fobj(u,pdata)
     for ix = 1:maxit
-        u .= proj0(u - tau * R)
+        u .= proj(u - tau * R)
         R .= FEX1(u, pdata)
         ft = fobj(u,pdata)
         if (norm(R) > norm(RX))
@@ -32,3 +32,12 @@ function alg1(u0, fobj, fgrad, pdata, R, tau, maxit)
         return(sol=u, reshist=reshist, errhist=errhist)
 end
 
+function alg1(GP::GD_Prob, R, tau, maxit)
+u0=GP.u0
+fobj=GP.fobj
+fgrad=GP.fgrad
+pdata=GP.pdata
+proj=GP.projb
+aout=alg1(u0, fobj, fgrad, proj, pdata, R, tau, maxit)
+return aout
+end
