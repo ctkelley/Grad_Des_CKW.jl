@@ -1,4 +1,4 @@
-function Alg1(u0, fobj, fgrad, pdata, R, tau, maxit)
+function alg1(u0, fobj, fgrad, pdata, R, tau, maxit)
     uex=pdata.uex1d
     E0=norm(u0 - uex)
     E = E0
