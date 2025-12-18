@@ -13,7 +13,7 @@ function alg1(u0, fobj, fgrad, proj, pdata, R, tau, maxit)
     fc = fobj(u,pdata)
     for ix = 1:maxit
         u .= proj(u - tau * R)
-        R .= FEX1(u, pdata)
+        R .= fgrad(u, pdata)
         ft = fobj(u,pdata)
         if (norm(R) > norm(RX))
 #        if (ft > fc)

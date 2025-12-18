@@ -31,7 +31,7 @@ function alg2e1(n; nu = 0.5, p = 0.5, tau0 = 0.1, maxit = 20000, epsilon=1.e-6)
         if (df > SD1) 
             u .= ux
             R .= RX
-            tau *= .5
+           tau *= .5
         else
 # Make sure that you get simple decrease after accepting the step
             if (df < 0)
@@ -46,5 +46,5 @@ function alg2e1(n; nu = 0.5, p = 0.5, tau0 = 0.1, maxit = 20000, epsilon=1.e-6)
         E=norm(u - uex)
         push!(errhist, E/E0)
     end
-    alg1out=(reshist = reshist, errhist = errhist)
+    alg2out=(reshist = reshist, errhist = errhist)
 end
