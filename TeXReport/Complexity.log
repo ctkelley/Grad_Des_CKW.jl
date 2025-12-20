@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.14)  16 DEC 2025 06:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.14)  20 DEC 2025 15:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -613,7 +613,7 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 \c@currassumptionctr=\count349
 \c@endassumptionctr=\count350
 )
-(./Complexity.aux)
+(./Complexity.aux (./ExampleCTK.aux))
 \openout1 = `Complexity.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -701,43 +701,62 @@ Underfull \vbox (badness 1635) has occurred while \output is active []
 Package hyperref Info: bookmark level for unknown remark defaults to 0 on input
  line 807.
 
-[10] [11] [12] [13] [14] [15] [16]
-<Figures/test_stepsize.pdf, id=392, 462.52798pt x 346.89601pt>
+[10] [11] [12] [13] [14] [15]
+\openout2 = `ExampleCTK.aux'.
+
+ (./ExampleCTK.tex [16
+
+]
+<Figures/test_stepsize.pdf, id=389, 462.52798pt x 346.89601pt>
 File: Figures/test_stepsize.pdf Graphic file (type pdf)
 <use Figures/test_stepsize.pdf>
-Package pdftex.def Info: Figures/test_stepsize.pdf  used on input line 1292.
+Package pdftex.def Info: Figures/test_stepsize.pdf  used on input line 121.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test_alpha.pdf, id=393, 462.52798pt x 346.89601pt>
+<Figures/test_alpha.pdf, id=390, 462.52798pt x 346.89601pt>
 File: Figures/test_alpha.pdf Graphic file (type pdf)
 <use Figures/test_alpha.pdf>
-Package pdftex.def Info: Figures/test_alpha.pdf  used on input line 1296.
+Package pdftex.def Info: Figures/test_alpha.pdf  used on input line 125.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test2_stepsize.pdf, id=395, 462.52798pt x 346.89601pt>
+<Figures/test2_stepsize.pdf, id=392, 462.52798pt x 346.89601pt>
 File: Figures/test2_stepsize.pdf Graphic file (type pdf)
 <use Figures/test2_stepsize.pdf>
-Package pdftex.def Info: Figures/test2_stepsize.pdf  used on input line 1311.
+Package pdftex.def Info: Figures/test2_stepsize.pdf  used on input line 140.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test2_alpha.pdf, id=396, 462.52798pt x 346.89601pt>
+<Figures/test2_alpha.pdf, id=393, 462.52798pt x 346.89601pt>
 File: Figures/test2_alpha.pdf Graphic file (type pdf)
 <use Figures/test2_alpha.pdf>
-Package pdftex.def Info: Figures/test2_alpha.pdf  used on input line 1315.
+Package pdftex.def Info: Figures/test2_alpha.pdf  used on input line 144.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
- [17 <./Figures/test_stepsize.pdf> <./Figures/test_alpha.pdf> <./Figures/test2_
-stepsize.pdf> <./Figures/test2_alpha.pdf>]
-[18] (./Complexity.bbl)
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[17{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
+c} <./Figures/test_stepsize.pdf> <./Figures/test_alpha.pdf>]
+<Figures/test3_alpha.pdf, id=468, 462.52798pt x 346.89601pt>
+File: Figures/test3_alpha.pdf Graphic file (type pdf)
+<use Figures/test3_alpha.pdf>
+Package pdftex.def Info: Figures/test3_alpha.pdf  used on input line 165.
+(pdftex.def)             Requested size: 361.34999pt x 271.02771pt.
+) [18 <./Figures/test2_stepsize.pdf> <./Figures/test2_alpha.pdf> <./Figures/tes
+t3_alpha.pdf>]
+(./Complexity.bbl)
 \tf@thm=\write4
 \openout4 = `Complexity.thm'.
 
- [19] (./Complexity.aux)
+ [19
+
+
+] (./Complexity.aux (./ExampleCTK.aux))
 Package rerunfilecheck Info: File `Complexity.out' has not changed.
-(rerunfilecheck)             Checksum: F5249CB8C3EE4E87417910E47D96E349;1876.
+(rerunfilecheck)             Checksum: B99C22A0FC575E8569B737D6C502E9E4;1770.
  ) 
 Here is how much of TeX's memory you used:
- 18674 strings out of 476025
- 301517 string characters out of 5790017
+ 18703 strings out of 476025
+ 302422 string characters out of 5790017
  1877388 words of memory out of 5000000
- 37185 multiletter control sequences out of 15000+600000
- 522263 words of font info for 71 fonts, out of 8000000 for 9000
+ 37207 multiletter control sequences out of 15000+600000
+ 522598 words of font info for 72 fonts, out of 8000000 for 9000
  2715 hyphenation exceptions out of 8191
  89i,21n,90p,1359b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -763,11 +782,12 @@ st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Complexity.pdf (19 pages, 420422 bytes).
+t/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-
+dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on Complexity.pdf (19 pages, 426824 bytes).
 PDF statistics:
- 678 PDF objects out of 1000 (max. 8388607)
- 502 compressed objects within 6 object streams
- 122 named destinations out of 1000 (max. 500000)
- 109 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 708 PDF objects out of 1000 (max. 8388607)
+ 504 compressed objects within 6 object streams
+ 119 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

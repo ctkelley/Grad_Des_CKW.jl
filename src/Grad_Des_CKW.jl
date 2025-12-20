@@ -22,6 +22,7 @@ include("Algorithms/fobj.jl")
 include("Algorithms/alg1e1.jl")
 include("Algorithms/alg1.jl")
 include("Algorithms/alg2.jl")
+include("Algorithms/alg2e1.jl")
 include("Algorithms/Alg_test.jl")
 include("Figures/Figures_Alg1.jl")
 

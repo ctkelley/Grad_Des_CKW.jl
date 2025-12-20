@@ -149,3 +149,20 @@ for stability.
 
 \subsection{Algorithm 2}
 \label{subsubsec:alg2ex1}
+
+We repeat the study for varying the exponent $p$ for Algorithm 2. We
+set the paramter 
+\[
+\mu = \frac{1}{4 h^2}
+\]
+which is a lower estimate for the actual value. We initialized the
+step length to $.01 h^2$.
+Comparing
+Figure~\ref{fig:alpha3} to Figure~\ref{subfig:alpha2} shows the
+benefits of the linesearch.
+\begin{figure}[h!]
+\label{fig:alpha3}
+\includegraphics[width=5.in]{Figures/test3_alpha.pdf}
+\caption{Numerical performance of Algorithm 2 for problem~\cref{opt:test}.}
+\end{figure}
+

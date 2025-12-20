@@ -10,7 +10,7 @@
   model reaction--diffusion problem with a non-lipschitz nonlinearity}, Numer.
   Math., 59 (1991), pp.~217--242.
 
-\bibitem{Bezanson2017julia}
+\bibitem{Juliasirev}
 {\sc J.~Bezanson, A.~Edelman, S.~Karpinski, and V.~B. Shah}, {\em {J}ulia: A
   fresh approach to numerical computing}, SIAM Rev., 59 (2017), pp.~65--98.
 
@@ -49,7 +49,7 @@
 {\sc Y.~Nesterov}, {\em Universal complexity bounds for universal gradient
   methods in nonlinear optimization}, arXiv:2509.20902,  (2025).
 
-\bibitem{Qu2025extra}
+\bibitem{QuBianChen}
 {\sc X.~Qu, W.~Bian, and X.~Chen}, {\em An extra gradient
   {A}nderson-accelerated algorithm for pseudomonotone variational
   inequalities}, Math. Comput.,  (2025).
