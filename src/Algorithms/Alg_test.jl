@@ -14,7 +14,7 @@ function tau_test1(n; nu = 0.5, p = 0.5, maxit = 20000)
     plothist(avals, labelarray, "error")
 end
 
-function p_test1(n; nu = 0.5, tau0 = 0.01, algfun = alg1e1, maxit = 20000)
+function p_test1(n; nu = 0.5, tau0 = 0.1, algfun = alg1e1, maxit = 20000)
     pvec=[0.1, 0.2, 0.5, 0.8]
     labelarray = ([string(pvec[1]), string(pvec[2]), string(pvec[3]), string(pvec[4])])
     np=length(pvec)
