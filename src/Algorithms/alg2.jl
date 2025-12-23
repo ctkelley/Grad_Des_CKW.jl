@@ -1,7 +1,8 @@
-function alg2(u0, fobj, fgrad, proj, pdata, R, tau0, mu, epsilon, maxit)
+function alg2(u0, fobj, fgrad, proj, pdata, R, tau0, epsilon, maxit)
     uex=pdata.uex1d
     E0=norm(u0 - uex)
     E = E0
+    mu=pdata.mu
     reshist=Float64[]
     errhist=Float64[]
     N0=norm(R)
@@ -51,4 +52,14 @@ function alg2(u0, fobj, fgrad, proj, pdata, R, tau0, mu, epsilon, maxit)
         push!(errhist, E/E0)
     end
     alg2ouot=(sol = u, reshist = reshist, errhist = errhist)
+end
+
+function alg2(GP::GD_Prob, R, tau, epsilon, maxit)
+    u0=GP.u0
+    fobj=GP.fobj
+    fgrad=GP.fgrad
+    pdata=GP.pdata
+    proj=GP.projb
+#    mu = GP.mu
+aout=alg2(u0, fobj, fgrad, proj, pdata, R, tau, epsilon, maxit)
 end
