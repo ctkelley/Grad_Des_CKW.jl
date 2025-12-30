@@ -17,4 +17,12 @@ title(ptex)
 #title("Alg 1; testing p. n=$n, tau0=$tau0")
 end
 
+function Figure3(n=15; maxit=20000, tau0=.1)
+(n > 15) && (maxit=100000)
+ts=L"\tau_0"
+ptex="Alg 2; testing p. n=$n," *ts* "=$tau0"
+p_test1(n; maxit=maxit, algfun=alg2e1)
+title(ptex)
+#title("Alg 2; testing p. n=$n, tau0=$tau0")
+end
 

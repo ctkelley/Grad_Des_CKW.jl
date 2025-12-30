@@ -27,6 +27,6 @@ include("Algorithms/Alg_test.jl")
 include("Figures/Figures_Alg1.jl")
 
 export build_problem, alg1e1, tau_test1, p_test1, alg2e1, alg2
-export Figure1_2a, Figure1_2b
+export Figure1_2a, Figure1_2b, Figure3
 
 end
