@@ -1,12 +1,12 @@
-function tau_test1(n; nu = 0.5, p = 0.5, maxit = 20000)
-    tauvec=[0.2, 0.1, 0.05, 0.01]
+function tau_test1(n; nu = 0.5, p = 0.5, maxit = 20000, algfun=alg1e1,
+     tauvec=[0.2, 0.1, 0.05, 0.01])
     labelarray =
         ([string(tauvec[1]), string(tauvec[2]), string(tauvec[3]), string(tauvec[4])])
     ntau=length(tauvec)
     #errmat=zeros(maxit+1,ntau)
     avals=Vector{Array}(undef, 4);
     for itau = 1:ntau
-        aout=alg1e1(n; tau0 = tauvec[itau], maxit = maxit)
+        aout=algfun(n; tau0 = tauvec[itau], maxit = maxit)
         avals[itau] = aout.errhist
         #    errmat[:,itau] .= aout.errhist
         #    semilogy(aout.errhist)

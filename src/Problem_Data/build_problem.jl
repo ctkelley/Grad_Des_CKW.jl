@@ -4,7 +4,7 @@ function build_problem(n, uex; p = 0.5, nu = 0.5)
     #
     h=1.0/(1.0+n)
     #mu=1.0/(4.0*h*h)
-mu=2*pi*pi
+    mu=2*pi*pi
     N=n*n
     #rhs=ones(N)
     #rhs2d=reshape(rhs,(n,n))

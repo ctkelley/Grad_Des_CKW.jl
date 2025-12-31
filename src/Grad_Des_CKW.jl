@@ -22,11 +22,14 @@ include("Algorithms/fobj.jl")
 include("Algorithms/alg1e1.jl")
 include("Algorithms/alg1.jl")
 include("Algorithms/alg2.jl")
+include("Algorithms/alg3.jl")
 include("Algorithms/alg2e1.jl")
+include("Algorithms/alg3e1.jl")
 include("Algorithms/Alg_test.jl")
 include("Figures/Figures_Alg1.jl")
 
-export build_problem, alg1e1, tau_test1, p_test1, alg2e1, alg2
+export build_problem, alg1e1, tau_test1, p_test1, alg2e1, alg2, alg3
+export alg2e1, alg3e1
 export Figure1_2a, Figure1_2b, Figure3
 
 end
