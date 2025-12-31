@@ -41,7 +41,7 @@ function Figure4_5b(n=15; maxit=20000, tau0=.01)
 (n > 15) && (maxit=100000)
 ts=L"\tau_0"
 ptex="Alg 3; testing p. n=$n," *ts* "=$tau0"
-p_test1(n; maxit=maxit)
+p_test1(n; maxit=maxit, algfun=alg3e1, tau0=tau0)
 title(ptex)
 #title("Alg 3; testing p. n=$n, tau0=$tau0")
 end
