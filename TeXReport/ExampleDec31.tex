@@ -172,3 +172,58 @@ the value of $\tau_0$ to converge for a given value of $\epsilon$.
 
 \subsection{Algorithm 3}
 \label{subsubsec:alg3ex1}
+
+We report on two experiments. In both cases we set 
+the algorithmic parameter $\nu = \tau_0 h^2$ ( this is not the same
+as the parameter $\nu$ in example 1, which we always set to $1/2$).
+As we did for Algorithms 1 and 2, we stop updating the solution if the
+norm of the gradient increases.
+
+{\bf We need to have a single parameter $\nu$ so we must change something.}
+
+In the first example we use the values for $\tau_0$ from 
+Figure~\ref{fig:gd}. In this way we can directly compare the performace
+of Algorithm 3 with that of Algorithm 1. 
+
+\begin{figure}[h!]
+        \centering
+        \subfigure[different stepsizes]{
+                \label{subfig:stepsize3}
+                \includegraphics[width=0.45\linewidth]{Figures/test_stepsize3.pdf}
+        }
+        \subfigure[different values of $p$]{
+                \label{subfig:alpha3}
+                \includegraphics[width=0.45\linewidth]{Figures/test_alpha3.pdf}
+        }
+        \caption{Numerical performance of Algorithm 3 for problem~\cref{opt:test}.}
+        \label{fig:gd3}
+\end{figure}
+
+The results in Figure~\ref{fig:gd3} are poor. The reason for this is that
+we are not exploiting the ability of Algorithm 3 to use larger stepsizes.
+In Figure~\ref{fig:gd4} we consider larger values for $\tau_0$ in
+Figure~\ref{subfig:stepsize4} and set $\tau_0 = 20$ in 
+Figure~\ref{subfig:alpha4}.
+
+{\bf Xiaojun, Liu, can we connect this to the estimate for fixed $\nu$
+in Remark 4.2? I will be looking into this.}
+
+\begin{figure}[h!] 
+        \centering
+        \subfigure[different stepsizes]{
+                \label{subfig:stepsize4}
+                \includegraphics[width=0.45\linewidth]{Figures/test_stepsize4.pdf}
+        }
+        \subfigure[different values of $p$]{ 
+                \label{subfig:alpha4}
+                \includegraphics[width=0.45\linewidth]{Figures/test_alpha4.pdf}
+        } 
+        \caption{Numerical performance of Algorithm 3 for problem~\cref{opt:test} with larger steps.}
+        \label{fig:gd4}
+\end{figure}
+
+The convergence is much better in all cases. The hardest case ($p=.1$) 
+has very irregular convergfence in the terminal phae of the iteration.
+
+{\bf Xiaojun, Lei, any idea why this is. Lei, try other values of
+$\tau_0$ to get a feel of the behavior of Algorithm 3.}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.14)  30 DEC 2025 13:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.14)  31 DEC 2025 14:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -729,21 +729,52 @@ File: Figures/test3_alpha.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figures/test3_alpha.pdf  used on input line 166.
 (pdftex.def)             Requested size: 361.34999pt x 271.02771pt.
  [17 <./Figures/test_stepsize.pdf> <./Figures/test_alpha.pdf> <./Figures/test2_
-stepsize.pdf> <./Figures/test2_alpha.pdf>]) [18 <./Figures/test3_alpha.pdf>] (.
-/Complexity.bbl [19])
+stepsize.pdf> <./Figures/test2_alpha.pdf>]
+<Figures/test_stepsize3.pdf, id=542, 643.20299pt x 495.77222pt>
+File: Figures/test_stepsize3.pdf Graphic file (type pdf)
+<use Figures/test_stepsize3.pdf>
+Package pdftex.def Info: Figures/test_stepsize3.pdf  used on input line 193.
+(pdftex.def)             Requested size: 166.67154pt x 128.46654pt.
+<Figures/test_alpha3.pdf, id=543, 462.52798pt x 346.89601pt>
+File: Figures/test_alpha3.pdf Graphic file (type pdf)
+<use Figures/test_alpha3.pdf>
+Package pdftex.def Info: Figures/test_alpha3.pdf  used on input line 197.
+(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Figures/test_stepsize4.pdf, id=549, 462.52798pt x 346.89601pt>
+File: Figures/test_stepsize4.pdf Graphic file (type pdf)
+<use Figures/test_stepsize4.pdf>
+Package pdftex.def Info: Figures/test_stepsize4.pdf  used on input line 216.
+(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
+<Figures/test_alpha4.pdf, id=550, 462.52798pt x 346.89601pt>
+File: Figures/test_alpha4.pdf Graphic file (type pdf)
+<use Figures/test_alpha4.pdf>
+Package pdftex.def Info: Figures/test_alpha4.pdf  used on input line 220.
+(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+Underfull \vbox (badness 1454) has occurred while \output is active []
+
+ [18 <./Figures/test3_alpha.pdf>] [19 <./Figures/test_stepsize3.pdf> <./Figures
+/test_alpha3.pdf> <./Figures/test_stepsize4.pdf> <./Figures/test_alpha4.pdf>]
+(./Complexity.bbl [20])
 \tf@thm=\write4
 \openout4 = `Complexity.thm'.
 
-
-[20] (./Complexity.aux)
+ [21] (./Complexity.aux)
 Package rerunfilecheck Info: File `Complexity.out' has not changed.
-(rerunfilecheck)             Checksum: 0DC6AF147EBFBD86CF626EA9E19DC63E;1992.
+(rerunfilecheck)             Checksum: ACF1A1E6A117A3A99A3CD8897AC80478;1994.
  ) 
 Here is how much of TeX's memory you used:
- 18700 strings out of 476025
- 301989 string characters out of 5790017
+ 18753 strings out of 476025
+ 303236 string characters out of 5790017
  1877388 words of memory out of 5000000
- 37201 multiletter control sequences out of 15000+600000
+ 37241 multiletter control sequences out of 15000+600000
  522598 words of font info for 72 fonts, out of 8000000 for 9000
  2715 hyphenation exceptions out of 8191
  89i,21n,90p,1359b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -772,10 +803,10 @@ fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-
 dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Complexity.pdf (20 pages, 433962 bytes).
+Output written on Complexity.pdf (21 pages, 477198 bytes).
 PDF statistics:
- 731 PDF objects out of 1000 (max. 8388607)
- 527 compressed objects within 6 object streams
- 126 named destinations out of 1000 (max. 500000)
- 122 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 871 PDF objects out of 1000 (max. 8388607)
+ 567 compressed objects within 6 object streams
+ 135 named destinations out of 1000 (max. 500000)
+ 142 words of extra memory for PDF output out of 10000 (max. 10000000)
 

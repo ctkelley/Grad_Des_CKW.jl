@@ -32,6 +32,7 @@ function alg3(u0, fobj, fgrad, proj, pdata, R, tau0, epsilon, maxit)
         else
            RX .= R
            ux .= u
+           ft = fc
         end    
         rrnrm=norm(R) / N0
         push!(reshist, rrnrm)
