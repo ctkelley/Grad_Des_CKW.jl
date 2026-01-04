@@ -46,5 +46,11 @@ title(ptex)
 #title("Alg 3; testing p. n=$n, tau0=$tau0")
 end
 
+function Figure6ab(n=15; maxit=1000, tau0=20.0, p=.5)
+ts=L"\tau_0"
+ptex="Alg 3; grad norm vs error. p=$p," *ts* "=$tau0"
+res_test1(n; maxit=maxit, algfun=alg3e1, tau0=tau0, p=p)
+title(ptex)
+end
 
 

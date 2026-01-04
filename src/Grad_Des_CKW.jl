@@ -30,6 +30,6 @@ include("Figures/Figures_CKW.jl")
 
 export build_problem, alg1e1, tau_test1, p_test1, alg2e1, alg2, alg3
 export alg2e1, alg3e1, res_test1
-export Figure1_2a, Figure1_2b, Figure3, Figure4_5a, Figure4_5b
+export Figure1_2a, Figure1_2b, Figure3, Figure4_5a, Figure4_5b, Figure6ab
 
 end
