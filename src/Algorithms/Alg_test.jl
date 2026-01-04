@@ -25,3 +25,13 @@ function p_test1(n; nu = 0.5, tau0 = 0.1, algfun = alg1e1, maxit = 20000)
     end
     plothist(avals, labelarray, "error")
 end
+
+function res_test1(n; nu = 0.5, p=.5, 
+       tau0 = 0.1, algfun = alg3e1, maxit = 20000)
+aout=algfun(n; tau0 = tau0, p =p, maxit = maxit)
+#x=0:maxit-1
+semilogy(aout.errhist,"k-")
+semilogy(aout.reshist,"k--")
+legend(["error","grad norm"])
+title("p=$p")
+end

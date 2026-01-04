@@ -87,7 +87,7 @@ problem
 In the iteration we use the solution of $\bfA \bfu_0 = - \bfb$ as the 
 initial iterate. This is the discretization of Laplace's equation
 with the problem boundary conditions. In this way we ensure that the
-entire iteration satisifies the boundary conditions. We use a $n \times n$
+entire iteration satisfies the boundary conditions. We use a $n \times n$
 grid with $n=15$ for the examples in this section 
 
 We then examine the effects of grid refinement in \S~\ref{subsubsec:alg1ex1}.
@@ -151,7 +151,7 @@ for stability.
 \label{subsubsec:alg2ex1}
 
 We repeat the study for varying the exponent $p$ for Algorithm 2. We
-set the paramter 
+set the parameter 
 \[
 \mu = 2 \pi^2
 \]
@@ -182,7 +182,7 @@ norm of the gradient increases.
 {\bf We need to have a single parameter $\nu$ so we must change something.}
 
 In the first example we use the values for $\tau_0$ from 
-Figure~\ref{fig:gd}. In this way we can directly compare the performace
+Figure~\ref{fig:gd}. In this way we can directly compare the performance
 of Algorithm 3 with that of Algorithm 1. 
 
 \begin{figure}[h!]
@@ -223,7 +223,109 @@ in Remark 4.2? I will be looking into this.}
 \end{figure}
 
 The convergence is much better in all cases. The hardest case ($p=.1$) 
-has very irregular convergfence in the terminal phae of the iteration.
+has very irregular convergence in the terminal phae of the iteration.
 
-{\bf Xiaojun, Lei, any idea why this is. Lei, try other values of
-$\tau_0$ to get a feel of the behavior of Algorithm 3.}
+\clearpage
+
+\subsubsection{Step size and termination}
+\label{subsubsec:term}
+
+It is useful to look at the values of the step sizes from 
+Remark 4.2. We note that for example 1, $M=O(h^{-2})$. 
+We are using ${\hat \alpha} = p$ and neglecting constants in the 
+estimate. So in Table~\ref{tab:nuvals} we tabulate
+\begin{equation}
+\label{eq:step24}
+\nu = h^{p_1} \varepsilon^{p_2}
+\end{equation}
+where
+\[
+p_1 = (1 + p) / (1 + 3 p)
+\mbox{}
+p_2 = 2 (1 - p) / (1 + 3 p)
+\]
+for the case $h = 2^{-4}$.
+
+\begin{table}[h!]
+\caption{\label{tab:nuvals} Representative values of $\nu$}
+\begin{center}
+\begin{tabular}{lllll}
+\hline 
+$p \backslash 
+\varepsilon$ & 1.00e-02 & 1.00e-03 & 1.00e-05 & 1.00e-08   \\      
+1.00e-01 & 1.56e-05 & 6.43e-07 & 1.09e-09 & 7.68e-14   \\ 
+2.00e-01 & 1.56e-04 & 1.56e-05 & 1.56e-07 & 1.56e-10   \\ 
+5.00e-01 & 5.69e-03 & 2.26e-03 & 3.59e-04 & 2.26e-05   \\
+8.00e-01 & 3.09e-02 & 2.36e-02 & 1.37e-02 & 6.08e-03   \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\end{table}
+
+Contrast the values of $\nu$ in the table to the value of 
+$20 h^2 \approx .08$ and one can see that the step
+size estimate from Equation~\ref{eq:step24} is very pessimistic. 
+For smaller values of $p$ the predicted step is too small to be
+useful in practice. 
+
+{\bf Xiaojun, Lei, the bound should depend on M because of the 
+mesh dependence of the convergence rate. Can you look into this?
+I think the problem could be that in the proof you merge M into
+the O-term. That does not reflect how the PDE problems work. Can
+you put M in there somehow?
+}
+
+Next we consider the complexity bound 
+\[
+ O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } \varepsilon^{-p_2})}.
+\]
+In Table~\ref{tab:itvals} we present the predicted number of iterations.
+\begin{table}[h!]
+\caption{\label{tab:itvals} Representative iteration number}
+\begin{center}
+\begin{tabular}{lllll}
+\hline
+$p \backslash 
+\varepsilon$ & 1.00e-02 & 1.00e-03 & 1.00e-05 & 1.00e-08   \\ 
+1.00e-01 & 3.91e+03 & 1.42e+05 & 1.39e+08 & 3.17e+12   \\ 
+2.00e-01 & 6.64e+02 & 9.97e+03 & 1.66e+06 & 2.66e+09   \\ 
+5.00e-01 & 4.19e+01 & 1.58e+02 & 1.66e+03 & 4.21e+04   \\ 
+8.00e-01 & 1.14e+01 & 2.25e+01 & 6.44e+01 & 2.32e+02   \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\end{table}
+
+The estimates are pessimistic except for the larger values
+of $p$ when compared to the findings we report in 
+Figure~\ref{fig:gd4}.
+
+Finally we consider termination of the iteration. In Example 1
+we know the exact solution and can evaluate the algorithms in
+terms of the error. In practice we cannot do that and must 
+use the gradient norm as a surrogate for the error. While this is
+standard for smooth optimization it could be a problem when the
+gradient is not Lipschitz continuous. We illustrate this in
+Figure~\ref{fig:resid}, where we compare the gradient norm with the
+error for the case $p=.5$, $h=2^{-4}$, and $\tau_0 = 20 h^2$ using
+Algorithm 3.
+
+\begin{figure}[h!]
+        \centering
+        \subfigure[different stepsizes]{
+                \label{subfig:res05}
+                \includegraphics[width=0.45\linewidth]{Figures/restest05.pdf}
+        }
+        \subfigure[different values of $p$]{
+                \label{subfig:res01}
+                \includegraphics[width=0.45\linewidth]{Figures/restest01.pdf}
+        }
+        \caption{Gradient and error norms for problem~\cref{opt:test}.}
+        \label{fig:resid}
+\end{figure}
+
+The results in the figure indicate that when the gradient norm stops
+decreasing, the error has also stopped decreasing. However the
+gradient norm is larger than the error norm, especially when
+the error is small, which is consistent
+with H{\"o}lder continuity.
