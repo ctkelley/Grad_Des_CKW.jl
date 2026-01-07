@@ -11,6 +11,7 @@ import SIAMFANLEquations.Examples: Lap2d
 include("Discretization/Lap.jl")
 include("Discretization/Test_Eg1.jl")
 include("Gradient/fdgrad.jl")
+include("Gradient/fdgrad2.jl")
 
 @testset "Discretization" begin
     @test Lap()
@@ -19,5 +20,6 @@ end
 
 @testset "Gradient" begin
    @test fdgrad()
+   @test fdgrad2()
 end
 

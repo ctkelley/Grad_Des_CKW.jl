@@ -3,11 +3,12 @@
 
 We consider a second
 numerical example motivated by a semi-linear elliptic problem with a constraint on the solution in a certain set \cite{Tang2025uniqueness}.
-Let $D=(0,1)^3$ and
+Let $D=(0,1)^2$ and
 \begin{equation} \label{eq:cF2}
-        \cH (u) = - \Delta u + \lambda |u|^{\nu} - |u|^{p-1} u
+        \cH (u) = - \Delta u + \lambda |u|^{\nu} - |u|^{p} u
 \end{equation}
-on  $D$ with the boundary condition $u=1$ on the boundary $\partial D$, where $p > 1$, $\nu \in (0, 1)$ and $\lambda > p/\nu$ are  constants.
+on  $D$ with the boundary condition $u=1$ on the boundary $\partial D$, 
+where $p > 1$, $\nu \in (0, 1)$ and $\lambda > p/\nu$ are  constants.
 We consider the variational inequality that is to find $u^*\in [-1,1]$ such that
 for any $u\in [-1,1]$,
 \begin{equation*}
@@ -38,4 +39,37 @@ $[-1, 1]^n.$ However, $\nabla f$ is not  Lipschitz continuous in $[-1,1]^n.$
 Let
 $$f_1(\bfu)=\frac{1}{2}\bfu^\top\bfA\bfu + \bfb^\top \bfu,  f_2(\bfu)=\frac{\lambda}{1+\nu} \bfe\zz |\bfu|^{\nu + 1}, f_3(\bfu)=- \frac{1}{1+p}\bfe\zz  \max(\bfu, -\bfu)^{p+1}$$
 This example satisfies \cref{asp:function} (ii) with $L_1=\lambda_{\max}(\bfA)$, $L_2=\lambda\nu$, $L_3=pn^{\frac{1}{2}}, \alpha_1=\alpha_3=1, \alpha_2={1-\nu}$.
+
+\subsubsection{Results}
+\label{subsubsec:results2}
+In this example we do not have an analytic solution, so we only
+plot the residual norms $\| \cF (\bfu) \|$.
+
+Clearly the only interesting cases for this example are ones where the
+solution can be negative. One such case, which we use here, is
+\[
+\nu=p=.1, \lambda=40.
+\]
+As was the case for Example 1, problems where the exponent for the 
+non-Lipschitz term is small are difficult. In particular one cannot 
+drive the residual to a small value. We compare Algorithm 1 and 
+Algorithm 3. We use stepsizes of $.1 h^2$ for Algorithm 1 and
+$20 h^2$ for Algorithm 3.
+Figure~\ref{fig:ex2} shows that Algorithm 3 benefits from the larger
+step size, but that we can only obtain a modest reduction in the
+residual norm in both cases.
+
+\begin{figure}[h!]
+        \centering
+        \subfigure[Algorithm 1]{
+                \label{subfig:alg1e2}
+                \includegraphics[width=0.45\linewidth]{Figures/alg1e2.pdf}
+        }
+        \subfigure[Algorithm 3]{
+                \label{subfig:alg3e2}
+                \includegraphics[width=0.45\linewidth]{Figures/alg3e2.pdf}
+        }
+        \caption{Numerical performance of Algorithm 1 for problem~\cref{opt:test}.}
+        \label{fig:ex2}
+\end{figure}
 

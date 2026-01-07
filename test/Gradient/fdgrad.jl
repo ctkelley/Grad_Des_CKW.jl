@@ -2,7 +2,7 @@
 # Compare gradent to central diff. 
 # This is simply to verify that I have consistent formulae.
 #
-function fdgrad(n=15, delu = 1.e-4)
+function fdgrad(n = 15, delu = 1.e-4)
     pdata=build_problem(n, uefun_ex12d)
     N=n*n
     u=pdata.u0

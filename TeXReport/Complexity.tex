@@ -1,4 +1,4 @@
-% SIAM Article Template 
+% SIAM Article Template
 \documentclass[review,hidelinks,onefignum,onetabnum]{siamart250211}
 
 % Information that is shared between the article and the supplement
@@ -62,7 +62,7 @@ where the objective function $f: \Rn \to \bR$ satisfies the following assumption
 		\end{equation*}
 		for all $\bfu, \bfv \in \Omega$.
 		
-		\item For each $i \in [m]:= \{1, 2, \dotsc, m\}$, the function $f_i: \Rn \to \bR$ is continuously differentiable and the gradient $\nabla f_i$ is (globally) H{\"o}lder continuous with an exponent $\alpha_i \in (0,1]$ on $\Omega$, namely, there exists a constant $L_i > 0$ such that
+		\item For each $i \in [m] := \{1, 2, \dotsc, m\}$, the function $f_i: \Rn \to \bR$ is continuously differentiable and the gradient $\nabla f_i$ is (globally) H{\"o}lder continuous with an exponent $\alpha_i \in (0,1]$ on $\Omega$, namely, there exists a constant $L_i > 0$ such that
 		\begin{equation}
 			\label{eq:Holder}
 			\norm{\nabla f_i (\bfu) - \nabla f_i (\bfv)} \leq L_i \norm{\bfu - \bfv}^{\alpha_i},
@@ -100,7 +100,7 @@ Unfortunately, this analysis fails if there exists at least one index $i \in [m]
 	\begin{equation} \label{opt:univ}
 		\min_{x \in \bR} \hspace{2mm} f (x) = \dfrac{1}{2} x^2 + \dfrac{2}{3} \abs{x}^{3/2},
 	\end{equation}
-	which is a special instance of problem~\cref{opt:main} with $f_1 (x) = x^2 / 2$ and $f_2 (x) = 2 |x|^{3/2} / 3$.
+	which is a special instance of problem~\cref{opt:main} with $f_1 (x) = x^2 / 2$ and $f_2 (x) = 2 |x|^{3/2} / 3$. 
 	It is easy to see that the global minimizer is $x\uast = 0$.
 	Method~\cref{eq:gd} with the fixed stepsize $\tau > 0$ starting from $x_0 \neq 0$ proceeds as follows,
 	\begin{equation*}
@@ -119,18 +119,18 @@ Unfortunately, this analysis fails if there exists at least one index $i \in [m]
 	It is evident that, when $\abs{x_k}$ is sufficiently small, the last term in the right-hand side becomes dominant, resulting in that $| x_{k + 1} |^2 - | x_k |^2 \geq 0$.
 	Therefore, the distance to the global minimizer ceases to decrease once it achieves a certain level.
 
-	Moreover, in \cite{Chen2025new} we show that $\nabla f$ is locally, but not globally, H{\"o}lder continuous.
+	Moreover, in \cite{Chen2025new} we show that $\nabla f$ is locally, but not globally, H{\"o}lder continuous. 
 	In fact, from
 	\begin{equation*}
-		\nabla f (\abs{h}) - \nabla f (0)
+		\abs{\nabla f (\abs{h}) - \nabla f (0)}
 		= \abs{h} + \abs{h}^{1/2}
 		= \dkh{ \abs{h}^{1 - \alpha} + \abs{h}^{1/2 - \alpha} } \abs{h}^{\alpha},
 	\end{equation*}
-	we can obtain that, $|h|^{1 - \alpha} \to \infty$ when $\alpha \in (0, 1)$ and $|h| \to \infty$, while $|h|^{1/2 - \alpha} \to \infty$ when $\alpha = 1$ and $|h| \to 0$.
-	Therefore, $\nabla f$ cannot be globally H{\"o}lder continuous for all $\alpha \in (0, 1]$.
+	we can obtain that, $|h|^{1 - \alpha} \to \infty$ when $\alpha \in (0, 1)$ and $|h| \to \infty$, while $|h|^{1/2 - \alpha} \to \infty$ when $\alpha = 1$ and $|h| \to 0$. 
+	Therefore, $\nabla f$ cannot be globally H{\"o}lder continuous for all $\alpha \in (0, 1]$. 
 	
-	On the other hand, problem~\cref{opt:univ} satisfies all the conditions in Assumption~\ref{asp:function}.
-	It is clear that $f$ is strongly convex.
+	On the other hand, problem~\cref{opt:univ} satisfies all the conditions in Assumption~\ref{asp:function}. 
+	It is clear that $f$ is strongly convex. 
 	In addition, we have
 	\begin{equation*}
 		\abs{\nabla f_1 (x) - \nabla f_1 (y)} = \abs{x - y},
@@ -141,7 +141,7 @@ Unfortunately, this analysis fails if there exists at least one index $i \in [m]
 		= \abs{\sign (x) \abs{x}^{1/2} - \sign (y) \abs{y}}
 		\leq \sqrt{2} \abs{x - y}^{1/2},
 	\end{equation*}
-	for all $x, y \in \bR$.
+	for all $x, y \in \bR$. 
 	
 	This simple example demonstrates that, in problem~\cref{opt:main}, a function $f$ expressed as a sum of component functions $f_i$, each endowed with a H{\"o}lder continuous gradient, may itself fail to possess a H{\"o}lder continuous gradient.
 	This phenomenon, initially observed in our previous work \cite{Chen2025new}, was later revisited and further highlighted by Nesterov (see \cite[Example 1]{Nesterov2025universal}).
@@ -318,7 +318,7 @@ Our subsequent analysis is based on the inexact oracle \cite{Devolder2014first} 
 
 
 \begin{proof}
-	Since $\nabla f_i$ is H{\"o}lder continuous with an exponent $\alpha_i$, we can obtain that
+	Since $\nabla f_i$ is H{\"o}lder continuous with an exponent $\alpha_i$, we can obtain from \cite[Lemma 1]{Yashtini2016global} that
 	\begin{equation*}
 		f_i (\bfv)
 		\leq f_i (\bfu)
@@ -346,7 +346,7 @@ Now, we are able to derive the complexity bound of \cref{alg:gd} in the followin
 	Let $\varepsilon \in (0, 1)$ be a sufficiently small constant.
 	Then after at most
 	\begin{equation*}
-		O \dkh{ \log \dkh{\dfrac{1}{\varepsilon}} \dfrac{1}{ \varepsilon^{2 (1 - \hat{\alpha}) / (1 + \hat{\alpha})} } }
+		O \dkh{ \log \dkh{\dfrac{M^{(1 + \hat{\alpha}) / 4}}{\varepsilon}} \dfrac{M}{ \varepsilon^{2 (1 - \hat{\alpha}) / (1 + \hat{\alpha})} } }
 	\end{equation*}
 	iterations, \cref{alg:gd} will find an iterate $\bfu_k \in \Omega$ satisfying $\norm{\bfu_k - \bfu\uast} \leq \varepsilon$.
 \end{theorem}
@@ -561,7 +561,7 @@ Next, we establish the iteration complexity of \cref{alg:upgm}, which remains on
 	Let $\varepsilon \in (0, 1)$ be a sufficiently small constant.
 	Then after at most
 	\begin{equation*}
-		O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } \dfrac{1}{\varepsilon^{2 (1 - \hat{\alpha}) / (1 + \hat{\alpha})}} }
+		O \dkh{ \log \dkh{ \dfrac{M^{(1 + \hat{\alpha}) / 4}}{\varepsilon} } \dfrac{M}{\varepsilon^{2 (1 - \hat{\alpha}) / (1 + \hat{\alpha})}} }
 	\end{equation*}
 	iterations, \cref{alg:upgm} will attain an iterate $\bfu_k \in \Omega$ satisfying that $\norm{\bfu_k - \bfu\uast} \leq \varepsilon$.
 \end{theorem}
@@ -634,7 +634,7 @@ We end this section by estimating the total number of line-search steps required
 	Let $\varepsilon \in (0, 1)$ be a sufficiently small constant.
 	Then \cref{alg:upgm} requires at most
 	\begin{equation*}
-		O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } \dfrac{1}{\varepsilon^{2 (1 - \hat{\alpha}) / (1 + \hat{\alpha})}} }
+		O \dkh{ \log \dkh{ \dfrac{M^{(1 + \hat{\alpha}) / 4}}{\varepsilon} } \dfrac{M}{\varepsilon^{2 (1 - \hat{\alpha}) / (1 + \hat{\alpha})}} }
 	\end{equation*}
 	line-search steps for the generated sequence $\{\bfu_k\}$ to satisfy $\norm{\bfu_k - \bfu\uast} \leq \varepsilon$.
 \end{corollary}
@@ -804,18 +804,18 @@ The following lemma illustrates that the line-search process in \cref{eq:line} i
 
 
 \begin{remark}
-	When the parameters of problem \cref{opt:main} are fully specified, \cref{alg:ufgm} may alternatively be implemented with a fixed stepsize.
-	Recall that $M > 0$ is a constant defined in \cref{eq:const-m}.
-	By invoking the result of \cref{le:line-ufgm}, we can fix
+	When the parameters of problem \cref{opt:main} are fully specified, \cref{alg:ufgm} may alternatively be implemented with a fixed stepsize. 
+	Recall that $M > 0$ is a constant defined in \cref{eq:const-m}. 
+	By invoking the result of \cref{le:line-ufgm}, we can fix 
 	\begin{equation*}
 		\nu_k = 2 \fkh{ \dfrac{\mu}{4 M} }^{(1 + \hat{\alpha}) / (1 + 3 \hat{\alpha})} \varepsilon^{2 (1 - \hat{\alpha}) / (1 + 3 \hat{\alpha})},
 	\end{equation*}
-	and dispense with the parameter $\rho_k$ and the line-search procedure in \cref{eq:line}.
-	Under this choice, \cref{alg:ufgm} continues to enjoy the same iteration complexity established later.
+	and dispense with the parameter $\rho_k$ and the line-search procedure in \cref{eq:line}. 
+	Under this choice, \cref{alg:ufgm} continues to enjoy the same iteration complexity established later. 
 \end{remark}
 
 
-We now introduce the estimating sequences associated with \cref{alg:ufgm}, which play a crucial role in our subsequent analysis.
+We now introduce the estimating sequences associated with \cref{alg:ufgm}, which play a crucial role in our subsequent analysis. 
 
 
 \begin{lemma}
@@ -891,7 +891,7 @@ We now introduce the estimating sequences associated with \cref{alg:ufgm}, which
 \end{proof}
 
 
-The following lemma characterizes the relationship between the objective function of problem \cref{opt:main} and the estimating sequences.
+The following lemma characterizes the relationship between the objective function of problem \cref{opt:main} and the estimating sequences. 
 
 
 \begin{lemma}
@@ -931,7 +931,7 @@ The following lemma characterizes the relationship between the objective functio
 \end{proof}
 
 
-Next, we proceed to show that the function value error of \cref{alg:ufgm} is controlled by the estimating sequences.
+Next, we proceed to show that the function value error of \cref{alg:ufgm} is controlled by the estimating sequences. 
 
 
 \begin{proposition}
@@ -941,18 +941,18 @@ Next, we proceed to show that the function value error of \cref{alg:ufgm} is con
 		\label{eq:error}
 		f (\bfu_k) - f\uast \leq \dfrac{1}{\sigma_k} \phi_0 (\bfu\uast) + \dfrac{\mu \varepsilon^2}{4},
 	\end{equation}
-	for all $k \in \bN$.
+	for all $k \in \bN$. 
 \end{proposition}
 
 
 \begin{proof}
-	Let $\phi_k\uast := \min_{\bfu \in \Omega} \phi_k (\bfu)$.
+	Let $\phi_k\uast := \min_{\bfu \in \Omega} \phi_k (\bfu)$. 
 	We first prove by induction that
 	\begin{equation}
 		\label{eq:descent}
 		\sigma_k \dkh{ f (\bfu_k) - f\uast - \dfrac{\mu \varepsilon^2}{4} } \leq \phi_k\uast,
 	\end{equation}
-	for any $k \in \bN$.
+	for any $k \in \bN$. 
 	It is clear that \cref{eq:descent} holds for $k = 0$ since $\sigma_0 = 1$ and $\phi_0\uast = \phi_0 (\bfw_0) = f (\bfu_0) - f\uast - \mu \varepsilon^2 / 4$.
 	Now we assume that \cref{eq:descent} holds for some $k \in \bN$ and investigate the situation for $k + 1$.
 	
@@ -1050,7 +1050,7 @@ Next, we proceed to show that the function value error of \cref{alg:ufgm} is con
 \end{proof}
 
 
-With the above preparatory results in place, we are now in a position to establish the iteration complexity of \cref{alg:ufgm}, as articulated in the theorem below.
+With the above preparatory results in place, we are now in a position to establish the iteration complexity of \cref{alg:ufgm}, as articulated in the theorem below. 
 
 
 \begin{theorem}
@@ -1058,7 +1058,7 @@ With the above preparatory results in place, we are now in a position to establi
 	Let $\varepsilon \in (0, 1)$ be a sufficiently small constant.
 	Then after at most
 	\begin{equation*}
-		O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } \dfrac{1}{\varepsilon^{2 (1 - \hat{\alpha}) / (1 + 3 \hat{\alpha})}} }
+		O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } \dfrac{M^{(1 + \hat{\alpha}) / (1 + 3 \hat{\alpha})}}{\varepsilon^{2 (1 - \hat{\alpha}) / (1 + 3 \hat{\alpha})}} }
 	\end{equation*}
 	iterations, \cref{alg:ufgm} will reach an iterate $\bfu_k$ satisfying $\norm{\bfu_k - \bfu\uast} \leq \varepsilon$.
 \end{theorem}
@@ -1130,7 +1130,7 @@ Finally, we demonstrate that the number of line-search steps required by \cref{a
 	Let $\varepsilon \in (0, 1)$ be a sufficiently small constant.
 	Then, to achieve an iterate $\bfu_k$ satisfying $\norm{\bfu_k - \bfu\uast} \leq \varepsilon$, \cref{alg:ufgm} requires at most
 	\begin{equation*}
-		O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } \dfrac{1}{\varepsilon^{2 (1 - \hat{\alpha}) / (1 + 3 \hat{\alpha})}} }
+		O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } \dfrac{M^{(1 + \hat{\alpha}) / (1 + 3 \hat{\alpha})}}{\varepsilon^{2 (1 - \hat{\alpha}) / (1 + 3 \hat{\alpha})}} }
 	\end{equation*}
 	line-search steps.
 \end{corollary}
@@ -1167,54 +1167,16 @@ Finally, we demonstrate that the number of line-search steps required by \cref{a
 
 
 \begin{remark}
-	By an analogous argument, we can also prove that \cref{alg:ufgm} requires at most $O ( \log (\varepsilon^{-1}) \varepsilon^{(\hat{\alpha} - 1) / (1 + 3 \hat{\alpha})} )$ iterations to generate an iterate $\bfu_k$ such that $f (\bfu_k) - f\uast \leq \varepsilon$ for problem~\cref{opt:main}.
-	Very recently, Doikov \cite{Doikov2025lower} has shown that, in the case $m = 2$, where $f_1$ is a convex function with a H{\"o}lder continuous gradient and $f_2 (\bfu) = \norm{\bfu}^2$, the lower complexity bound for first-order methods is precisely $O ( \log (\varepsilon^{-1}) \varepsilon^{(\hat{\alpha} - 1) / (1 + 3 \hat{\alpha})} )$ in terms of function value accuracy.
-	This finding confirms that \cref{alg:ufgm} achieves the optimal iteration complexity.
+	By an analogous argument, we can also prove that \cref{alg:ufgm} requires at most $O ( \log (\varepsilon^{-1}) \varepsilon^{(\hat{\alpha} - 1) / (1 + 3 \hat{\alpha})} )$ iterations to generate an iterate $\bfu_k$ such that $f (\bfu_k) - f\uast \leq \varepsilon$ for problem~\cref{opt:main}. 
+	Very recently, Doikov \cite{Doikov2025lower} has shown that, in the case $m = 2$, where $f_1$ is a convex function with a H{\"o}lder continuous gradient and $f_2 (\bfu) = \norm{\bfu}^2$, the lower complexity bound for first-order methods is precisely $O ( \log (\varepsilon^{-1}) \varepsilon^{(\hat{\alpha} - 1) / (1 + 3 \hat{\alpha})} )$ in terms of function value accuracy. 
+	This finding confirms that \cref{alg:ufgm} achieves the optimal iteration complexity. 
 \end{remark}
 
-%\input{ExampleCTK}
-\input{ExampleJan4}
-
-\subsection{Example 2}
-We consider a numerical example motivated by a semi-linear elliptic problem with a constraint on the solution in a certain set \cite{Tang2025uniqueness}.
-Let $D=(0,1)^3$ and
-\begin{equation} \label{eq:cF2}
-	\cH (u) = - \Delta u + \lambda |u|^{\nu} - |u|^{p-1} u
-\end{equation}
-on  $D$ with the boundary condition $u=1$ on the boundary $\partial D$, where $p > 1$, $\nu \in (0, 1)$ and $\lambda > p/\nu$ are  constants.
-We consider the variational inequality that is to find $u^*\in [-1,1]$ such that
-for any $u\in [-1,1]$,
-\begin{equation*}
-	\cH(u^*)(u-u^*)\ge 0.
-\end{equation*}
-This problem is equivalent to the nonlinear equation
-\begin{equation}\label{exampleVI}
-	0=\cF(u):=\left\{\begin{array}{ll}
-		\cH(u)  & \quad {\rm if} \quad u-\cH(u) \in [-1, 1],\\
-		u-1     & \quad {\rm if}  \quad u-\cH(u) \ge 1,\\
-		u+1     & \quad {\rm otherwise.}
-	\end{array}\right.
-\end{equation}
-Discretizing \cref{eq:cF2} with the standard five point difference scheme \cite{LeVeque2007finite}, problem~\cref{exampleVI} leads to the following  system of nonlinear equations
-\begin{equation}\label{example2}
-	\bfF(\bfu) = \bfu-{\mathrm \Pi}_{\bfU}\Big(\bfu- \tau(\bfA \bfu + \lambda |\bfu|^{\nu} - |\bfu|^{p -1}\bfu - \bfb)\Big) = 0,
-\end{equation}
-where $\bfU=[-1,1]^n$,  $\tau>0$ is a constant, $ \bfA\in \mathbb{R}^{n\times n}$ is a symmetric positive definite matrix and $\bfb\in \mathbb{R}^n.$  Note that \cref{example2} is the first-order optimal condition of the minimization problem
-\begin{equation}\label{example2min}
-	\min_{\bfu \in [-1,1]^n} f(\bfu):= \frac{1}{2}\bfu^\top\bfA\bfu + \frac{\lambda}{1+\nu} \bfe\zz |\bfu|^{\nu + 1}- \frac{1}{1+p}\bfe\zz  \max(\bfu, -\bfu)^{p+1} + \bfb^\top \bfu.
-\end{equation}
-The Hessian matrix of $f$ at $\bfu$ with $\bfu_i\neq 0$, $i=1,\ldots,n$ has the form
-$$\nabla^2 f(\bfu)=\bfA  + \lambda \nu |\bfu|^{\nu-1} -p {\rm diag} \Big(\max (-\bfu, \bfu)^{p-1}\Big),$$
-Since $\lambda\nu>p$, $\nabla^2 f(\bfu)$ is
-symmetric positive definite for any $\bfu\in [-1, 1]^n$ with $\bfu_i\neq 0$, $i=1,\ldots,n$. Hence $f$ is $\mu$-strongly convex in $[-1,1]^n$ with $\mu=\lambda_{\min}(\bfA)$  and the system \cref{example2} has a unique solution in
-$[-1, 1]^n.$ However, $\nabla f$ is not  Lipschitz continuous in $[-1,1]^n.$
-
-Let
-$$f_1(\bfu)=\frac{1}{2}\bfu^\top\bfA\bfu + \bfb^\top \bfu,  f_2(\bfu)=\frac{\lambda}{1+\nu} \bfe\zz |\bfu|^{\nu + 1}, f_3(\bfu)=- \frac{1}{1+p}\bfe\zz  \max(\bfu, -\bfu)^{p+1}$$
-This example satisfies Assumption~\ref{asp:function} (ii) with $L_1=\lambda_{\max}(\bfA)$, $L_2=\lambda\nu$, $L_3=pn^{\frac{1}{2}}, \alpha_1=\alpha_3=1, \alpha_2={1-\nu}$.
 
 
+\input{ExampleJan7}
 
+\input{Example2Jan7}
 
 
 \section{Conclusion}
@@ -1247,4 +1209,3 @@ These results offer new insights into the performance guarantees of the classic 
 
 
 \end{document}
-

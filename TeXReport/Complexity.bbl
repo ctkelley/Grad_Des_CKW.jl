@@ -58,4 +58,9 @@
 {\sc M.~Tang}, {\em Uniqueness of bound states to ${\Delta} u - u + | u|^{p -
   1} u = 0$ in $\mathbb{R}^n$, $n \geq 3$}, Invent. Math.,  (2025), pp.~1--47.
 
+\bibitem{Yashtini2016global}
+{\sc M.~Yashtini}, {\em On the global convergence rate of the gradient descent
+  method for functions with {H}{\"o}lder continuous gradients}, Optim. Lett.,
+  10 (2016), pp.~1361--1370.
+
 \end{thebibliography}

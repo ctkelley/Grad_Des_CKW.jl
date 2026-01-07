@@ -1,47 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Complexity.aux
-A level-1 auxiliary file: ExampleCTK.aux
 The style file: siamplain.bst
 Database file #1: library_HGD.bib
-You've used 13 entries,
+You've used 14 entries,
             2244 wiz_defined-function locations,
-            632 strings with 6335 characters,
-and the built_in function-call counts, 4516 in all, are:
-= -- 400
-> -- 168
+            638 strings with 6503 characters,
+and the built_in function-call counts, 4939 in all, are:
+= -- 444
+> -- 175
 < -- 0
-+ -- 71
-- -- 54
-* -- 327
-:= -- 654
-add.period$ -- 13
-call.type$ -- 13
-change.case$ -- 64
++ -- 74
+- -- 56
+* -- 354
+:= -- 707
+add.period$ -- 14
+call.type$ -- 14
+change.case$ -- 68
 chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 253
-empty$ -- 417
-format.name$ -- 54
-if$ -- 984
+cite$ -- 14
+duplicate$ -- 278
+empty$ -- 457
+format.name$ -- 56
+if$ -- 1083
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 15
-newline$ -- 42
-num.names$ -- 26
-pop$ -- 110
+int.to.str$ -- 14
+missing$ -- 16
+newline$ -- 45
+num.names$ -- 28
+pop$ -- 116
 preamble$ -- 1
-purify$ -- 53
+purify$ -- 56
 quote$ -- 0
-skip$ -- 163
+skip$ -- 185
 stack$ -- 0
-substring$ -- 299
-swap$ -- 82
+substring$ -- 344
+swap$ -- 94
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 48
+type$ -- 52
 warning$ -- 0
-while$ -- 50
-width$ -- 15
-write$ -- 114
+while$ -- 55
+width$ -- 16
+write$ -- 123

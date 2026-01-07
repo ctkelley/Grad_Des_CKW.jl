@@ -4,13 +4,14 @@ function alg1(u0, fobj, fgrad, proj, pdata, R, tau, maxit)
     E = E0
     reshist=Float64[]
     errhist=Float64[]
+    R .= fgrad(u0, pdata)
     N0=norm(R)
     push!(reshist, 1.0)
     push!(errhist, E/E0)
     RX=copy(R)
     u = copy(u0)
     ux=copy(u)
-    fc = fobj(u, pdata)
+#    fc = fobj(u, pdata)
     for ix = 1:maxit
         u .= proj(u - tau * R)
         R .= fgrad(u, pdata)

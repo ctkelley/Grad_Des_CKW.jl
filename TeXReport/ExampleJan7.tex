@@ -205,9 +205,6 @@ In Figure~\ref{fig:gd4} we consider larger values for $\tau_0$ in
 Figure~\ref{subfig:stepsize4} and set $\tau_0 = 20$ in 
 Figure~\ref{subfig:alpha4}.
 
-{\bf Xiaojun, Liu, can we connect this to the estimate for fixed $\nu$
-in Remark 4.2? I will be looking into this.}
-
 \begin{figure}[h!] 
         \centering
         \subfigure[different stepsizes]{
@@ -268,16 +265,9 @@ size estimate from Equation~\ref{eq:step24} is very pessimistic.
 For smaller values of $p$ the predicted step is too small to be
 useful in practice. 
 
-{\bf Xiaojun, Lei, the bound should depend on M because of the 
-mesh dependence of the convergence rate. Can you look into this?
-I think the problem could be that in the proof you merge M into
-the O-term. That does not reflect how the PDE problems work. Can
-you put M in there somehow?
-}
-
 Next we consider the complexity bound 
 \[
- O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } \varepsilon^{-p_2})}.
+ O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } M^{p_1} \varepsilon^{-p_2})}.
 \]
 In Table~\ref{tab:itvals} we present the predicted number of iterations.
 \begin{table}[h!]
@@ -286,11 +276,12 @@ In Table~\ref{tab:itvals} we present the predicted number of iterations.
 \begin{tabular}{lllll}
 \hline
 $p \backslash 
-\varepsilon$ & 1.00e-02 & 1.00e-03 & 1.00e-05 & 1.00e-08   \\ 
-1.00e-01 & 3.91e+03 & 1.42e+05 & 1.39e+08 & 3.17e+12   \\ 
-2.00e-01 & 6.64e+02 & 9.97e+03 & 1.66e+06 & 2.66e+09   \\ 
-5.00e-01 & 4.19e+01 & 1.58e+02 & 1.66e+03 & 4.21e+04   \\ 
-8.00e-01 & 1.14e+01 & 2.25e+01 & 6.44e+01 & 2.32e+02   \\ 
+\varepsilon$ 
+& 1.00e-02 & 1.00e-03 & 1.00e-05 & 1.00e-08   \\ 
+1.00e-01 & 4.26e+05 & 1.55e+07 & 1.52e+10 & 3.46e+14   \\ 
+2.00e-01 & 4.25e+04 & 6.38e+05 & 1.06e+08 & 1.70e+11   \\ 
+5.00e-01 & 1.17e+03 & 4.40e+03 & 4.63e+04 & 1.17e+06   \\ 
+8.00e-01 & 2.15e+02 & 4.23e+02 & 1.21e+03 & 4.37e+03   \\ 
 \hline 
 \end{tabular} 
 \end{center}
