@@ -24,16 +24,21 @@ function alg3(u0, fobj, fgrad, proj, pdata, R, tau0, epsilon, maxit)
         ux .= (1.0 - eta)*u + eta*z
         RX .= fgrad(ux, pdata)
         ft = fobj(ux,pdata)
-        if (norm(R) > norm(RX))
+#
+# I am taking out the requirement that the gradient norm
+# decrease for testing purposes. Lei explained why I should
+# do that.
+#
+#        if (norm(R) > norm(RX))
            u .= ux
            R .= RX
            fc=ft
            w .= (1.0 - eta)*w + eta*v - (eta/mu)*fgrad(v,pdata)
-        else
-           RX .= R
-           ux .= u
-           ft = fc
-        end    
+#        else
+#           RX .= R
+#           ux .= u
+#           ft = fc
+#        end    
         rrnrm=norm(R) / N0
         push!(reshist, rrnrm)
         E=norm(u - uex)

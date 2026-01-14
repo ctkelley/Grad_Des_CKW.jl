@@ -15,15 +15,11 @@ uex2d=zeros(n,n);
 #uex2d .= [uexe2(x, y) for x in X, y in X];
 uex1d = reshape(uex2d, (N, 1));
 #
-# Now fix the boundary
+# Now fix the boundary and make u0 satisfy the bc.
 #
 bvec = zeros(N)
 bvec .= fix_rhs!(bvec, uexe2)
 u0 = D2\bvec
-#
-# Does initial iterate satisfy the bc?
-#
-#
 rhs_eg2 = zeros(N)
 rhs_exact = zeros(N)
 return(
@@ -41,7 +37,8 @@ return(
 end
 
 function uexe2(x,y)
-uex=1.0
+#uex=1.0
+uex=.5-sin(x)*sin(y)
 return uex
 end
 
