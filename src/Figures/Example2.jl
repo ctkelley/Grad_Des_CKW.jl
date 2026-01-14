@@ -1,5 +1,5 @@
 function Example2a(n=15; notebook=true)
-aout1 = alg1e2(15; p=1.5, nu=.1, lambda=20, maxit=100, tau0=.01)
+aout1 = alg1e2(15; p=1.5, nu=.1, lambda=20, maxit=100, tau0=.1)
 #semilogy(aout1.reshist)
 plot(aout1.reshist)
 xlabel("iterations")
