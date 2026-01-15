@@ -1,0 +1,322 @@
+\section{Numerical Experiments}
+
+\label{sec:numerical}
+
+
+Preliminary numerical results are presented in this section to provide additional insights into the performance guarantees of the algorithms proposed in this paper.
+We aim to elucidate that the final error attained by the algorithm is influenced by both the stepsize and the H{\"o}lder exponent.
+The numerical experiments are conducted using Julia \cite{Juliasirev} (version 1.12) on an Apple Macintosh Mini with an M2 processor, 8 performance cores, and 32GB of memory.
+We have placed the Julia codes in the GitHub repository (\url{https://github.com/ctkelley/Grad_Des_CKW.jl}) with instructions for reproducing the figures.
+
+
+
+
+
+\subsection{Two-dimensional PDE with a non-Lipschitz term}
+
+\label{subsec:example}
+
+H{\"o}lder continuous gradients arise naturally in partial differential equations (PDEs) involving non-Lipschitz nonlinearity \cite{Barrett1991finite,Tang2025uniqueness}.
+In this subsection,  we introduce a numerical example from \cite{Barrett1991finite}.
+This problem is to solve the following two-dimensional PDE,
+\begin{equation}
+	\label{eq:cF}
+	\cF (u) = - \Delta u + \gamma u_+^{\alpha} = 0,
+\end{equation}
+where $\alpha \in (0,1)$, $\gamma > 0$ is a constant and $u_+ = \max \{u, 0\}$.
+%It should be noted that
+%$\cF$ is the gradient of the following energy functional,
+%\begin{equation*}
+%	\hat{f} (u) = \frac{1}{2} \|\nabla u\|^2
+%+ \frac{\gamma}{p+1} \int_D u_+^{p+1} (y) \, \rmd y.
+%\end{equation*}
+%defined for $u \in H^1(D)$.
+Discretizing \cref{eq:cF} with the standard five point difference scheme \cite{LeVeque2007finite} leads to the following nonlinear system,
+\begin{equation}
+	\label{eq:bfF}
+	\bfF (\bfu) = \bfA \bfu + \gamma \bfu_+^{\alpha} - \bfb = 0,
+\end{equation}
+where $\bfA \in \Rnn$ is the discretization of $- \Delta$ with zero boundary conditions, $\bfb \in \Rn$ encodes the boundary conditions, and $\bfu_+^{\alpha} = \max \{\bfu, 0\}^{\alpha}$ is understood as a component-wise operation.
+
+
+We now modify the above problem to enable direct computation of errors in the iterations.
+To this end, we follow \cite[Example 4.4]{QuBianChen} and take as the exact solution the function
+\begin{equation*}
+%#u^*(x,y) = \left(\frac{3 r - 1}{2} \right)^{2p/(1-p)} \max(0, r-1/3)
+	u\uast (x, y) = \dkh{ \frac{3 r - 1}{2} }^{2} \max \hkh{ 0, r - \frac{1}{3} },
+\end{equation*}
+where $r = \sqrt{x^2 + y^2}$.
+We enforce the following boundary conditions,
+\begin{equation*}
+	u (x, 1) = u\uast (x,1),\,
+	u (x, 0) = u\uast (x, 0),\,
+	u(1, y) = u\uast (1, y),\,
+	u(0, y) = u\uast (0, y),
+\end{equation*}
+for $0 < x,y < 1$.
+And these conditions are encoded into $\bfb$.
+Then our modified equation is
+\begin{equation}
+	\label{eq:problem1}
+	\bfF (\bfu) - \bfc\uast = 0,
+\end{equation}
+where $\bfc\uast = \bfF (\bfu\uast)$.
+The nonlinear system \eqref{eq:problem1} corresponds to the optimality condition of the following problem,
+\begin{equation}
+	\label{opt:test}
+	\min_{\bfu \in \Rn} \hspace{2mm} f (\bfu) = \dfrac{1}{2} \bfu\zz \bfA \bfu + \dfrac{\gamma}{1 + \alpha} \bfe\zz \bfu_{+}^{1 + \alpha} - (\bfb + \bfc\uast)\zz \bfu,
+\end{equation}
+where $\bfe \in \Rn$ is the vector of all ones.
+
+
+The optimization model \eqref{opt:test} is a special instance of problem~\eqref{opt:main} with $\Omega=\mathbb{R}^n$, $m = 2$,
+\begin{equation*}
+	f_1 (\bfu) = \bfu\zz \bfA \bfu - 2 (\bfb + \bfc\uast)\zz \bfu,
+	\mbox{~~and~~}
+	f_2 (\bfu) = \frac{2 \gamma}{1 + \alpha} \bfe\zz \bfu_+^{1 + \alpha}.
+\end{equation*}
+It is clear that, $\nabla f_1$ is Lipschitz continuous with the corresponding Lipschitz constant $L_1 = 2 \norm{\bfA}$, and $\nabla f_2$ is H{\"o}lder continuous with the H{\"o}lder exponent $\alpha$ and $L_2 = 2 \gamma$ from
+\begin{equation*}
+	\norm{\nabla f_2 (\bfu) - \nabla f_2 (\bfv) }
+	= 2 \gamma \norm{\bfu_+^{\alpha} - \bfv_+^{\alpha}}
+	\leq 2 \gamma \norm{\bfu - \bfv}^{\alpha},
+\end{equation*}
+for all $\bfu, \bfv \in \Rn$.
+Moreover, the function $f = (f_1 + f_2) / 2$ is $\lambda (\bfA)$-strongly convex, where $\lambda (\bfA)$ is the smallest eigenvalue of the symmetric positive definite matrix $\bfA$.
+Let $\bfu\uast$ be the vector obtained by evaluating $u\uast$  at the interior grid points.
+Then $\bfu\uast$ serves as the unique global minimizer of problem~\eqref{opt:test}.
+
+
+In the subsequent experiments, we use the solution of $\bfA \bfu_0 = - \bfb$ as the initial iterate.
+This is the discretization of Laplace's equation with the boundary conditions.
+In this way, we ensure that the entire iteration satisfies the boundary conditions.
+Unless otherwise specified, we set the spatial mesh width as $h = 2^{-4}$ in this subsection. 
+The dimension of the discretized problem is $n = (h^{-1} - 1)^2$. 
+
+
+%We then examine the effects of grid refinement in \S~\ref{subsubsec:alg1ex1}.
+
+
+
+
+
+\subsubsection{Numerical results of \cref{alg:gd}}
+
+\label{subsubsec:alg1}
+
+
+In the first experiment, we scrutinize the performance of \cref{alg:gd} under different stepsizes for problem~\cref{opt:test} with $\alpha = 0.5$ and $\gamma = 0.5$. 
+%Specifically, with the parameters $p$ and $\gamma$ fixed at $0.5$.
+Specifically, \cref{alg:gd} is tested for stepsizes of the form $\tau = \tau_0 h^2$, where $\tau_0$ is taken from the set $\{0.2, 0.1, 0.05, 0.01\}$.
+%$h = 1 / (s + 1)$ is the spatial mesh width and
+The corresponding numerical results, presented in \cref{subfig:stepsize}, illustrate the decay of the distance between the iterates and the global minimizer over iterations.
+It can be observed that, a larger stepsize facilitates a more rapid descent  in the early stage of iterations, albeit at the expense of a greater asymptotic error.
+This phenomenon corroborates our theoretical predictions.
+
+
+In the second experiment, we vary the H{\"o}lder exponent $\alpha$ over the values in $\{0.1, 0.2, 0.5, 0.8\}$, while fixing $\tau_0 = 0.01$.
+\Cref{subfig:alpha} similarly tracks the decay of the distance to the global minimizer over iterations.
+It is evident that, as the value of $\alpha$ decreases, the final error attained by \cref{alg:gd} increases under the same stepsize.
+Therefore, the associated optimization problems become increasingly ill-conditioned and thus more challenging to solve for smaller values of $\alpha$.
+These findings offer empirical support for our theoretical analysis.
+
+
+\begin{figure}[h!]
+	\centering
+	\subfigure[different values of $\tau_0$]{
+		\label{subfig:stepsize}
+		\includegraphics[width=0.45\linewidth]{Figures/test_stepsize.pdf}
+	}
+	\subfigure[different values of $\alpha$]{
+		\label{subfig:alpha}
+		\includegraphics[width=0.45\linewidth]{Figures/test_alpha.pdf}
+	}
+	\caption{Numerical performance of \cref{alg:gd} for problem~\cref{opt:test} with $h = 2^{-4}$.}
+	\label{fig:gd}
+\end{figure}
+
+%$s = 31$
+We now repeat the experiment with $h = 2^{-5}$, so we reduce the mesh width by a factor of two and increase the norm of $\bfA$ by a factor of four.
+As one would expect the stepsize must decrease by a factor of four for stability.
+
+
+\begin{figure}[h!]
+    \centering
+    \subfigure[different values of $\tau_0$]{
+        \label{subfig:stepsize2}
+        \includegraphics[width=0.45\linewidth]{Figures/test2_stepsize.pdf}
+    }
+    \subfigure[different values of $\alpha$]{
+        \label{subfig:alpha2}
+        \includegraphics[width=0.45\linewidth]{Figures/test2_alpha.pdf}
+    }
+    \caption{Numerical performance of \cref{alg:gd} for problem~\cref{opt:test} with $h = 2^{-5}$.}
+    \label{fig:gd2}
+\end{figure}
+
+
+
+
+
+\subsubsection{Numerical results of \cref{alg:upgm}}
+
+\label{subsubsec:alg2}
+
+
+We repeat the study in \cref{subsubsec:alg1} for \cref{alg:upgm} by varying the values of the H{\"o}lder exponent $\alpha$.
+We set $\varepsilon=10^{-6}$ and $\mu = 2 \pi^2$ in \cref{alg:upgm}, which is a lower estimate for the smallest eigenvalue of $\bfA$.
+The stepsize is initialized to $0.1 h^2$ in the line-search procedure.
+The corresponding numerical results are depicted in \cref{fig:alpha3}.
+Comparing \cref{fig:alpha3} to \cref{subfig:alpha2} shows the benefits of the line-search procedure in \cref{alg:upgm}, which does not need to manually adjust the value of $\tau_0$ to converge for a given value of $\varepsilon$.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.45\linewidth]{Figures/test3_alpha.pdf}
+	\caption{Numerical performance of \cref{alg:upgm} for problem~\cref{opt:test} with different values of $\alpha$.}
+	\label{fig:alpha3}
+\end{figure}
+
+
+%The advantage of the line search is that one does not manually adjust the value of $\tau_0$ to converge for a given value of $\epsilon$.
+
+
+
+
+
+\subsubsection{Numerical results of \cref{alg:ufgm}}
+
+\label{subsubsec:alg3}
+
+
+We report the numerical performance of \cref{alg:ufgm} on two experiments.
+Guided by the observation in Remark~\ref{rmk:ufgm}, we test \cref{alg:ufgm} with a fixed stepsize $\nu = \tau_0 h^2$.
+%As we did for Algorithms 1 and 2, we stop updating the solution if the norm of the gradient increases.
+%{\bf We need to have a single parameter $\nu$ so we must change something.}
+In the first example, we use the values for $\tau_0$ from \cref{fig:gd}.
+In this way we can directly compare the performance of \cref{alg:ufgm} with that of \cref{alg:gd}.
+The corresponding results, shown in \cref{fig:gd3}, are poor.
+The reason for this is that we are not exploiting the ability of \cref{alg:ufgm} to use larger stepsizes.
+In the second example, we consider larger values for $\tau_0$ in \cref{subfig:stepsize4} and set $\tau_0 = 20$ in \cref{subfig:alpha4}.
+The convergence is much better in all cases.
+The hardest case ($\alpha = 0.1$) has very irregular convergence in the terminal phase of iterations.
+
+
+\begin{figure}[h!]
+    \centering
+    \subfigure[different values of $\tau_0$]{
+        \label{subfig:stepsize3}
+        \includegraphics[width=0.45\linewidth]{Figures/test_stepsize3.pdf}
+    }
+    \subfigure[different values of $\alpha$]{
+        \label{subfig:alpha3}
+        \includegraphics[width=0.421\linewidth]{Figures/test_alpha3.pdf}
+    }
+    \caption{Numerical performance of \cref{alg:ufgm} for problem~\cref{opt:test} with smaller stepsizes.}
+    \label{fig:gd3}
+\end{figure}
+
+
+\begin{figure}[h!]
+        \centering
+        \subfigure[different values of $\tau_0$]{
+                \label{subfig:stepsize4}
+                \includegraphics[width=0.45\linewidth]{Figures/test_stepsize4.pdf}
+        }
+        \subfigure[different values of $\alpha$]{
+                \label{subfig:alpha4}
+                \includegraphics[width=0.45\linewidth]{Figures/test_alpha4.pdf}
+        }
+        \caption{Numerical performance of \cref{alg:ufgm} for problem~\cref{opt:test} with larger stepsizes.}
+        \label{fig:gd4}
+\end{figure}
+
+
+
+%\clearpage
+
+\subsubsection{Stepsize and termination}
+\label{subsubsec:term}
+
+It is useful to look at the values of stepsizes from Remark~\ref{rmk:ufgm}.
+We note that for problem~\cref{opt:test}, $M=O(h^{-2})$.
+We are using ${\hat \alpha} = \alpha$ and neglecting constants in the estimate.
+We tabulate in \cref{tab:nuvals} the value of
+\begin{equation}
+	\label{eq:step24}
+	\nu = h^{2 p_1} \varepsilon^{p_2}
+\end{equation}
+where
+\begin{equation*}
+	p_1 = (1 + \alpha) / (1 + 3 \alpha),
+	\mbox{~~and~~}
+	p_2 = 2 (1 - \alpha) / (1 + 3 \alpha).
+\end{equation*}
+Contrasting the values of $\nu$ in \cref{tab:nuvals} to the value of $20 h^2 \approx 0.08$, we can see that the stepsize estimate from \cref{eq:step24} is very pessimistic.
+For smaller values of $\alpha$, the predicted stepsize is too small to be useful in practice.
+
+\begin{table}[h!]
+	\caption{Representative values of $\nu$.}
+	\label{tab:nuvals}
+	\begin{center}
+		\begin{tabular}{lllll}
+		\hline
+		$\alpha \backslash \varepsilon$ & 1.00e-02 & 1.00e-03 & 1.00e-05 & 1.00e-08   \\
+		0.1 & 1.56e-05 & 6.43e-07 & 1.09e-09 & 7.68e-14   \\
+		0.2 & 1.56e-04 & 1.56e-05 & 1.56e-07 & 1.56e-10   \\
+		0.5 & 5.69e-03 & 2.26e-03 & 3.59e-04 & 2.26e-05   \\
+		0.8 & 3.09e-02 & 2.36e-02 & 1.37e-02 & 6.08e-03   \\
+		\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+Next, we consider the complexity bound
+\begin{equation*}
+	O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } M^{p_1} \varepsilon^{-p_2})}.
+\end{equation*}
+In \cref{tab:itvals} we present the predicted number of iterations.
+The estimates are pessimistic except for the larger values of $\alpha$ when compared to the findings we report in \cref{fig:gd4}.
+
+
+\begin{table}[h!]
+	\caption{Representative iteration numbers.}
+	\label{tab:itvals}
+	\begin{center}
+		\begin{tabular}{lllll}
+		\hline
+		$\alpha \backslash \varepsilon$ & 1.00e-02 & 1.00e-03 & 1.00e-05 & 1.00e-08   \\
+		0.1 & 4.26e+05 & 1.55e+07 & 1.52e+10 & 3.46e+14   \\
+		0.2 & 4.25e+04 & 6.38e+05 & 1.06e+08 & 1.70e+11   \\
+		0.5 & 1.17e+03 & 4.40e+03 & 4.63e+04 & 1.17e+06   \\
+		0.8 & 2.15e+02 & 4.23e+02 & 1.21e+03 & 4.37e+03   \\
+		\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+Finally, we consider termination of the iteration.
+In problem~\cref{opt:test}, we know the exact solution and can evaluate the algorithms in terms of the error.
+In practice we cannot do that and must use the gradient norm as a surrogate for the error.
+While this is standard for smooth optimization, it could be a problem when the gradient is not Lipschitz continuous.
+We illustrate this in \cref{fig:resid}, where we compare the gradient norm with the error for the case $\tau_0 = 20$ using \cref{alg:ufgm}.
+The numerical results in \cref{fig:resid} indicate that, when the gradient norm stops decreasing, the error has also stopped decreasing.
+However, the gradient norm is larger than the error norm, especially when the error is small, which is consistent with H{\"o}lder continuity.
+
+\begin{figure}[h!]
+    \centering
+    \subfigure[$\alpha = 0.5$]{
+        \label{subfig:res05}
+        \includegraphics[width=0.45\linewidth]{Figures/restest05.pdf}
+    }
+    \subfigure[$\alpha = 0.1$]{
+        \label{subfig:res01}
+        \includegraphics[width=0.45\linewidth]{Figures/restest01.pdf}
+    }
+    \caption{Gradient and error norms for problem~\cref{opt:test}.}
+    \label{fig:resid}
+\end{figure}
+
+

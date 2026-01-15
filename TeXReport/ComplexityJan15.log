@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.14)  7 JAN 2026 13:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.14)  15 JAN 2026 10:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Complexity
-(./Complexity.tex
+**ComplexityJan15
+(./ComplexityJan15.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/Users/ctk/tex/tex_inputs/siamart250211.cls
 Document Class: siamart250211 2025/02/11 v1.4.6 LaTeX document e-class
@@ -486,6 +486,9 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \c@ALC@rem=\count318
 \ALC@tlm=\skip69
 )
+(/usr/local/texlive/2023/texmf-dist/tex/latex/xurl/xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
+)
 (/usr/local/texlive/2023/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip70
@@ -613,8 +616,8 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 \c@currassumptionctr=\count349
 \c@endassumptionctr=\count350
 )
-(./Complexity.aux)
-\openout1 = `Complexity.aux'.
+(./ComplexityJan15.aux)
+\openout1 = `ComplexityJan15.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
@@ -635,9 +638,9 @@ LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 Package hyperref Info: Link coloring OFF on input line 21.
- (./Complexity.out) (./Complexity.out)
+ (./ComplexityJan15.out) (./ComplexityJan15.out)
 \@outlinefile=\write3
-\openout3 = `Complexity.out'.
+\openout3 = `ComplexityJan15.out'.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -679,130 +682,143 @@ nput line 54.
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Package hyperref Info: bookmark level for unknown example defaults to 0 on inpu
 t line 97.
- [2] [3]
+ [2]
+
+LaTeX Warning: Citation `Alefeld2008regularized' on page 3 undefined on input l
+ine 171.
+
+[3]
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on 
-input line 307.
+input line 308.
 Package hyperref Info: bookmark level for unknown proof defaults to 0 on input 
-line 321.
+line 322.
  [4]
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
-t line 345.
-
-[5] [6] [7]
+t line 346.
+ [5] [6] [7]
 Package hyperref Info: bookmark level for unknown corollary defaults to 0 on in
-put line 633.
+put line 634.
  [8]
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input 
-line 757.
+line 758.
 
 Underfull \vbox (badness 1635) has occurred while \output is active []
 
  [9]
 Package hyperref Info: bookmark level for unknown remark defaults to 0 on input
- line 807.
+ line 808.
 
-[10] [11] [12] [13] [14] (./ExampleJan7.tex [15] [16{/usr/local/texlive/2023/te
-xmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<Figures/test_stepsize.pdf, id=411, 462.52798pt x 346.89601pt>
+[10] [11] [12] [13] [14] (./ExampleJan15.tex [15]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 108.
+
+[16]
+<Figures/test_stepsize.pdf, id=409, 462.52798pt x 346.89601pt>
 File: Figures/test_stepsize.pdf Graphic file (type pdf)
 <use Figures/test_stepsize.pdf>
-Package pdftex.def Info: Figures/test_stepsize.pdf  used on input line 121.
+Package pdftex.def Info: Figures/test_stepsize.pdf  used on input line 129.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test_alpha.pdf, id=412, 462.52798pt x 346.89601pt>
+<Figures/test_alpha.pdf, id=410, 462.52798pt x 346.89601pt>
 File: Figures/test_alpha.pdf Graphic file (type pdf)
 <use Figures/test_alpha.pdf>
-Package pdftex.def Info: Figures/test_alpha.pdf  used on input line 125.
+Package pdftex.def Info: Figures/test_alpha.pdf  used on input line 133.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test2_stepsize.pdf, id=414, 462.52798pt x 346.89601pt>
+<Figures/test2_stepsize.pdf, id=413, 462.52798pt x 346.89601pt>
 File: Figures/test2_stepsize.pdf Graphic file (type pdf)
 <use Figures/test2_stepsize.pdf>
-Package pdftex.def Info: Figures/test2_stepsize.pdf  used on input line 140.
+Package pdftex.def Info: Figures/test2_stepsize.pdf  used on input line 148.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test2_alpha.pdf, id=415, 462.52798pt x 346.89601pt>
+<Figures/test2_alpha.pdf, id=414, 462.52798pt x 346.89601pt>
 File: Figures/test2_alpha.pdf Graphic file (type pdf)
 <use Figures/test2_alpha.pdf>
-Package pdftex.def Info: Figures/test2_alpha.pdf  used on input line 144.
+Package pdftex.def Info: Figures/test2_alpha.pdf  used on input line 152.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test3_alpha.pdf, id=419, 462.52798pt x 346.89601pt>
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 166.
+
+[17 <./Figures/test_stepsize.pdf> <./Figures/test_alpha.pdf> <./Figures/test2_s
+tepsize.pdf> <./Figures/test2_alpha.pdf>]
+<Figures/test3_alpha.pdf, id=559, 462.52798pt x 346.89601pt>
 File: Figures/test3_alpha.pdf Graphic file (type pdf)
 <use Figures/test3_alpha.pdf>
-Package pdftex.def Info: Figures/test3_alpha.pdf  used on input line 166.
-(pdftex.def)             Requested size: 361.34999pt x 271.02771pt.
- [17 <./Figures/test_stepsize.pdf> <./Figures/test_alpha.pdf> <./Figures/test2_
-stepsize.pdf> <./Figures/test2_alpha.pdf>]
-<Figures/test_stepsize3.pdf, id=552, 643.20299pt x 495.77222pt>
+Package pdftex.def Info: Figures/test3_alpha.pdf  used on input line 175.
+(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 192.
+
+<Figures/test_stepsize3.pdf, id=573, 643.20299pt x 495.77222pt>
 File: Figures/test_stepsize3.pdf Graphic file (type pdf)
 <use Figures/test_stepsize3.pdf>
-Package pdftex.def Info: Figures/test_stepsize3.pdf  used on input line 193.
+Package pdftex.def Info: Figures/test_stepsize3.pdf  used on input line 210.
 (pdftex.def)             Requested size: 166.67154pt x 128.46654pt.
-<Figures/test_alpha3.pdf, id=553, 462.52798pt x 346.89601pt>
+<Figures/test_alpha3.pdf, id=574, 462.52798pt x 346.89601pt>
 File: Figures/test_alpha3.pdf Graphic file (type pdf)
 <use Figures/test_alpha3.pdf>
-Package pdftex.def Info: Figures/test_alpha3.pdf  used on input line 197.
-(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Figures/test_stepsize4.pdf, id=559, 462.52798pt x 346.89601pt>
+Package pdftex.def Info: Figures/test_alpha3.pdf  used on input line 214.
+(pdftex.def)             Requested size: 155.93349pt x 116.94795pt.
+<Figures/test_stepsize4.pdf, id=577, 462.52798pt x 346.89601pt>
 File: Figures/test_stepsize4.pdf Graphic file (type pdf)
 <use Figures/test_stepsize4.pdf>
-Package pdftex.def Info: Figures/test_stepsize4.pdf  used on input line 213.
+Package pdftex.def Info: Figures/test_stepsize4.pdf  used on input line 225.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test_alpha4.pdf, id=560, 462.52798pt x 346.89601pt>
+<Figures/test_alpha4.pdf, id=578, 462.52798pt x 346.89601pt>
 File: Figures/test_alpha4.pdf Graphic file (type pdf)
 <use Figures/test_alpha4.pdf>
-Package pdftex.def Info: Figures/test_alpha4.pdf  used on input line 217.
+Package pdftex.def Info: Figures/test_alpha4.pdf  used on input line 229.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18 <./Figures/test3_alpha.pdf>] [19 <./Figures/test_stepsize3.pdf> <./Figures/
-test_alpha3.pdf> <./Figures/test_stepsize4.pdf> <./Figures/test_alpha4.pdf>]
-<Figures/restest05.pdf, id=730, 462.52798pt x 346.89601pt>
+[18 <./Figures/test3_alpha.pdf> <./Figures/test_stepsize3.pdf> <./Figures/test_
+alpha3.pdf>] [19 <./Figures/test_stepsize4.pdf> <./Figures/test_alpha4.pdf>]
+<Figures/restest05.pdf, id=764, 462.52798pt x 346.89601pt>
 File: Figures/restest05.pdf Graphic file (type pdf)
 <use Figures/restest05.pdf>
-Package pdftex.def Info: Figures/restest05.pdf  used on input line 309.
+Package pdftex.def Info: Figures/restest05.pdf  used on input line 313.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/restest01.pdf, id=731, 462.52798pt x 346.89601pt>
+<Figures/restest01.pdf, id=765, 462.52798pt x 346.89601pt>
 File: Figures/restest01.pdf Graphic file (type pdf)
 <use Figures/restest01.pdf>
-Package pdftex.def Info: Figures/restest01.pdf  used on input line 313.
+Package pdftex.def Info: Figures/restest01.pdf  used on input line 317.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (./Example2Jan7.tex [20
-
-] [21 <./Figures/restest05.pdf> <./Figures/restest01.pdf>]
-<Figures/alg1e2.pdf, id=816, 627.30362pt x 459.6372pt>
+)
+(./Example2Jan15.tex [20 <./Figures/restest05.pdf> <./Figures/restest01.pdf>]
+<Figures/alg1e2.pdf, id=849, 462.52798pt x 346.89601pt>
 File: Figures/alg1e2.pdf Graphic file (type pdf)
 <use Figures/alg1e2.pdf>
-Package pdftex.def Info: Figures/alg1e2.pdf  used on input line 67.
-(pdftex.def)             Requested size: 166.67154pt x 122.11888pt.
-<Figures/alg3e2.pdf, id=817, 676.44719pt x 487.0998pt>
+Package pdftex.def Info: Figures/alg1e2.pdf  used on input line 90.
+(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
+<Figures/alg3e2.pdf, id=851, 462.52798pt x 346.89601pt>
 File: Figures/alg3e2.pdf Graphic file (type pdf)
 <use Figures/alg3e2.pdf>
-Package pdftex.def Info: Figures/alg3e2.pdf  used on input line 71.
-(pdftex.def)             Requested size: 166.67154pt x 120.01314pt.
-) [22 <./Figures/alg1e2.pdf> <./Figures/alg3e2.pdf>] (./Complexity.bbl)
+Package pdftex.def Info: Figures/alg3e2.pdf  used on input line 94.
+(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
+)
+[21 <./Figures/alg1e2.pdf> <./Figures/alg3e2.pdf>] (./ComplexityJan15.bbl)
 \tf@thm=\write4
-\openout4 = `Complexity.thm'.
+\openout4 = `ComplexityJan15.thm'.
 
 
-[23] (./Complexity.aux)
-Package rerunfilecheck Info: File `Complexity.out' has not changed.
-(rerunfilecheck)             Checksum: 659237800A861ADE6BF1612D5D9E95C6;2294.
+[22] (./ComplexityJan15.aux)
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `ComplexityJan15.out' has not changed.
+(rerunfilecheck)             Checksum: 1256BEBC224E596C5378047B2500C5C0;2678.
  ) 
 Here is how much of TeX's memory you used:
- 18837 strings out of 476025
- 304839 string characters out of 5790017
+ 18861 strings out of 476025
+ 305587 string characters out of 5790017
  1877388 words of memory out of 5000000
- 37300 multiletter control sequences out of 15000+600000
- 522598 words of font info for 72 fonts, out of 8000000 for 9000
+ 37324 multiletter control sequences out of 15000+600000
+ 522263 words of font info for 71 fonts, out of 8000000 for 9000
  2715 hyphenation exceptions out of 8191
- 89i,21n,90p,1359b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,21n,90p,1364b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><
 /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
@@ -826,12 +842,11 @@ st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2023/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-
-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Complexity.pdf (23 pages, 520025 bytes).
+t/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on ComplexityJan15.pdf (22 pages, 541322 bytes).
 PDF statistics:
- 1027 PDF objects out of 1200 (max. 8388607)
- 628 compressed objects within 7 object streams
- 153 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1072 PDF objects out of 1200 (max. 8388607)
+ 672 compressed objects within 7 object streams
+ 151 named destinations out of 1000 (max. 500000)
+ 170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

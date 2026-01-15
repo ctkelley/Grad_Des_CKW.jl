@@ -1,11 +1,12 @@
 This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: Complexity.aux
+The top-level auxiliary file: ComplexityJan15.aux
 The style file: siamplain.bst
 Database file #1: library_HGD.bib
+Warning--I didn't find a database entry for "Alefeld2008regularized"
 You've used 14 entries,
             2244 wiz_defined-function locations,
-            638 strings with 6503 characters,
+            640 strings with 6557 characters,
 and the built_in function-call counts, 4939 in all, are:
 = -- 444
 > -- 175
@@ -44,3 +45,4 @@ warning$ -- 0
 while$ -- 55
 width$ -- 16
 write$ -- 123
+(There was 1 warning)

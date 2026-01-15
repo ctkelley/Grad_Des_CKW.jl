@@ -13,6 +13,7 @@
 \usepackage{epstopdf}
 \usepackage{enumerate}
 \usepackage{algorithmic}
+\usepackage{xurl}
 \ifpdf
   \DeclareGraphicsExtensions{.eps,.pdf,.png,.jpg}
 \else
@@ -45,6 +46,7 @@
 \newcommand{\bfu}{\mathbf{u}}
 \newcommand{\bfv}{\mathbf{v}}
 \newcommand{\bfw}{\mathbf{w}}
+\newcommand{\bfx}{\mathbf{x}}
 \newcommand{\bfy}{\mathbf{y}}
 \newcommand{\bfz}{\mathbf{z}}
 
@@ -63,6 +65,7 @@
 
 \newcommand{\proj}{\mathsf{\Pi}}
 \newcommand{\sign}{\mathsf{sign}}
+\newcommand{\Diag}{\mathsf{Diag}}
 
 \newcommand{\dkh}[1]{\left(#1\right)}
 \newcommand{\hkh}[1]{\left\{#1\right\}}
@@ -95,10 +98,10 @@
 
 % Title. If the supplement option is on, then "Supplementary Material"
 % is automatically inserted before the title.
-\title{Complexity of Projected Gradient Methods for Strongly Convex Optimization with H{\"o}lder Continuous Gradient Terms\thanks{Submitted to the editors DATE. 
+\title{Complexity of Projected Gradient Methods for Strongly Convex Optimization with H{\"o}lder Continuous Gradient Terms\thanks{Submitted to the editors 15 January, 2026.
 \funding{We would like to acknowledge support for this project from RGC grant JLFS/P-501/24 for the CAS AMSS-PolyU Joint Laboratory in Applied Mathematics and Hong Kong Research Grant Council project PolyU15300024.}}}
 
-\subtitle{\today}
+%\subtitle{}
 
 % Authors: full names plus addresses.
 \author{
@@ -112,7 +115,7 @@
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode:latex
 %%% TeX-master: "ex_article"
-%%% End: 
+%%% End:

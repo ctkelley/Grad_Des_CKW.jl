@@ -1,0 +1,98 @@
+\subsection{Semi-linear elliptic problem with a constraint}
+\label{subsec:example2}
+
+We consider a second numerical example motivated by a semi-linear elliptic problem with a constraint on the solution in a certain set \cite{Tang2025uniqueness}. 
+Let
+\begin{equation}
+	\label{eq:cF2}
+	\cH (u) = - \Delta u + \delta |u|^{\alpha} \sign (u) - |u|^{p - 1} u,
+\end{equation}
+on $D = (0, 1)^2$ with the boundary condition $u (x, y) = 0.5 - \sin(x) \sin(y)$ on $\partial D$. 
+Here, $\alpha \in (0, 1)$, $p > 1$, and $\delta > p / \alpha$ are three constants. 
+We consider the variational inequality that is to find $u\uast \in [-1,1]$ such that
+\begin{equation*}
+	\cH (u\uast) (u - u\uast) \geq 0,
+\end{equation*}
+for any $u\in [-1,1]$. 
+This problem is equivalent to the following nonlinear equation,
+\begin{equation}
+	\label{exampleVI}
+    0 = \cF (u) :=
+    \left\{
+    \begin{aligned}
+        & \cH (u), 
+        && \mbox{if~} u - \cH (u) \in [-1, 1], \\
+        & u - 1, 
+        && \mbox{if~} u - \cH(u) \geq 1, \\
+        & u + 1,
+        && \mbox{otherwise}.
+    \end{aligned}
+    \right.
+\end{equation}
+By discretizing \cref{eq:cF2} with the standard five point difference scheme \cite{LeVeque2007finite}, problem~\cref{exampleVI} leads to the following  system of nonlinear equations,
+\begin{equation}
+	\label{example2}
+	0 = \bfF (\bfu) := \bfu - \proj_{\bfU} \dkh{ \bfu - \theta \dkh{ \bfA \bfu + \delta \abs{\bfu}^{\alpha} \sign (\bfu) - \abs{\bfu}^{p - 1} \bfu - \bfb } },
+\end{equation}
+where $\bfU = [-1, 1]^n$,  $\theta > 0$ is a constant, $\bfA \in \Rnn$ is a symmetric positive definite matrix, and $\bfb \in \Rn$ encodes the boundary conditions. 
+Note that \cref{example2} is the optimality condition of the following problem,
+\begin{equation}
+	\label{opt:test2}
+	\min_{\bfu \in \bfU} \hspace{2mm}
+	f (\bfu):= \frac{1}{2}\bfu\zz \bfA \bfu + \frac{\delta}{1 + \alpha} \bfe\zz \abs{\bfu}^{1 + \alpha} - \frac{1}{1 + p} \bfe\zz \abs{\bfu}^{1 + p} - \bfb\zz \bfu.
+\end{equation}
+The Hessian matrix of $f$ at $\bfu$ with $\bfu_i \neq 0 \; (i = 1, \dotsc, n)$ has the form
+\begin{equation*}
+	\nabla^2 f (\bfu) = \bfA + \delta \alpha \Diag \dkh{\abs{\bfu}^{\alpha - 1}} - p \Diag \dkh{ \abs{\bfu}^{p - 1}},
+\end{equation*}
+Since $\delta > p / \alpha$, $\nabla^2 f (\bfu)$ is
+symmetric positive definite for any $\bfu \in \bfU$ with $\bfu_i \neq 0 \; (i = 1, \dotsc, n)$. Hence, the function $f$ is $\mu$-strongly convex in $\bfU$ with $\mu = \lambda (\bfA)$ and the system \cref{example2} has a unique solution in $\bfU$. 
+%However, $\nabla f$ is not Lipschitz continuous in $\bfU$.
+The optimization model \eqref{opt:test2} is a special instance of problem~\eqref{opt:main} with $\Omega = \bfU$, $m = 2$,
+\begin{equation*}
+	f_1 (\bfu) = \bfu\zz \bfA \bfu - 2 \bfb\zz \bfu - \frac{2}{1 + p} \bfe\zz \abs{\bfu}^{1 + p}, 
+	\mbox{~and~}
+	f_2 (\bfu) = \frac{2 \delta}{1 + \alpha} \bfe\zz \abs{\bfu}^{1 + \alpha}.
+\end{equation*}
+It is clear that Assumption~\ref{asp:function} (ii) holds with $\alpha_1 = 1$, $L_1 = 2 \norm{\bfA} + 2 p$, $\alpha_2 = \alpha$, and $L_2 = 2 \delta \alpha$.
+
+
+%\subsubsection{Results}
+%\label{subsubsec:results2}
+In this example we do not have an analytic solution, so we only plot the residual norms $\norm{ \bfF (\bfu) }$. 
+We compare the performance of \cref{alg:gd} and \cref{alg:ufgm} on problem~\eqref{opt:test2}. 
+The stepsizes of \cref{alg:gd} and \cref{alg:ufgm} are set to $0.1 h^2$ and $20 h^2$, respectively. 
+In our examples, we vary $\alpha$ over the values in $\{0.1, 0.2, 0.5, 0.8\}$, while fixing $p = 1.5$ and $\delta = 20$. 
+The numerical results are provided in \Cref{fig:ex2}. 
+%It can be observed that both algorithms demonstrate strong performance. 
+%Furthermore, 
+It can be observed that, \cref{alg:ufgm} exhibits a faster convergence rate, benefiting from the use of a larger stepsize. 
+
+
+%Clearly, the only interesting cases for this example are ones where the
+%solution can be negative. One such case, which we use here, is
+%\begin{equation*}
+%	\alpha = p = 0.1, \delta = 40.
+%\end{equation*}
+%As was the case for \cref{subsec:example}, problems where the exponent for the non-Lipschitz term in the gradients is small are difficult. 
+%In particular one cannot drive the residual to a small value. 
+%We compare \cref{alg:gd} and \cref{alg:ufgm}. 
+%We use stepsizes of $0.1 h^2$ for \cref{alg:gd} and
+%$20 h^2$ for \cref{alg:ufgm}. 
+%\Cref{fig:ex2} shows that \cref{alg:ufgm} benefits from the larger step size, but that we can only obtain a modest reduction in the residual norm in both cases. 
+
+
+\begin{figure}[h!]
+    \centering
+    \subfigure[\cref{alg:gd}]{
+        \label{subfig:alg1e2}
+        \includegraphics[width=0.45\linewidth]{Figures/alg1e2.pdf}
+    }
+    \subfigure[\cref{alg:ufgm}]{
+        \label{subfig:alg3e2}
+        \includegraphics[width=0.45\linewidth]{Figures/alg3e2.pdf}
+    }
+    \caption{Numerical performance of \cref{alg:gd} and \cref{alg:ufgm} for problem~\cref{opt:test2} with different values of $\alpha$.}
+    \label{fig:ex2}
+\end{figure}
+
