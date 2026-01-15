@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{Alefeld2008regularized}
+{\sc G.~Alefeld and X.~Chen}, {\em A regularized projection method for
+  complementarity problems with non-{L}ipschitzian functions}, Math. Comput.,
+  77 (2008), pp.~379--395.
+
 \bibitem{Baritaux2010efficient}
 {\sc J.-C. Baritaux, K.~Hassler, and M.~Unser}, {\em An efficient numerical
   method for general ${L}_p$ regularization in fluorescence molecular
@@ -7,7 +12,7 @@
 
 \bibitem{Barrett1991finite}
 {\sc J.~W. Barrett and R.~M. Shanahan}, {\em Finite element approximation of a
-  model reaction--diffusion problem with a non-lipschitz nonlinearity}, Numer.
+  model reaction-diffusion problem with a non-{L}ipschitz nonlinearity}, Numer.
   Math., 59 (1991), pp.~217--242.
 
 \bibitem{Juliasirev}
@@ -21,7 +26,7 @@
 
 \bibitem{Chen2025new}
 {\sc X.~Chen, C.~T. Kelley, and L.~Wang}, {\em A new complexity result for
-  strongly convex optimization with locally $\alpha$-h{\"o}lder continuous
+  strongly convex optimization with locally $\alpha$-{H}{\"o}lder continuous
   gradients}, arXiv:2505.03506v1,  (2025).
 
 \bibitem{Devolder2014first}

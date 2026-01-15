@@ -3,46 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: ComplexityJan15.aux
 The style file: siamplain.bst
 Database file #1: library_HGD.bib
-Warning--I didn't find a database entry for "Alefeld2008regularized"
-You've used 14 entries,
+You've used 15 entries,
             2244 wiz_defined-function locations,
-            640 strings with 6557 characters,
-and the built_in function-call counts, 4939 in all, are:
-= -- 444
-> -- 175
+            646 strings with 6703 characters,
+and the built_in function-call counts, 5362 in all, are:
+= -- 486
+> -- 188
 < -- 0
-+ -- 74
-- -- 56
-* -- 354
-:= -- 707
-add.period$ -- 14
-call.type$ -- 14
-change.case$ -- 68
++ -- 80
+- -- 60
+* -- 383
+:= -- 763
+add.period$ -- 15
+call.type$ -- 15
+change.case$ -- 73
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 278
-empty$ -- 457
-format.name$ -- 56
-if$ -- 1083
+cite$ -- 15
+duplicate$ -- 301
+empty$ -- 494
+format.name$ -- 60
+if$ -- 1179
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 16
-newline$ -- 45
-num.names$ -- 28
-pop$ -- 116
+int.to.str$ -- 15
+missing$ -- 17
+newline$ -- 48
+num.names$ -- 30
+pop$ -- 123
 preamble$ -- 1
-purify$ -- 56
+purify$ -- 60
 quote$ -- 0
-skip$ -- 185
+skip$ -- 205
 stack$ -- 0
-substring$ -- 344
-swap$ -- 94
+substring$ -- 382
+swap$ -- 104
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 52
+type$ -- 56
 warning$ -- 0
-while$ -- 55
-width$ -- 16
-write$ -- 123
-(There was 1 warning)
+while$ -- 60
+width$ -- 17
+write$ -- 132
