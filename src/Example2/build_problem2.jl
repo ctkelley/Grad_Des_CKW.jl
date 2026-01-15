@@ -1,6 +1,6 @@
-function build_problem2(n; p=.5, nu=.5, lambda=2.0)
-lambdamin=(p/nu) + 1.e-5
-lambda = max(lambda, lambdamin)
+function build_problem2(n; p=.5, alpha=.5, delta=2.0)
+deltamin=(p/alpha) + 1.e-5
+delta = max(delta, deltamin)
 N=n*n;
 h=1.0/(n+1.0);
 X=h:h:(1.0-h);
@@ -30,9 +30,9 @@ return(
         rhs_exact,
         D2 = D2,
         p = p,
-        nu = nu,
+        alpha = alpha,
         mu = mu,
-        lambda = lambda
+        delta = delta
 )
 end
 

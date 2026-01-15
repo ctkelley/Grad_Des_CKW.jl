@@ -1,8 +1,8 @@
 #
-# Also try nu=.5, lambda=10, 
+# Also try alpha=.5, delta=10, 
 #
 function Example2a(n=15; notebook=true)
-aout1 = alg1e2(15; p=1.5, nu=.1, lambda=20, maxit=100, tau0=.1)
+aout1 = alg1e2(15; p=1.5, alpha=.1, delta=20, maxit=100, tau0=.1)
 #semilogy(aout1.reshist)
 plot(aout1.reshist,"k-")
 xlabel("iterations")
@@ -16,7 +16,7 @@ end
    
 
 function Example2b(n=15; notebook=true)
-aout3 = alg3e2(15; p=1.5, nu=.1, lambda=20, maxit=100, tau0=20.0)
+aout3 = alg3e2(15; p=1.5, alpha=.1, delta=20, maxit=100, tau0=20.0)
 plot(aout3.reshist,"k-")
 xlabel("iterations")
 ylabel("residual norm")
