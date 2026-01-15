@@ -29,10 +29,10 @@ end
 # Does the error look second order?
 #
 function Test_Build_Eg1(n = 7)
-    bout1=build_problem(n, uefun_ex12d; p = 0.5, nu = 0.5);
+    bout1=build_problem(n, uefun_ex12d; alpha = 0.5, nu = 0.5);
     del1=minimum(bout1.u0-bout1.uex1d)
     n2=2*(n+1) - 1
-    bout2=build_problem(n2, uefun_ex12d; p = 0.5, nu = 0.5);
+    bout2=build_problem(n2, uefun_ex12d; alpha = 0.5, nu = 0.5);
     del2=minimum(bout2.u0-bout2.uex1d)
     ratd=del1/del2
     ratOK = (ratd > 2.5) && (ratd < 4.5)

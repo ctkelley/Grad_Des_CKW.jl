@@ -13,7 +13,7 @@ function FGen(u, pdata)
     # Problem parameters
     #
     nu=pdata.nu
-    p=pdata.p
+    p=pdata.alpha
     #
     # boundary data
     #

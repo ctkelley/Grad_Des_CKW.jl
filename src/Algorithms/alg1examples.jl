@@ -1,5 +1,5 @@
-function alg1e1(n; alpha = 0.5, p = 0.5, tau0 = 0.1, maxit = 20000)
-    pdata=build_problem(n, uefun_ex12d; p = p, alpha = alpha)
+function alg1e1(n; nu = 0.5, alpha = 0.5, tau0 = 0.1, maxit = 20000)
+    pdata=build_problem(n, uefun_ex12d; alpha = alpha, nu=nu)
     u0=pdata.u0
     R=FEX1(u0, pdata)
     N=length(u0)

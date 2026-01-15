@@ -1,4 +1,4 @@
-function build_problem(n, uex; p = 0.5, nu = 0.5)
+function build_problem(n, uex; alpha = 0.5, nu = 0.5)
     #
     # build rhs and boundary conditions
     #
@@ -27,7 +27,7 @@ function build_problem(n, uex; p = 0.5, nu = 0.5)
     #mesh(u02d)
     #figure(2)
     #mesh(u02d-uex2d)
-    nlterm = nu * uex1d .^ p
+    nlterm = nu * uex1d .^ alpha
     rhs_eg1=D2*uex1d - bvec + nlterm
     lapex=-[lapeval_ex12d(x, y) for x in X, y in X];
     lapex1d = reshape(lapex, (N, 1))
@@ -39,7 +39,7 @@ function build_problem(n, uex; p = 0.5, nu = 0.5)
         rhs_eg1 = rhs_eg1,
         rhs_exact,
         D2 = D2,
-        p = p,
+        alpha = alpha,
         nu = nu,
         mu = mu
     )

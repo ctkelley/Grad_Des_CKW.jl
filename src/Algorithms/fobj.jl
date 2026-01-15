@@ -3,7 +3,7 @@ function fobj(u, pdata)
     # objective function 
     #
     chat=pdata.bvec + pdata.rhs_eg1
-    p=pdata.p
+    p=pdata.alpha
     nu=pdata.nu
     fcons=dot(u, chat)
     upp1=(proj0.(u)) .^ (p+1.0)
