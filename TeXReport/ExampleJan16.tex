@@ -87,7 +87,7 @@ Let $\bfu\uast$ be the vector obtained by evaluating $u\uast$  at the interior g
 Then $\bfu\uast$ serves as the unique global minimizer of problem~\eqref{opt:test}.
 
 
-In the subsequent experiments, we use the solution of $\bfA \bfu_0 = - \bfb$ as the initial iterate.
+In the subsequent experiments, we use the solution of $\bfA \bfu_0 = \bfb$ as the initial iterate.
 This is the discretization of Laplace's equation with the boundary conditions.
 In this way, we ensure that the entire iteration satisfies the boundary conditions.
 Unless otherwise specified, we set the spatial mesh width as $h = 2^{-4}$ in this subsection. 
@@ -246,12 +246,12 @@ We tabulate in \cref{tab:nuvals} the value of
 	\label{eq:step24}
 	\nu = h^{2 p_1} \varepsilon^{p_2}
 \end{equation}
-where
-\begin{equation*}
-	p_1 = (1 + \alpha) / (1 + 3 \alpha),
-	\mbox{~~and~~}
-	p_2 = 2 (1 - \alpha) / (1 + 3 \alpha).
-\end{equation*}
+where $p_1 = (1 + \alpha) / (1 + 3 \alpha)$ and $p_2 = 2 (1 - \alpha) / (1 + 3 \alpha)$. 
+%\begin{equation*}
+%	p_1 = (1 + \alpha) / (1 + 3 \alpha),
+%	\mbox{~~and~~}
+%	p_2 = 2 (1 - \alpha) / (1 + 3 \alpha).
+%\end{equation*}
 Contrasting the values of $\nu$ in \cref{tab:nuvals} to the value of $20 h^2 \approx 0.08$, we can see that the stepsize estimate from \cref{eq:step24} is very pessimistic.
 For smaller values of $\alpha$, the predicted stepsize is too small to be useful in practice.
 
@@ -272,10 +272,10 @@ For smaller values of $\alpha$, the predicted stepsize is too small to be useful
 \end{table}
 
 
-Next, we consider the complexity bound
-\begin{equation*}
-	O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } M^{p_1} \varepsilon^{-p_2})}.
-\end{equation*}
+Next, we consider the complexity bound $O ( \log (\varepsilon^{-1}) M^{p_1} \varepsilon^{-p_2} )$. 
+%\begin{equation*}
+%	O \dkh{ \log \dkh{ \dfrac{1}{\varepsilon} } M^{p_1} \varepsilon^{-p_2} }.
+%\end{equation*}
 In \cref{tab:itvals} we present the predicted number of iterations.
 The estimates are pessimistic except for the larger values of $\alpha$ when compared to the findings we report in \cref{fig:gd4}.
 

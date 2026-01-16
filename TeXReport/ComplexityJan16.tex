@@ -24,7 +24,7 @@
 
 % REQUIRED
 \begin{abstract}
-	This paper studies the complexity of projected gradient descent methods for a class of strongly convex constrained optimization problems where the objective function is expressed as a summation of $m$ component functions, each possessing a gradient that is H{\"o}lder continuous with an exponent $\alpha_i \in (0, 1]$. Under this formulation, the gradient of the objective function may fail to be globally H{\"o}lder continuous, thereby existing complexity results inapplicable to this class of problems. Our theoretical analysis reveals that, in this setting, the complexity of projected gradient methods is determined by $\hat{\alpha} = \min_{i \in \{1, \cdots, m\}} \alpha_i$. We first prove that, with an appropriately fixed stepsize, the complexity bound for finding an approximate minimizer with a distance to the true minimizer less than $\varepsilon$ is $O (\log (\varepsilon^{-1}) \varepsilon^{2 (\hat{\alpha} - 1) / (1 + \hat{\alpha})})$, which extends the well-known complexity result for $\hat{\alpha} = 1$. Next we show that the complexity bound can be improved to $O (\log (\varepsilon^{-1}) \varepsilon^{2 (\hat{\alpha} - 1) / (1 + 3 \hat{\alpha})})$ if the stepsize is updated by the universal scheme. We illustrate our complexity results by numerical examples arising from elliptic equations with a non-Lipschitz term.
+	This paper studies the complexity of projected gradient descent methods for a class of strongly convex constrained optimization problems where the objective function is expressed as a summation of $m$ component functions, each possessing a gradient that is H{\"o}lder continuous with an exponent $\alpha_i \in (0, 1]$. Under this formulation, the gradient of the objective function may fail to be globally H{\"o}lder continuous, thereby existing complexity results inapplicable to this class of problems. Our theoretical analysis reveals that, in this setting, the complexity of projected gradient methods is determined by $\hat{\alpha} = \min_{i \in \{1, \dotsc, m\}} \alpha_i$. We first prove that, with an appropriately fixed stepsize, the complexity bound for finding an approximate minimizer with a distance to the true minimizer less than $\varepsilon$ is $O (\log (\varepsilon^{-1}) \varepsilon^{2 (\hat{\alpha} - 1) / (1 + \hat{\alpha})})$, which extends the well-known complexity result for $\hat{\alpha} = 1$. Next we show that the complexity bound can be improved to $O (\log (\varepsilon^{-1}) \varepsilon^{2 (\hat{\alpha} - 1) / (1 + 3 \hat{\alpha})})$ if the stepsize is updated by the universal scheme. We illustrate our complexity results by numerical examples arising from elliptic equations with a non-Lipschitz term.
 \end{abstract}
 
 % REQUIRED
@@ -49,7 +49,7 @@ Given a closed and convex set $\Omega \subseteq \Rn$, this paper considers the f
 	\label{opt:main}
 	\min_{\bfu \in \Omega} \hspace{2mm} f (\bfu) := \dfrac{1}{m} \sum_{i = 1}^{m} f_i (\bfu),
 \end{equation}
-where the objective function $f: \Rn \to \bR$ satisfies the following assumption.
+where the objective function $f: \Rn \to \bR$ satisfies the following blanket assumption.
 \begin{assumption}
 	\label{asp:function}
 	\mbox{}
@@ -306,7 +306,7 @@ Our subsequent analysis is based on the inexact oracle \cite{Devolder2014first} 
 
 \begin{proposition}
 	\label{prop:inexact}
-	Suppose that Assumption~\ref{asp:function} holds.
+	%Suppose that Assumption~\ref{asp:function} holds.
 	Let $\delta > 0$ and
 	\begin{equation*}
 		\rho \geq \max_{i \in [m]} \hkh{ \fkh{ \dfrac{1 - \alpha_i}{(1 + \alpha_i) \delta} }^{(1 - \alpha_i) / (1 + \alpha_i)} L_i^{2 / (1 + \alpha_i)} }.
@@ -1178,9 +1178,9 @@ Finally, we demonstrate that the number of line-search steps required by \cref{a
 %\include
 %\input
 
-\input{ExampleJan15}
+\input{ExampleJan16}
 
-\input{Example2Jan15}
+\input{Example2Jan16}
 
 
 \section{Conclusion}

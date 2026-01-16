@@ -32,7 +32,7 @@ This problem is equivalent to the following nonlinear equation,
 By discretizing \cref{eq:cF2} with the standard five point difference scheme \cite{LeVeque2007finite}, problem~\cref{exampleVI} leads to the following  system of nonlinear equations,
 \begin{equation}
 	\label{example2}
-	0 = \bfF (\bfu) := \bfu - \proj_{\bfU} \dkh{ \bfu - \theta \dkh{ \bfA \bfu + \delta \abs{\bfu}^{\alpha} \sign (\bfu) - \abs{\bfu}^{p - 1} \bfu - \bfb } },
+	0 = \bfF (\bfu) := \dfrac{1}{\theta} \dkh{ \bfu - \proj_{\bfU} \dkh{ \bfu - \theta \dkh{ \bfA \bfu + \delta \abs{\bfu}^{\alpha} \sign (\bfu) - \abs{\bfu}^{p - 1} \bfu - \bfb } } },
 \end{equation}
 where $\bfU = [-1, 1]^n$,  $\theta > 0$ is a constant, $\bfA \in \Rnn$ is a symmetric positive definite matrix, and $\bfb \in \Rn$ encodes the boundary conditions. 
 Note that \cref{example2} is the optimality condition of the following problem,
@@ -59,14 +59,14 @@ It is clear that Assumption~\ref{asp:function} (ii) holds with $\alpha_1 = 1$, $
 
 %\subsubsection{Results}
 %\label{subsubsec:results2}
-In this example we do not have an analytic solution, so we only plot the residual norms $\norm{ \bfF (\bfu) }$. 
-We compare the performance of \cref{alg:gd} and \cref{alg:ufgm} on problem~\eqref{opt:test2}. 
+In this example, we do not have an analytic solution and we only plot the residual norm $\norm{ \bfF (\bfu) }$ with $\theta$ being the stepsize. 
+We compare the performance of \cref{alg:gd} and \cref{alg:ufgm} on problem~\eqref{opt:test2} with $p = 1.5$ and $\delta = 20$. 
 The stepsizes of \cref{alg:gd} and \cref{alg:ufgm} are set to $0.1 h^2$ and $20 h^2$, respectively. 
-In our examples, we vary $\alpha$ over the values in $\{0.1, 0.2, 0.5, 0.8\}$, while fixing $p = 1.5$ and $\delta = 20$. 
-The numerical results are provided in \Cref{fig:ex2}. 
-%It can be observed that both algorithms demonstrate strong performance. 
-%Furthermore, 
-It can be observed that, \cref{alg:ufgm} exhibits a faster convergence rate, benefiting from the use of a larger stepsize. 
+\Cref{fig:ex2t1} and \Cref{fig:ex2t2} illustrate the performance of two algorithms for $\alpha \in \{0.1, 0.2, 0.3, 0.4\}$ and $\alpha \in \{0.5, 0.6, 0.7, 0.8\}$, respectively. 
+As was the case for \cref{subsec:example}, problems where the exponent $\alpha$ for the non-Lipschitz term in the gradients is small are difficult. 
+In particular, one cannot drive the residual to a small value. 
+For larger values of $\alpha$, both algorithms demonstrate strong performance. 
+Furthermore, \cref{alg:ufgm} exhibits a faster convergence rate, benefiting from the use of a larger stepsize. 
 
 
 %Clearly, the only interesting cases for this example are ones where the
@@ -85,14 +85,29 @@ It can be observed that, \cref{alg:ufgm} exhibits a faster convergence rate, ben
 \begin{figure}[h!]
     \centering
     \subfigure[\cref{alg:gd}]{
-        \label{subfig:alg1e2}
-        \includegraphics[width=0.45\linewidth]{Figures/alg1e2.pdf}
+        \label{subfig:alg1e2t1}
+        \includegraphics[width=0.45\linewidth]{Figures/alg1e2t1.pdf}
     }
     \subfigure[\cref{alg:ufgm}]{
-        \label{subfig:alg3e2}
-        \includegraphics[width=0.45\linewidth]{Figures/alg3e2.pdf}
+        \label{subfig:alg3e2t1}
+        \includegraphics[width=0.45\linewidth]{Figures/alg3e2t1.pdf}
     }
-    \caption{Numerical performance of \cref{alg:gd} and \cref{alg:ufgm} for problem~\cref{opt:test2} with different values of $\alpha$.}
-    \label{fig:ex2}
+    \caption{Numerical performance of \cref{alg:gd} and \cref{alg:ufgm} for problem~\cref{opt:test2} with smaller values of $\alpha$.}
+    \label{fig:ex2t1}
+\end{figure}
+
+
+\begin{figure}[h!]
+	\centering
+	\subfigure[\cref{alg:gd}]{
+		\label{subfig:alg1e2t2}
+		\includegraphics[width=0.45\linewidth]{Figures/alg1e2t2.pdf}
+	}
+	\subfigure[\cref{alg:ufgm}]{
+		\label{subfig:alg3e2t2}
+		\includegraphics[width=0.45\linewidth]{Figures/alg3e2t2.pdf}
+	}
+	\caption{Numerical performance of \cref{alg:gd} and \cref{alg:ufgm} for problem~\cref{opt:test2} with larger values of $\alpha$.}
+	\label{fig:ex2t2}
 \end{figure}
 
