@@ -33,5 +33,6 @@ aout=algfun(n; tau0 = tau0, alpha =alpha, maxit = maxit)
 semilogy(aout.errhist,"k-")
 semilogy(aout.reshist,"k--")
 legend(["error","grad norm"])
-title("alpha=$p")
+as=L"\alpha"
+title(as*"=$alpha")
 end
