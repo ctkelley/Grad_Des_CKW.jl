@@ -1,6 +1,5 @@
 function Example2a(n=15; alpha=.1, tau0=.1, maxit=100, notebook=true)
 aout1 = alg1e2(15; p=1.5, alpha=alpha, delta=20, maxit=maxit, tau0=tau0)
-println(alpha)
 ts=L"\tau_0"
 as=L"\alpha"
 plot(aout1.reshist,"k-")
@@ -13,8 +12,8 @@ title(ptex)
 end
 end
    
-function Example2b(n=15; notebook=true)
-aout3 = alg3e2(15; p=1.5, alpha=.1, delta=20, maxit=100, tau0=20.0)
+function Example2b(n=15; notebook=true, alpha=.1, tau0=20.0, maxit=100)
+aout3 = alg3e2(15; p=1.5, alpha=alpha, delta=20, maxit=maxit, tau0=tau0)
 ts=L"\tau_0"
 as=L"\alpha"
 plot(aout3.reshist,"k-")
