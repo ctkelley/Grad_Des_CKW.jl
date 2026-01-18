@@ -14,8 +14,8 @@ function tau_test1(n; nu = 0.5, alpha = 0.5, maxit = 20000, algfun=alg1e1,
     plothist(avals, labelarray, "error")
 end
 
-function p_test1(n; nu = 0.5, tau0 = 0.1, algfun = alg1e1, maxit = 20000)
-    pvec=[0.1, 0.2, 0.5, 0.8]
+function p_test1(n; nu = 0.5, tau0 = 0.1, algfun = alg1e1, maxit = 20000,
+    pvec=[0.1, 0.2, 0.5, 0.8])
     labelarray = ([string(pvec[1]), string(pvec[2]), string(pvec[3]), string(pvec[4])])
     np=length(pvec)
     avals=Vector{Array}(undef, 4);
@@ -35,4 +35,15 @@ semilogy(aout.reshist,"k--")
 legend(["error","grad norm"])
 as=L"\alpha"
 title(as*"=$alpha")
+end
+
+function Alg3_alpha_test(n=15; tau0=.1, pvec=[.5, .6, .7, .8], maxit=2000)
+    labelarray = ([string(pvec[1]), string(pvec[2]), string(pvec[3]), string(pvec[4])])
+np=length(pvec)
+    avals=Vector{Array}(undef, 4);
+    for ip = 1:np
+        aout=alg3e2(n; tau0 = tau0, alpha = pvec[ip], maxit = maxit)
+        avals[ip]=aout.reshist
+    end
+    plothist(avals, labelarray, "error")
 end
