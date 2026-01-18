@@ -3,7 +3,8 @@ module Grad_Des_CKW
 using LinearAlgebra
 using SIAMFANLEquations
 using SIAMFANLEquations.Examples
-using PyPlot
+#using PyPlot
+using PythonPlot;
 using LaTeXStrings
 using Printf
 import SIAMFANLEquations.Examples.Lap2d
