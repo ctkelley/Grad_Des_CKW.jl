@@ -21,7 +21,7 @@ __Use the latest version of Julia (1.12) with these codes.__
 You'll need to have these packages and their dependencies.
 - LaTeXStrings
 - Printf
-- PyPlot
+- PythonPlot
 - SIAMFANLEquations
 
 ## Running the notebook ##
