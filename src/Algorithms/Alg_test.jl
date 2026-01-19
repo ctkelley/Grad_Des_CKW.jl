@@ -26,6 +26,19 @@ function p_test1(n; nu = 0.5, tau0 = 0.1, algfun = alg1e1, maxit = 20000,
     plothist(avals, labelarray, "error")
 end
 
+function p_test2(n; nu=.5, tau0 = 0.1, algfun = alg1e2, maxit = 20000,
+    pvec=[0.1, 0.2, 0.3, 0.4])
+    labelarray = ([string(pvec[1]), string(pvec[2]), string(pvec[3]), string(pvec[4])])
+    np=length(pvec)
+    avals=Vector{Array}(undef, 4);
+    for ip = 1:np
+        aout=algfun(n; tau0 = tau0, alpha = pvec[ip], maxit = maxit)
+        avals[ip]=aout.reshist 
+    end
+    plothist(avals, labelarray, "residual")
+end
+
+
 function res_test1(n; nu = 0.5, alpha=.5, 
        tau0 = 0.1, algfun = alg3e1, maxit = 20000)
 aout=algfun(n; tau0 = tau0, alpha =alpha, maxit = maxit)
@@ -45,5 +58,5 @@ np=length(pvec)
         aout=alg3e2(n; tau0 = tau0, alpha = pvec[ip], maxit = maxit)
         avals[ip]=aout.reshist
     end
-    plothist(avals, labelarray, "error")
+    plothist(avals, labelarray, "residual")
 end

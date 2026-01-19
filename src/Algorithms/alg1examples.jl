@@ -13,8 +13,8 @@ function alg1e1(n; nu = 0.5, alpha = 0.5, tau0 = 0.1, maxit = 20000)
     alg1out=(reshist = reshist, errhist = errhist)
 end
 
-function alg1e2(n; alpha = 0.5, p = 0.5, tau0 = 0.1, 
-                  delta=2.0, maxit = 20000)
+function alg1e2(n; alpha = 0.5, p = 1.5, tau0 = 0.1, 
+                  delta=20.0, maxit = 20000)
     pdata=build_problem2(n; p = p, alpha = alpha, delta=delta)
     u0=pdata.u0
     R=FEX2(u0, pdata)

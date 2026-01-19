@@ -27,7 +27,7 @@ function plothist(avals, labelarray, vax = "residual"; semilogflag = true, ptitl
     if vax == "error"
         ylabel("Relative Error Norm")
     else
-        ylabel("x")
+        ylabel("Relative Gradient Norm")
     end
-    xlabel("k")
+    xlabel("iterations")
 end

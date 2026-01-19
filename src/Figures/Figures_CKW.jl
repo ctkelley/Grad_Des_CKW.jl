@@ -57,3 +57,12 @@ function Figure6ab(n = 15; maxit = 1000, tau0 = 20.0, alpha = 0.5)
     res_test1(n; maxit = maxit, algfun = alg3e1, tau0 = tau0, alpha = alpha)
     title(ptex)
 end
+
+function Figure78b(n=15; tau0=20.0, maxit=2000, pvec=[.5, .6, .7, .8])
+    Alg3_alpha_test(15; tau0=tau0, pvec=pvec, maxit=maxit)
+end
+
+function Figure78a(n=15; tau0=.1, maxit=200, pvec=[.1, .2, .3, .4])
+    p_test2(n; tau0=tau0, algfun=alg1e2, maxit=maxit, pvec=pvec)
+end
+
