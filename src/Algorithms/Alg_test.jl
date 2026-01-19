@@ -6,7 +6,7 @@ function tau_test1(n; nu = 0.5, alpha = 0.5, maxit = 20000, algfun=alg1e1,
     #errmat=zeros(maxit+1,ntau)
     avals=Vector{Array}(undef, 4);
     for itau = 1:ntau
-        aout=algfun(n; tau0 = tauvec[itau], maxit = maxit)
+        aout=algfun(n; tau0 = tauvec[itau], maxit = maxit, alpha=alpha)
         avals[itau] = aout.errhist
         #    errmat[:,itau] .= aout.errhist
         #    semilogy(aout.errhist)

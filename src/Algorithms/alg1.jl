@@ -12,19 +12,20 @@ function alg1(u0, fobj, fgrad, proj, pdata, R, tau, maxit)
     u = copy(u0)
     ux=copy(u)
 #    fc = fobj(u, pdata)
+gradterm=false
     for ix = 1:maxit
         u .= proj(u - tau * R)
         R .= fgrad(u, pdata)
         ft = fobj(u, pdata)
-#        if (norm(R) > norm(RX))
+        if (norm(R) > norm(RX) && gradterm)
             #        if (ft > fc)
-#            u .= ux
-#            R .= RX
-#        else
+            u .= ux
+            R .= RX
+        else
             fc = ft
             RX .= R
             ux .= u
-#        end
+        end
         rrnrm=norm(R) / N0
         push!(reshist, rrnrm)
         E=norm(u - uex)

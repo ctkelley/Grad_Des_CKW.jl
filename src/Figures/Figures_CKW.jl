@@ -3,7 +3,7 @@ function Figure1_2a(n = 15; maxit = 20000, alpha = 0.5)
     tau_test1(n; maxit = maxit)
     ts=L"\tau_0"
     as=L"\alpha"
-    tautex="testing "*ts*". n=$n," * as * " =$alpha"
+    tautex="Alg1: testing "*ts*". n=$n," * as * " =$alpha"
     println(tautex)
     #title("Alg 1; testing tau. n=$n, p=$p")
     title(tautex)
