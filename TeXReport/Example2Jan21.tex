@@ -62,8 +62,9 @@ It is clear that Assumption~\ref{asp:function} (ii) holds with $\alpha_1 = 1$, $
 In this example, we do not have an analytic solution and we only plot the residual norm $\norm{ \bfF (\bfu) }$ with $\theta$ being the stepsize. 
 We compare the performance of \cref{alg:gd} and \cref{alg:ufgm} on problem~\eqref{opt:test2} with $p = 1.5$ and $\delta = 20$. 
 The stepsizes of \cref{alg:gd} and \cref{alg:ufgm} are set to $0.1 h^2$ and $20 h^2$, respectively. 
-\Cref{fig:ex2t1} and \Cref{fig:ex2t2} illustrate the performance of two algorithms for $\alpha \in \{0.1, 0.2, 0.3, 0.4\}$ and $\alpha \in \{0.5, 0.6, 0.7, 0.8\}$, respectively. 
-As was the case for \cref{subsec:example}, problems where the exponent $\alpha$ for the non-Lipschitz term in the gradients is small are difficult. 
+%\Cref{fig:ex2t1} and \Cref{fig:ex2t2} illustrate the performance of two algorithms for $\alpha \in \{0.1, 0.2, 0.3, 0.4\}$ and $\alpha \in \{0.5, 0.6, 0.7, 0.8\}$, respectively. 
+\Cref{fig:ex2} illustrates the performance of two algorithms for different values of $\alpha$. 
+Similar as the case in \cref{subsec:example}, problems where the exponent $\alpha$ for the non-Lipschitz term in the gradients is small are difficult. 
 In particular, one cannot drive the residual to a small value. 
 For larger values of $\alpha$, both algorithms demonstrate strong performance. 
 Furthermore, \cref{alg:ufgm} exhibits a faster convergence rate, benefiting from the use of a larger stepsize. 
@@ -92,22 +93,31 @@ Furthermore, \cref{alg:ufgm} exhibits a faster convergence rate, benefiting from
         \label{subfig:alg3e2t1}
         \includegraphics[width=0.45\linewidth]{Figures/alg3e2t1.pdf}
     }
-    \caption{Numerical performance of \cref{alg:gd} and \cref{alg:ufgm} for problem~\cref{opt:test2} with smaller values of $\alpha$.}
-    \label{fig:ex2t1}
+    
+    \subfigure[\cref{alg:gd}]{
+    	\label{subfig:alg1e2t2}
+    	\includegraphics[width=0.45\linewidth]{Figures/alg1e2t2.pdf}
+    }
+    \subfigure[\cref{alg:ufgm}]{
+    	\label{subfig:alg3e2t2}
+    	\includegraphics[width=0.45\linewidth]{Figures/alg3e2t2.pdf}
+    }
+    \caption{Numerical performance of \cref{alg:gd} and \cref{alg:ufgm} for problem~\cref{opt:test2} with different values of $\alpha$.}
+    \label{fig:ex2}
 \end{figure}
 
 
-\begin{figure}[h!]
-	\centering
-	\subfigure[\cref{alg:gd}]{
-		\label{subfig:alg1e2t2}
-		\includegraphics[width=0.45\linewidth]{Figures/alg1e2t2.pdf}
-	}
-	\subfigure[\cref{alg:ufgm}]{
-		\label{subfig:alg3e2t2}
-		\includegraphics[width=0.45\linewidth]{Figures/alg3e2t2.pdf}
-	}
-	\caption{Numerical performance of \cref{alg:gd} and \cref{alg:ufgm} for problem~\cref{opt:test2} with larger values of $\alpha$.}
-	\label{fig:ex2t2}
-\end{figure}
+%\begin{figure}[h!]
+%	\centering
+%	\subfigure[\cref{alg:gd}]{
+%		\label{subfig:alg1e2t2}
+%		\includegraphics[width=0.45\linewidth]{Figures/alg1e2t2.pdf}
+%	}
+%	\subfigure[\cref{alg:ufgm}]{
+%		\label{subfig:alg3e2t2}
+%		\includegraphics[width=0.45\linewidth]{Figures/alg3e2t2.pdf}
+%	}
+%	\caption{Numerical performance of \cref{alg:gd} and \cref{alg:ufgm} for problem~\cref{opt:test2} with larger values of $\alpha$.}
+%	\label{fig:ex2t2}
+%\end{figure}
 

@@ -24,7 +24,7 @@
 
 % REQUIRED
 \begin{abstract}
-	This paper studies the complexity of projected gradient descent methods for a class of strongly convex constrained optimization problems where the objective function is expressed as a summation of $m$ component functions, each possessing a gradient that is H{\"o}lder continuous with an exponent $\alpha_i \in (0, 1]$. Under this formulation, the gradient of the objective function may fail to be globally H{\"o}lder continuous, thereby existing complexity results inapplicable to this class of problems. Our theoretical analysis reveals that, in this setting, the complexity of projected gradient methods is determined by $\hat{\alpha} = \min_{i \in \{1, \dotsc, m\}} \alpha_i$. We first prove that, with an appropriately fixed stepsize, the complexity bound for finding an approximate minimizer with a distance to the true minimizer less than $\varepsilon$ is $O (\log (\varepsilon^{-1}) \varepsilon^{2 (\hat{\alpha} - 1) / (1 + \hat{\alpha})})$, which extends the well-known complexity result for $\hat{\alpha} = 1$. Next we show that the complexity bound can be improved to $O (\log (\varepsilon^{-1}) \varepsilon^{2 (\hat{\alpha} - 1) / (1 + 3 \hat{\alpha})})$ if the stepsize is updated by the universal scheme. We illustrate our complexity results by numerical examples arising from elliptic equations with a non-Lipschitz term.
+	This paper studies the complexity of projected gradient descent methods for a class of strongly convex constrained optimization problems where the objective function is expressed as a summation of $m$ component functions, each possessing a gradient that is H{\"o}lder continuous with an exponent $\alpha_i \in (0, 1]$. Under this formulation, the gradient of the objective function may fail to be globally H{\"o}lder continuous, thereby rendering existing complexity results inapplicable to this class of problems. Our theoretical analysis reveals that, in this setting, the complexity of projected gradient methods is determined by $\hat{\alpha} = \min_{i \in \{1, \dotsc, m\}} \alpha_i$. We first prove that, with an appropriately fixed stepsize, the complexity bound for finding an approximate minimizer with a distance to the true minimizer less than $\varepsilon$ is $O (\log (\varepsilon^{-1}) \varepsilon^{2 (\hat{\alpha} - 1) / (1 + \hat{\alpha})})$, which extends the well-known complexity result for $\hat{\alpha} = 1$. Next we show that the complexity bound can be improved to $O (\log (\varepsilon^{-1}) \varepsilon^{2 (\hat{\alpha} - 1) / (1 + 3 \hat{\alpha})})$ if the stepsize is updated by the universal scheme. We illustrate our complexity results by numerical examples arising from elliptic equations with a non-Lipschitz term.
 \end{abstract}
 
 % REQUIRED
@@ -678,7 +678,7 @@ Therefore, \cref{thm:upgm} and \cref{coro:upgm} together reveal that the total n
 \label{sec:ufgm}
 
 
-To obtain a sharper complexity bound, we devise in this section a universal fast gradient method (UFGM) tailored to problem~\cref{opt:main}.
+To obtain a sharper complexity bound, we devise, in this section, a universal fast gradient method (UFGM) tailored to problem~\cref{opt:main}.
 The proposed scheme, summarized in \cref{alg:ufgm}, exhibits slight but essential differences from the algorithm introduced by Nesterov \cite{Nesterov2015universal} to exploit the strong convexity of the objective function.
 
 
@@ -1178,9 +1178,9 @@ Finally, we demonstrate that the number of line-search steps required by \cref{a
 %\include
 %\input
 
-\input{ExampleJan16}
+\input{ExampleJan21}
 
-\input{Example2Jan16}
+\input{Example2Jan21}
 
 
 \section{Conclusion}

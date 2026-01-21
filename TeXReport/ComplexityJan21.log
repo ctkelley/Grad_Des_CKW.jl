@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.14)  16 JAN 2026 06:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.14)  21 JAN 2026 10:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ComplexityJan16
-(./ComplexityJan16.tex
+**ComplexityJan21
+(./ComplexityJan21.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/Users/ctk/tex/tex_inputs/siamart250211.cls
 Document Class: siamart250211 2025/02/11 v1.4.6 LaTeX document e-class
@@ -616,8 +616,8 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 \c@currassumptionctr=\count349
 \c@endassumptionctr=\count350
 )
-(./ComplexityJan16.aux)
-\openout1 = `ComplexityJan16.aux'.
+(./ComplexityJan21.aux)
+\openout1 = `ComplexityJan21.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
@@ -638,9 +638,9 @@ LaTeX Font Info:    ... okay on input line 21.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 Package hyperref Info: Link coloring OFF on input line 21.
- (./ComplexityJan16.out) (./ComplexityJan16.out)
+ (./ComplexityJan21.out) (./ComplexityJan21.out)
 \@outlinefile=\write3
-\openout3 = `ComplexityJan16.out'.
+\openout3 = `ComplexityJan21.out'.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -704,131 +704,109 @@ Underfull \vbox (badness 1635) has occurred while \output is active []
 Package hyperref Info: bookmark level for unknown remark defaults to 0 on input
  line 808.
 
-[10] [11] [12] [13] [14] (./ExampleJan16.tex [15]
+[10] [11] [12] [13] [14] (./ExampleJan21.tex [15]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\new@ifnextchar' on input line 108.
 
 [16]
-<Figures/test_stepsize.pdf, id=410, 462.52798pt x 346.89601pt>
+<Figures/test_stepsize.pdf, id=406, 462.52798pt x 346.89601pt>
 File: Figures/test_stepsize.pdf Graphic file (type pdf)
 <use Figures/test_stepsize.pdf>
-Package pdftex.def Info: Figures/test_stepsize.pdf  used on input line 129.
+Package pdftex.def Info: Figures/test_stepsize.pdf  used on input line 130.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test_alpha.pdf, id=411, 462.52798pt x 346.89601pt>
+<Figures/test_alpha.pdf, id=407, 462.52798pt x 346.89601pt>
 File: Figures/test_alpha.pdf Graphic file (type pdf)
 <use Figures/test_alpha.pdf>
-Package pdftex.def Info: Figures/test_alpha.pdf  used on input line 133.
-(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test2_stepsize.pdf, id=414, 462.52798pt x 346.89601pt>
-File: Figures/test2_stepsize.pdf Graphic file (type pdf)
-<use Figures/test2_stepsize.pdf>
-Package pdftex.def Info: Figures/test2_stepsize.pdf  used on input line 148.
-(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test2_alpha.pdf, id=415, 462.52798pt x 346.89601pt>
-File: Figures/test2_alpha.pdf Graphic file (type pdf)
-<use Figures/test2_alpha.pdf>
-Package pdftex.def Info: Figures/test2_alpha.pdf  used on input line 152.
+Package pdftex.def Info: Figures/test_alpha.pdf  used on input line 134.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\new@ifnextchar' on input line 166.
+(hyperref)                removing `\new@ifnextchar' on input line 148.
 
-[17 <./Figures/test_stepsize.pdf> <./Figures/test_alpha.pdf> <./Figures/test2_s
-tepsize.pdf> <./Figures/test2_alpha.pdf>]
-<Figures/test3_alpha.pdf, id=560, 462.52798pt x 346.89601pt>
+
+LaTeX Warning: Reference `subfig:alpha2' on page 1 undefined on input line 152.
+
+
+<Figures/test3_alpha.pdf, id=417, 462.52798pt x 346.89601pt>
 File: Figures/test3_alpha.pdf Graphic file (type pdf)
 <use Figures/test3_alpha.pdf>
-Package pdftex.def Info: Figures/test3_alpha.pdf  used on input line 175.
+Package pdftex.def Info: Figures/test3_alpha.pdf  used on input line 157.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\new@ifnextchar' on input line 192.
+(hyperref)                removing `\new@ifnextchar' on input line 174.
 
-<Figures/test_stepsize3.pdf, id=574, 643.20299pt x 495.77222pt>
+[17 <./Figures/test_stepsize.pdf> <./Figures/test_alpha.pdf> <./Figures/test3_a
+lpha.pdf>]
+<Figures/test_stepsize3.pdf, id=532, 643.20299pt x 495.77222pt>
 File: Figures/test_stepsize3.pdf Graphic file (type pdf)
 <use Figures/test_stepsize3.pdf>
-Package pdftex.def Info: Figures/test_stepsize3.pdf  used on input line 210.
-(pdftex.def)             Requested size: 166.67154pt x 128.46654pt.
-<Figures/test_alpha3.pdf, id=575, 462.52798pt x 346.89601pt>
+Package pdftex.def Info: Figures/test_stepsize3.pdf  used on input line 192.
+(pdftex.def)             Requested size: 155.93349pt x 120.19057pt.
+<Figures/test_alpha3.pdf, id=533, 462.52798pt x 346.89601pt>
 File: Figures/test_alpha3.pdf Graphic file (type pdf)
 <use Figures/test_alpha3.pdf>
-Package pdftex.def Info: Figures/test_alpha3.pdf  used on input line 214.
+Package pdftex.def Info: Figures/test_alpha3.pdf  used on input line 196.
 (pdftex.def)             Requested size: 155.93349pt x 116.94795pt.
-<Figures/test_stepsize4.pdf, id=578, 462.52798pt x 346.89601pt>
+<Figures/test_stepsize4.pdf, id=536, 462.52798pt x 346.89601pt>
 File: Figures/test_stepsize4.pdf Graphic file (type pdf)
 <use Figures/test_stepsize4.pdf>
-Package pdftex.def Info: Figures/test_stepsize4.pdf  used on input line 225.
+Package pdftex.def Info: Figures/test_stepsize4.pdf  used on input line 207.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/test_alpha4.pdf, id=579, 462.52798pt x 346.89601pt>
+<Figures/test_alpha4.pdf, id=537, 462.52798pt x 346.89601pt>
 File: Figures/test_alpha4.pdf Graphic file (type pdf)
 <use Figures/test_alpha4.pdf>
-Package pdftex.def Info: Figures/test_alpha4.pdf  used on input line 229.
+Package pdftex.def Info: Figures/test_alpha4.pdf  used on input line 211.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[18 <./Figures/test3_alpha.pdf> <./Figures/test_stepsize3.pdf> <./Figures/test_
-alpha3.pdf>]
-<Figures/restest05.pdf, id=699, 462.52798pt x 346.89601pt>
-File: Figures/restest05.pdf Graphic file (type pdf)
-<use Figures/restest05.pdf>
-Package pdftex.def Info: Figures/restest05.pdf  used on input line 313.
-(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/restest01.pdf, id=700, 462.52798pt x 346.89601pt>
-File: Figures/restest01.pdf Graphic file (type pdf)
-<use Figures/restest01.pdf>
-Package pdftex.def Info: Figures/restest01.pdf  used on input line 317.
-(pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (./Example2Jan16.tex [19 <./Figures/test_stepsize4.pdf> <./Figures/test_alpha
-4.pdf>] [20 <./Figures/restest05.pdf> <./Figures/restest01.pdf>]
-<Figures/alg1e2t1.pdf, id=852, 462.52798pt x 346.89601pt>
+) (./Example2Jan21.tex [18 <./Figures/test_stepsize3.pdf> <./Figures/test_alpha
+3.pdf> <./Figures/test_stepsize4.pdf> <./Figures/test_alpha4.pdf>]
+<Figures/alg1e2t1.pdf, id=687, 462.52798pt x 346.89601pt>
 File: Figures/alg1e2t1.pdf Graphic file (type pdf)
 <use Figures/alg1e2t1.pdf>
-Package pdftex.def Info: Figures/alg1e2t1.pdf  used on input line 90.
+Package pdftex.def Info: Figures/alg1e2t1.pdf  used on input line 91.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/alg3e2t1.pdf, id=854, 462.52798pt x 346.89601pt>
+<Figures/alg3e2t1.pdf, id=689, 462.52798pt x 346.89601pt>
 File: Figures/alg3e2t1.pdf Graphic file (type pdf)
 <use Figures/alg3e2t1.pdf>
-Package pdftex.def Info: Figures/alg3e2t1.pdf  used on input line 94.
+Package pdftex.def Info: Figures/alg3e2t1.pdf  used on input line 95.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/alg1e2t2.pdf, id=862, 462.52798pt x 346.89601pt>
+<Figures/alg1e2t2.pdf, id=691, 462.52798pt x 346.89601pt>
 File: Figures/alg1e2t2.pdf Graphic file (type pdf)
 <use Figures/alg1e2t2.pdf>
-Package pdftex.def Info: Figures/alg1e2t2.pdf  used on input line 105.
+Package pdftex.def Info: Figures/alg1e2t2.pdf  used on input line 100.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
-<Figures/alg3e2t2.pdf, id=864, 462.52798pt x 346.89601pt>
+<Figures/alg3e2t2.pdf, id=693, 462.52798pt x 346.89601pt>
 File: Figures/alg3e2t2.pdf Graphic file (type pdf)
 <use Figures/alg3e2t2.pdf>
-Package pdftex.def Info: Figures/alg3e2t2.pdf  used on input line 109.
+Package pdftex.def Info: Figures/alg3e2t2.pdf  used on input line 104.
 (pdftex.def)             Requested size: 166.67154pt x 125.00421pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [21 <./Figures/alg1e2t1.pdf> <./Figures/alg3e2t1.pdf>] (./ComplexityJan16.bbl
-)
+) [19] (./ComplexityJan21.bbl [20 <./Figures/alg1e2t1.pdf> <./Figures/alg3e2t1.
+pdf> <./Figures/alg1e2t2.pdf> <./Figures/alg3e2t2.pdf>])
 \tf@thm=\write4
-\openout4 = `ComplexityJan16.thm'.
+\openout4 = `ComplexityJan21.thm'.
 
- [22 <./Figures/alg1e2t2.pdf> <./Figures/alg3e2t2.pdf>] (./ComplexityJan16.aux)
-Package rerunfilecheck Info: File `ComplexityJan16.out' has not changed.
-(rerunfilecheck)             Checksum: 16984D82C460A616CE2ED68D764D770A;2678.
+ [21]
+(./ComplexityJan21.aux)
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `ComplexityJan21.out' has not changed.
+(rerunfilecheck)             Checksum: DD9C805C164C44A4781B9032E895B170;2487.
  ) 
 Here is how much of TeX's memory you used:
- 18889 strings out of 476025
- 306249 string characters out of 5790017
+ 18817 strings out of 476025
+ 304805 string characters out of 5790017
  1877388 words of memory out of 5000000
- 37345 multiletter control sequences out of 15000+600000
+ 37294 multiletter control sequences out of 15000+600000
  522263 words of font info for 71 fonts, out of 8000000 for 9000
  2715 hyphenation exceptions out of 8191
- 89i,21n,90p,1364b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,21n,90p,1374b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><
 /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
@@ -853,10 +831,10 @@ st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist
 fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2023/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on ComplexityJan16.pdf (22 pages, 552303 bytes).
+Output written on ComplexityJan21.pdf (21 pages, 508352 bytes).
 PDF statistics:
- 1147 PDF objects out of 1200 (max. 8388607)
- 696 compressed objects within 7 object streams
- 156 named destinations out of 1000 (max. 500000)
- 180 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 979 PDF objects out of 1000 (max. 8388607)
+ 628 compressed objects within 7 object streams
+ 139 named destinations out of 1000 (max. 500000)
+ 152 words of extra memory for PDF output out of 10000 (max. 10000000)
 
