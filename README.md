@@ -31,7 +31,7 @@ You'll need to have these packages and their dependencies.
    ```notebook(;dir=pwd())``` in the REPL
 - a web page of the directory will open. Click on the notebook __Examples.ipynb__
 - When the notebook opens, do a ```run all```
-- If you get error messages about the kernel. To ```build IJulia``` from the package manager.
+- If you get error messages about the kernel, do  ```build IJulia``` from the package manager.
   
 ## What's in this repo? ##
 - The codes for generating the figures in the paper are in __/src/Figures__.
