@@ -40,7 +40,3 @@ You'll need to have these packages and their dependencies.
 - I am still figuring out the data structures for the two examples. __/src/Problem_Data__ ia start.
 - __/src/Tools__ are some untilities I use to make the plots.
 - Examples.pdf is a pdf copy of the notebook.
-
-## Caveat ##
-
-__Warning:__ The work is incomplete and the codes in the __Old_Julia__ directory are poorly documented and do not use the formulation or the algorithms from the paper.
