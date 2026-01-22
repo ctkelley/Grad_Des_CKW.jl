@@ -161,7 +161,7 @@ In the  strongly convex case, (51) in \cite{Devolder2014first} comes to
 which implies that finding an $N$ average of iterations $\hat{\bfu}_N$ satisfying $\|\hat{\bfu}_N- \bfu\uast\| \le \varepsilon$ requires $O(\varepsilon^{-4/(1 + \alpha)})$ iterations.
 
 
-The contribution of this paper is to provide new complexity results of the projected gradient descent methods for problem~\cref{opt:main}, which are dictated by the parameter $\hat{\alpha} = \min_{i \in [m]} \alpha_i \in (0, 1]$.
+The contribution of this paper is to provide new complexity results for the projected gradient descent methods to solve problem~\cref{opt:main}, which are dictated by the parameter $\hat{\alpha} = \min_{i \in [m]} \alpha_i \in (0, 1]$.
 We first show that, with an appropriately fixed stepsize, the complexity bound for finding an iterate with a distance to the global minimizer less than $\varepsilon$ is $O (\log (\varepsilon^{-1}) \varepsilon^{2 (\hat{\alpha} - 1) / (1 + \hat{\alpha})})$, which extends the well-known complexity result for $\hat{\alpha} = 1$.
 Next, we demonstrate that this complexity bound can be improved to $O (\log (\varepsilon^{-1}) \varepsilon^{2 (\hat{\alpha} - 1) / (1 + 3\hat{\alpha})})$ if the stepsize is updated at each iteration using the universal scheme.
 Even in the special case where $m = 1$, our complexity bound is at least $O(\varepsilon^{-1})$ lower than (51) in \cite{Devolder2014first}.
@@ -1178,9 +1178,9 @@ Finally, we demonstrate that the number of line-search steps required by \cref{a
 %\include
 %\input
 
-\input{ExampleJan21}
+\input{ExampleJan22}
 
-\input{Example2Jan21}
+\input{Example2Jan22}
 
 
 \section{Conclusion}

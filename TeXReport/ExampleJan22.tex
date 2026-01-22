@@ -100,7 +100,7 @@ In this way, we ensure that the entire iteration satisfies the boundary conditio
 
 
 
-\subsubsection{Numerical results of \cref{alg:gd}}
+\subsubsection{Numerical results for \cref{alg:gd}}
 
 \label{subsubsec:alg1}
 
@@ -115,11 +115,12 @@ It can be observed that a larger stepsize facilitates a more rapid descent in th
 %This phenomenon corroborates our theoretical predictions.
 
 
-In the second experiment, we vary the H{\"o}lder exponent $\alpha$ over the values in $\{0.1, 0.2, 0.5, 0.8\}$, while fixing $\tau_0 = 0.01$.
+In the second experiment, we vary the H{\"o}lder exponent $\alpha$ over the values in $\{0.1, 0.2, 0.5, 0.8\}$, while fixing $\tau_0 = 0.1$.
 \Cref{subfig:alpha} similarly tracks the decay of the distance to the global minimizer over iterations.
 It is evident that, as the value of $\alpha$ decreases, the final error attained by \cref{alg:gd} increases under the same stepsize.
 Therefore, the associated optimization problems become increasingly ill-conditioned and thus more challenging to solve for smaller values of $\alpha$.
 These findings offer empirical support for our theoretical analysis.
+In \Cref{subfig:alpha}, and in several others, the thick lines are artifacts of small rapid oscillations in the error norm which reflect stagnation in the iteration. 
 
 
 \begin{figure}[h!]
@@ -140,16 +141,16 @@ These findings offer empirical support for our theoretical analysis.
 
 
 
-\subsubsection{Numerical results of \cref{alg:upgm}}
+\subsubsection{Numerical results for \cref{alg:upgm}}
 
 \label{subsubsec:alg2}
 
 
 We repeat the study in \cref{subsubsec:alg1} for \cref{alg:upgm} by varying the values of the H{\"o}lder exponent $\alpha$.
 We set $\varepsilon=10^{-6}$ and $\mu = 2 \pi^2$ in \cref{alg:upgm}, which is a lower estimate for the smallest eigenvalue of $\bfA$.
-The stepsize is initialized to $0.1 h^2$ in the line-search procedure.
+The stepsize is initialized to $20 h^2$ in the line-search procedure.
 The corresponding numerical results are depicted in \cref{fig:alpha3}.
-Comparing \cref{fig:alpha3} to \cref{subfig:alpha2} shows the benefits of the line-search procedure in \cref{alg:upgm}, which does not need to manually adjust the value of $\tau_0$ to converge for a given value of $\varepsilon$.
+Comparing \cref{fig:alpha3} to \cref{subfig:alpha} shows the benefits of the line-search procedure in \cref{alg:upgm}, which does not need to manually adjust the value of $\tau_0$ to converge for a given value of $\varepsilon$.
 
 
 \begin{figure}[h!]
@@ -166,7 +167,7 @@ Comparing \cref{fig:alpha3} to \cref{subfig:alpha2} shows the benefits of the li
 
 
 
-\subsubsection{Numerical results of \cref{alg:ufgm}}
+\subsubsection{Numerical results for \cref{alg:ufgm}}
 
 \label{subsubsec:alg3}
 
@@ -175,24 +176,24 @@ We report the numerical performance of \cref{alg:ufgm} on two experiments.
 Guided by the observation in Remark~\ref{rmk:ufgm}, we test \cref{alg:ufgm} with a fixed stepsize $\nu = \tau_0 h^2$.
 %As we did for Algorithms 1 and 2, we stop updating the solution if the norm of the gradient increases.
 %{\bf We need to have a single parameter $\nu$ so we must change something.}
-In the first example, we use the values for $\tau_0$ from \cref{fig:gd}.
+We first use the values for $\tau_0$ from \cref{fig:gd}.
 In this way we can directly compare the performance of \cref{alg:ufgm} with that of \cref{alg:gd}.
 The corresponding results, shown in \cref{fig:gd3}, are poor.
 The reason for this is that we are not exploiting the ability of \cref{alg:ufgm} to use larger stepsizes.
-In the second example, we consider larger values for $\tau_0$ in \cref{subfig:stepsize4} and set $\tau_0 = 20$ in \cref{subfig:alpha4}.
+Consequently, we consider larger values for $\tau_0$ in \cref{subfig:stepsize4} and set $\tau_0 = 20$ in \cref{subfig:alpha4}.
 The convergence is much better in all cases.
-The hardest case ($\alpha = 0.1$) has very irregular convergence in the terminal phase of iterations.
+%The hardest case ($\alpha = 0.1$) has very irregular convergence in the terminal phase of iterations.
 
 
 \begin{figure}[h!]
     \centering
     \subfigure[different values of $\tau_0$]{
         \label{subfig:stepsize3}
-        \includegraphics[width=0.421\linewidth]{Figures/test_stepsize3.pdf}
+        \includegraphics[width=0.45\linewidth]{Figures/test_stepsize3.pdf}
     }
     \subfigure[different values of $\alpha$]{
         \label{subfig:alpha3}
-        \includegraphics[width=0.421\linewidth]{Figures/test_alpha3.pdf}
+        \includegraphics[width=0.45\linewidth]{Figures/test_alpha3.pdf}
     }
     \caption{Numerical performance of \cref{alg:ufgm} for problem~\cref{opt:test} with smaller stepsizes.}
     \label{fig:gd3}
@@ -212,6 +213,3 @@ The hardest case ($\alpha = 0.1$) has very irregular convergence in the terminal
         \caption{Numerical performance of \cref{alg:ufgm} for problem~\cref{opt:test} with larger stepsizes.}
         \label{fig:gd4}
 \end{figure}
-
-
-

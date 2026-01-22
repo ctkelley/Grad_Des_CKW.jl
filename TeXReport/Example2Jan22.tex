@@ -1,6 +1,30 @@
 \subsection{Semi-linear elliptic problem with a constraint}
 \label{subsec:example2}
 
+
+\begin{figure}[ht]
+	\centering
+	\subfigure[\cref{alg:gd}]{
+		\label{subfig:alg1e2t1}
+		\includegraphics[width=0.45\linewidth]{Figures/alg1e2t1.pdf}
+	}
+	\subfigure[\cref{alg:ufgm}]{
+		\label{subfig:alg3e2t1}
+		\includegraphics[width=0.45\linewidth]{Figures/alg3e2t1.pdf}
+	}
+	
+	\subfigure[\cref{alg:gd}]{
+		\label{subfig:alg1e2t2}
+		\includegraphics[width=0.45\linewidth]{Figures/alg1e2t2.pdf}
+	}
+	\subfigure[\cref{alg:ufgm}]{
+		\label{subfig:alg3e2t2}
+		\includegraphics[width=0.45\linewidth]{Figures/alg3e2t2.pdf}
+	}
+	\caption{Numerical performance of \cref{alg:gd} and \cref{alg:ufgm} for problem~\cref{opt:test2} with different values of $\alpha$.}
+	\label{fig:ex2}
+\end{figure}
+
 We consider a second numerical example motivated by a semi-linear elliptic problem with a constraint on the solution in a certain set \cite{Tang2025uniqueness}. 
 Let
 \begin{equation}
@@ -32,9 +56,9 @@ This problem is equivalent to the following nonlinear equation,
 By discretizing \cref{eq:cF2} with the standard five point difference scheme \cite{LeVeque2007finite}, problem~\cref{exampleVI} leads to the following  system of nonlinear equations,
 \begin{equation}
 	\label{example2}
-	0 = \bfF (\bfu) := \dfrac{1}{\theta} \dkh{ \bfu - \proj_{\bfU} \dkh{ \bfu - \theta \dkh{ \bfA \bfu + \delta \abs{\bfu}^{\alpha} \sign (\bfu) - \abs{\bfu}^{p - 1} \bfu - \bfb } } },
+	0 = \bfF (\bfu) := \bfu - \proj_{\bfU} \dkh{ \bfu - \tau \dkh{ \bfA \bfu + \delta \abs{\bfu}^{\alpha} \sign (\bfu) - \abs{\bfu}^{p - 1} \bfu - \bfb } },
 \end{equation}
-where $\bfU = [-1, 1]^n$,  $\theta > 0$ is a constant, $\bfA \in \Rnn$ is a symmetric positive definite matrix, and $\bfb \in \Rn$ encodes the boundary conditions. 
+where $\bfU = [-1, 1]^n$,  $\tau > 0$ is a constant, $\bfA \in \Rnn$ is a symmetric positive definite matrix, and $\bfb \in \Rn$ encodes the boundary conditions. 
 Note that \cref{example2} is the optimality condition of the following problem,
 \begin{equation}
 	\label{opt:test2}
@@ -56,18 +80,22 @@ The optimization model \eqref{opt:test2} is a special instance of problem~\eqref
 \end{equation*}
 It is clear that Assumption~\ref{asp:function} (ii) holds with $\alpha_1 = 1$, $L_1 = 2 \norm{\bfA} + 2 p$, $\alpha_2 = \alpha$, and $L_2 = 2 \delta \alpha$.
 
-
 %\subsubsection{Results}
 %\label{subsubsec:results2}
-In this example, we do not have an analytic solution and we only plot the residual norm $\norm{ \bfF (\bfu) }$ with $\theta$ being the stepsize. 
+In this example, we do not have an analytic solution and we only plot the residual norm $\norm{ \bfF (\bfu) }$ with $\tau$ being the stepsize. 
 We compare the performance of \cref{alg:gd} and \cref{alg:ufgm} on problem~\eqref{opt:test2} with $p = 1.5$ and $\delta = 20$. 
-The stepsizes of \cref{alg:gd} and \cref{alg:ufgm} are set to $0.1 h^2$ and $20 h^2$, respectively. 
+The stepsizes of \cref{alg:gd} and \cref{alg:ufgm} are set to $\tau = 0.1 h^2$ and $\tau = 20 h^2$, respectively. 
 %\Cref{fig:ex2t1} and \Cref{fig:ex2t2} illustrate the performance of two algorithms for $\alpha \in \{0.1, 0.2, 0.3, 0.4\}$ and $\alpha \in \{0.5, 0.6, 0.7, 0.8\}$, respectively. 
-\Cref{fig:ex2} illustrates the performance of two algorithms for different values of $\alpha$. 
+%\Cref{fig:ex2} illustrates the performance of two algorithms for different values of $\alpha$. 
+\Cref{subfig:alg1e2t1} and \Cref{subfig:alg1e2t2} present the performance of \Cref{alg:gd} for $\alpha \in \{0.1, 0.2, 0.3, 0.4\}$ and $\alpha \in \{0.5, 0.6, 0.7, 0.8\}$, respectively. 
+In a similar vein, \Cref{subfig:alg3e2t1} and \Cref{subfig:alg3e2t2} illustrate the behavior of \Cref{alg:ufgm} across the same ranges of $\alpha$. 
 Similar as the case in \cref{subsec:example}, problems where the exponent $\alpha$ for the non-Lipschitz term in the gradients is small are difficult. 
 In particular, one cannot drive the residual to a small value. 
 For larger values of $\alpha$, both algorithms demonstrate strong performance. 
 Furthermore, \cref{alg:ufgm} exhibits a faster convergence rate, benefiting from the use of a larger stepsize. 
+
+
+
 
 
 %Clearly, the only interesting cases for this example are ones where the
@@ -82,29 +110,6 @@ Furthermore, \cref{alg:ufgm} exhibits a faster convergence rate, benefiting from
 %$20 h^2$ for \cref{alg:ufgm}. 
 %\Cref{fig:ex2} shows that \cref{alg:ufgm} benefits from the larger step size, but that we can only obtain a modest reduction in the residual norm in both cases. 
 
-
-\begin{figure}[h!]
-    \centering
-    \subfigure[\cref{alg:gd}]{
-        \label{subfig:alg1e2t1}
-        \includegraphics[width=0.45\linewidth]{Figures/alg1e2t1.pdf}
-    }
-    \subfigure[\cref{alg:ufgm}]{
-        \label{subfig:alg3e2t1}
-        \includegraphics[width=0.45\linewidth]{Figures/alg3e2t1.pdf}
-    }
-    
-    \subfigure[\cref{alg:gd}]{
-    	\label{subfig:alg1e2t2}
-    	\includegraphics[width=0.45\linewidth]{Figures/alg1e2t2.pdf}
-    }
-    \subfigure[\cref{alg:ufgm}]{
-    	\label{subfig:alg3e2t2}
-    	\includegraphics[width=0.45\linewidth]{Figures/alg3e2t2.pdf}
-    }
-    \caption{Numerical performance of \cref{alg:gd} and \cref{alg:ufgm} for problem~\cref{opt:test2} with different values of $\alpha$.}
-    \label{fig:ex2}
-\end{figure}
 
 
 %\begin{figure}[h!]
