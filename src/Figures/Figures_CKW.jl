@@ -41,7 +41,7 @@ function Figure3_4a(n = 15; maxit = 20000, alpha = 0.5, tauvec = [0.2, 0.1, 0.05
 end
 
 function Figure3_4b(n = 15; maxit = 400, tau0 = 20.0, 
-        pvec=[.1, .4, .5])
+        pvec=[.1, .2, .4, .5])
     (n > 15) && (maxit=100000)
     ts=L"\tau_0"; as=L"\alpha"
     ptex="Ex1, Alg3: testing "*as*". n=$n," * ts * "=$tau0"

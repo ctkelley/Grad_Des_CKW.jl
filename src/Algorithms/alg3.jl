@@ -10,7 +10,8 @@ function alg3(u0, fobj, fgrad, proj, pdata, R, tau0, epsilon, maxit)
     push!(errhist, E/E0)
     RX=copy(R)
     N=length(u0)
-    nu = tau0/N
+#    nu = tau0/N
+    nu = tauev(tau0,N)
     eta = nu/(1.0 + nu)
     u = copy(u0)    
     w = copy(u0)    

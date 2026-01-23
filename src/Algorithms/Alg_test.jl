@@ -18,7 +18,7 @@ function tau_test1(n; nu = 0.5, alpha = 0.5, maxit = 20000, algfun=alg1e1,
 end
 
 function p_test1(n; nu = 0.5, tau0 = 0.1, algfun = alg1e1, maxit = 20000,
-    pvec=[0.1, 0.2, 0.5, 0.8])
+    pvec=[0.1, 0.2, 0.4, 0.5])
     np=length(pvec)
     labelarray=String[]
     for ist=1:np

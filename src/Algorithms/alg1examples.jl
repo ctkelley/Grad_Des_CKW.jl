@@ -3,7 +3,8 @@ function alg1e1(n; nu = 0.5, alpha = 0.5, tau0 = 0.1, maxit = 20000)
     u0=pdata.u0
     R=FEX1(u0, pdata)
     N=length(u0)
-    tau=tau0/N
+#    tau=tau0/N
+    tau=tauev(tau0,N)
     mu = 2.0*pi*pi
     GDE1=GD_Prob(fobj, FEX1, proj0, pdata, u0, mu)
     algout = alg1(GDE1, R, tau, maxit)
@@ -19,7 +20,8 @@ function alg1e2(n; alpha = 0.5, p = 1.5, tau0 = 0.1,
     u0=pdata.u0
     R=FEX2(u0, pdata)
     N=length(u0)
-    tau=tau0/N
+#    tau=tau0/N
+    tau=tauev(tau0,N)
     mu = 2.0*pi*pi
     GDE2=GD_Prob(fobj2, FEX2, proj2, pdata, u0, mu)
     algout = alg1(GDE2, R, tau, maxit)
@@ -31,3 +33,9 @@ function alg1e2(n; alpha = 0.5, p = 1.5, tau0 = 0.1,
 end
 
 
+function tauev(tau0, N)
+n=Int(sqrt(N))
+h=1.0/(n+1.0)
+tau=tau0*h*h
+return tau
+end

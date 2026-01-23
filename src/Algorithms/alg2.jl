@@ -19,7 +19,8 @@ function alg2(u0, fobj, fgrad, proj, pdata, R, tau0, epsilon, maxit)
     push!(reshist, 1.0)
     push!(errhist, E/E0)
     N=length(u)
-    tau=tau0/N
+#    tau=tau0/N
+    tau=tauev(tau0,N)
     RX=copy(R)
     ux=copy(u)
     for ix = 1:maxit
