@@ -5,6 +5,7 @@ function alg3(u0, fobj, fgrad, proj, pdata, R, tau, epsilon, maxit)
     mu=pdata.mu
     reshist=Float64[]
     errhist=Float64[]
+    R .= fgrad(u0,pdata)
     N0=norm(R)
     push!(reshist, 1.0)
     push!(errhist, E/E0)

@@ -33,7 +33,7 @@ include("Example2/build_problem2.jl")
 include("Example2/NL_Equationex2.jl")
 
 export build_problem, alg1e1, tau_test1, p_test1, alg2e1, alg2, alg3
-export alg2e1, alg3e1, res_test1
+export alg2e1, alg3e1, res_test1, alg1
 export Figure1a, Figure1b, Figure2, Figure3_4a, Figure3_4b, Figure6ab
 export Figure5bd, Figure5ac
 export Example2a, Example2b
