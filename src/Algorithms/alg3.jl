@@ -1,4 +1,4 @@
-function alg3(u0, fobj, fgrad, proj, pdata, R, tau0, epsilon, maxit)
+function alg3(u0, fobj, fgrad, proj, pdata, R, tau, epsilon, maxit)
     uex=pdata.uex1d
     E0=norm(u0 - uex)
     E = E0
@@ -11,7 +11,8 @@ function alg3(u0, fobj, fgrad, proj, pdata, R, tau0, epsilon, maxit)
     RX=copy(R)
     N=length(u0)
 #    nu = tau0/N
-    nu = tauev(tau0,N)
+#    nu = tauev(tau0,N)
+    nu = tau
     eta = nu/(1.0 + nu)
     u = copy(u0)    
     w = copy(u0)    

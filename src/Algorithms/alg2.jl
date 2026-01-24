@@ -1,4 +1,4 @@
-function alg2(u0, fobj, fgrad, proj, pdata, R, tau0, epsilon, maxit)
+function alg2(u0, fobj, fgrad, proj, pdata, R, tau, epsilon, maxit)
     uex=pdata.uex1d
     E0=norm(u0 - uex)
     E = E0
@@ -17,7 +17,7 @@ function alg2(u0, fobj, fgrad, proj, pdata, R, tau0, epsilon, maxit)
     N0=norm(R)
     N = length(u)
     #tau=tau0/N
-    tau=tauev(tau0, N)
+#    tau=tauev(tau0, N)
     f_best = fc
     for ix = 1:maxit
         v .= proj0(v - tau * R)
